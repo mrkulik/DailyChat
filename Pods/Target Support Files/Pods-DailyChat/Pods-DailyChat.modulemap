@@ -1,0 +1,6 @@
+framework module Pods_DailyChat {
+  umbrella header "Pods-DailyChat-umbrella.h"
+
+  export *
+  module * { export * }
+}
