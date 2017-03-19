@@ -6,7 +6,10 @@ target 'DailyChat' do
   use_frameworks!
 
   # Pods for DailyChat
-  pod 'Firebase/Core'
+  pod 'Firebase'
+  pod 'Firebase/Storage'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Database'
 
   target 'DailyChatTests' do
     inherit! :search_paths
