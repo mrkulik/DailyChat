@@ -7,3 +7,12 @@
 //
 
 import Foundation
+import FirebaseAuth
+
+class AuthProvider {
+    private static let _instance = AuthProvider();
+    
+    static var Instance: AuthProvider {
+        return _instance;
+    }
+}

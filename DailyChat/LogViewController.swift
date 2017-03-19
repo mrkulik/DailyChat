@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class LogViewController: UIViewController {
 
@@ -27,7 +29,29 @@ class LogViewController: UIViewController {
     }
 
     @IBAction func login(_ sender: Any) {
-        performSegue(withIdentifier: CONTACTS_SEGUE, sender: nil)
+        if emailTextField.text != "" && passwordTextField.text != "" {
+            FIRAuth.auth()?.signIn(withEmail: emailTextField.text!, password: passwordTextField.text!, completion: {
+                (user, error_signin) in
+                
+                if error_signin != nil {
+                    
+                    FIRAuth.auth()?.createUser(withEmail: self.emailTextField.text!, password: self.passwordTextField.text! , completion: {
+                        (user, error_create) in
+                        
+                        if error_create != nil {
+                            
+                        }
+                        else {
+                            
+                        }
+                    })
+                }
+                else {
+                    print("logged in")
+                }
+            })
+        }
+        self.performSegue(withIdentifier: CONTACTS_SEGUE, sender: nil)
     }
     
     @IBAction func signUp(_ sender: Any) {
