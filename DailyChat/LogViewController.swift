@@ -44,6 +44,11 @@ class LogViewController: UIViewController {
                     self.alertTheUser(title: self.AUTH_ERROR, message: message!)
                 } else {
                     print(self.LOGGED_IN)
+                    
+                    self.emailTextField.text = ""
+                    self.passwordTextField.text = ""
+                    
+                    self.performSegue(withIdentifier: self.CONTACTS_SEGUE, sender: nil)
                 }
                 
             })
@@ -52,7 +57,6 @@ class LogViewController: UIViewController {
             alertTheUser(title: EMAIL_PASSWORD_REQUIRE, message: REQUIRE_MESSAGE)
         }
         
-        //self.performSegue(withIdentifier: CONTACTS_SEGUE, sender: nil)
     }
     
     @IBAction func signUp(_ sender: Any) {
@@ -66,6 +70,11 @@ class LogViewController: UIViewController {
                 } else
                 {
                     print(self.CREATED)
+                    
+                    self.emailTextField.text = ""
+                    self.passwordTextField.text = ""
+                    
+                    self.performSegue(withIdentifier: self.CONTACTS_SEGUE, sender: nil)
                 }
             })
             

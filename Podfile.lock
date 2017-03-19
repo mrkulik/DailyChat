@@ -44,6 +44,7 @@ PODS:
 DEPENDENCIES:
   - Firebase
   - Firebase/Auth
+  - Firebase/Core
   - Firebase/Database
   - Firebase/Storage
 
@@ -58,6 +59,6 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMSessionFetcher: 5c046c76a1f859bc9c187e918f18e4fc7bb57b5e
 
-PODFILE CHECKSUM: 9e324e46722048e9adcd06f7e7b7a16c84d09d2b
+PODFILE CHECKSUM: f3b13f7bc64f5ca1ca3ed810fab47bd3629771b7
 
 COCOAPODS: 1.2.0
