@@ -38,7 +38,25 @@ class AuthProvider {
                 loginHandler?(nil)
             }
         });
-    }
+    }//logIn func
+    
+    func signUp(withEmail: String, password: String, loginHandler: LoginHandler?) {
+        
+        FIRAuth.auth()?.createUser(withEmail: withEmail, password: password, completion: {
+            (user, error) in
+            
+            if error != nil {
+                self.handleErrors(err: error as! NSError, loginHandler: loginHandler)
+            } else {
+                if user?.uid != nil {
+                    
+                    //login the user
+                    self.logIn(withEmail: withEmail, password: password, loginHandler: loginHandler)
+                }
+            }
+        })
+        
+    }//signUp func
     
     private func handleErrors(err: NSError, loginHandler: LoginHandler?) {
         
