@@ -13,6 +13,9 @@ import FirebaseAuth
 class LogViewController: UIViewController {
 
     private let CONTACTS_SEGUE = "ContactsSegue"
+    private let OK = "OK"
+    private let AUTH_ERROR = "Problem with Authentification"
+    private let LOGGED_IN = "Logged in"
     
     @IBOutlet weak var emailTextField: UITextField!
     
@@ -31,9 +34,13 @@ class LogViewController: UIViewController {
     @IBAction func login(_ sender: Any) {
         if emailTextField.text != "" && passwordTextField.text != "" {
             
-            AuthProvider.Instance.login(withEmail: emailTextField.text! , password: passwordTextField.text! , loginHandler: { (message) in
+            AuthProvider.Instance.logIn(withEmail: emailTextField.text! , password: passwordTextField.text! , loginHandler: { (message) in
                 
-                
+                if message != nil {
+                    self.alertTheUser(title: self.AUTH_ERROR, message: message!)
+                } else {
+                    print(self.LOGGED_IN)
+                }
                 
             })
             
@@ -43,7 +50,18 @@ class LogViewController: UIViewController {
     }
     
     @IBAction func signUp(_ sender: Any) {
+        
+        
+        
     }
     
+    private func alertTheUser(title: String, message: String) {
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let ok = UIAlertAction(title: OK, style: .default, handler: nil)
+        alert.addAction(ok)
+        present(alert, animated: true, completion: nil)
+        
+    }
 }
 

@@ -12,7 +12,7 @@
         <!--Log View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LogViewController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LogViewController" customModule="DailyChat" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -39,7 +39,6 @@
                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="log:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gwA-DI-awV"/>
                                     <action selector="login:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SpU-cm-cNy"/>
                                 </connections>
                             </button>
@@ -74,7 +73,7 @@
         <!--Contacts View Controller-->
         <scene sceneID="zj4-C3-nZA">
             <objects>
-                <viewController id="HHo-Z9-EeE" customClass="ContactsViewController" customModule="DailyChat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="HHo-Z9-EeE" customClass="ContactsViewController" customModule="DailyChat" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="s8z-1e-1C4"/>
                         <viewControllerLayoutGuide type="bottom" id="FCQ-Eh-frd"/>
