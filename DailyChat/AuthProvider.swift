@@ -11,15 +11,6 @@ import FirebaseAuth
 
 typealias LoginHandler = (_ msg: String?) -> Void;
 
-struct LoginErrorCode {
-    static let INVALID_EMAIL = "Invalid Email.";
-    static let WRONG_PASSWORD = "Wrong Password.";
-    static let USER_NOT_FOUND = "User not found. Please, Register"
-    static let WEAK_PASSWORD = "Weak Password. Password should be at least 6 characters long."
-    static let EMAIL_ALREADY_IN_USE = "Invalid Email. This email already in use."
-    static let CONNECTING_PROBLEMS = "Problems with connecting."
-}
-
 class AuthProvider {
     private static let _instance = AuthProvider();
     
@@ -49,6 +40,8 @@ class AuthProvider {
                 self.handleErrors(err: error as! NSError, loginHandler: loginHandler)
             } else {
                 if user?.uid != nil {
+                    //store user in database
+                    DBProvider.Instance.saveUser(withID: user!.uid, email: withEmail, password: password)
                     
                     //login the user
                     self.logIn(withEmail: withEmail, password: password, loginHandler: loginHandler)
@@ -64,27 +57,27 @@ class AuthProvider {
             switch errCode {
              
             case .errorCodeWrongPassword:
-                loginHandler?(LoginErrorCode.WRONG_PASSWORD);
+                loginHandler?(Const.WRONG_PASSWORD);
                 break;
                 
             case .errorCodeUserNotFound:
-                loginHandler?(LoginErrorCode.USER_NOT_FOUND);
+                loginHandler?(Const.USER_NOT_FOUND);
                 break;
                 
             case .errorCodeInvalidEmail:
-                loginHandler?(LoginErrorCode.INVALID_EMAIL);
+                loginHandler?(Const.INVALID_EMAIL);
                 break;
                 
             case .errorCodeWeakPassword:
-                loginHandler?(LoginErrorCode.WEAK_PASSWORD);
+                loginHandler?(Const.WEAK_PASSWORD);
                 break;
                 
             case .errorCodeEmailAlreadyInUse:
-                loginHandler?(LoginErrorCode.EMAIL_ALREADY_IN_USE);
+                loginHandler?(Const.EMAIL_ALREADY_IN_USE);
                 break;
             
             default:
-                loginHandler?(LoginErrorCode.CONNECTING_PROBLEMS);
+                loginHandler?(Const.CONNECTING_PROBLEMS);
                 break;
             }
         }

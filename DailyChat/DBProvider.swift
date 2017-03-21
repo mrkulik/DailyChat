@@ -8,6 +8,7 @@
 
 import Foundation
 import FirebaseDatabase
+import FirebaseStorage
 
 class DBProvider {
     
@@ -19,4 +20,37 @@ class DBProvider {
         return _instance
     }
     
+    var dbRef: FIRDatabaseReference {
+        return FIRDatabase.database().reference()
+    }
+    
+    var contactsRef: FIRDatabaseReference {
+        return dbRef.child(Const.CONSTACTS)
+    }
+    
+    var messagesRef: FIRDatabaseReference {
+        return dbRef.child(Const.MESSAGES)
+    }
+    
+    var mediaMessagesRef: FIRDatabaseReference {
+        return dbRef.child(Const.MEDIA_MESSAGES)
+    }
+    
+    var storageRef: FIRStorageReference {
+        return FIRStorage.storage().reference(forURL: Const.STORAGE_URL)
+    }
+    
+    var imageStorageRef: FIRStorageReference {
+        return storageRef.child(Const.IMAGE_STORAGE)
+    }
+    
+    var videoStorageRef: FIRStorageReference {
+        return storageRef.child(Const.VIDEO_STORAGE)
+    }
+    
+    func saveUser(withID: String, email: String, password: String) {
+        let data: Dictionary<String, Any> = [Const.EMAIL: email, Const.PASSWORD: password]
+        
+        contactsRef.child(withID).setValue(data)
+    }
 }

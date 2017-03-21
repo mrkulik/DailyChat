@@ -11,15 +11,6 @@ import Firebase
 import FirebaseAuth
 
 class LogViewController: UIViewController {
-
-    private let CONTACTS_SEGUE = "ContactsSegue"
-    private let OK = "OK"
-    private let AUTH_ERROR = "Problem with Authentification"
-    private let LOGGED_IN = "Logged in"
-    private let EMAIL_PASSWORD_REQUIRE = "Email and Password required."
-    private let REQUIRE_MESSAGE = "Please enter Email and Password"
-    private let PROBLEM_WITH_CREATE = "Problem with creating a new user"
-    private let CREATED = "New user created"
     
     @IBOutlet weak var emailTextField: UITextField!
     
@@ -41,20 +32,20 @@ class LogViewController: UIViewController {
             AuthProvider.Instance.logIn(withEmail: emailTextField.text! , password: passwordTextField.text! , loginHandler: { (message) in
                 
                 if message != nil {
-                    self.alertTheUser(title: self.AUTH_ERROR, message: message!)
+                    self.alertTheUser(title: Const.AUTH_ERROR, message: message!)
                 } else {
-                    print(self.LOGGED_IN)
+                    print(Const.LOGGED_IN)
                     
                     self.emailTextField.text = ""
                     self.passwordTextField.text = ""
                     
-                    self.performSegue(withIdentifier: self.CONTACTS_SEGUE, sender: nil)
+                    self.performSegue(withIdentifier: Const.CONTACTS_SEGUE, sender: nil)
                 }
                 
             })
             
         } else {
-            alertTheUser(title: EMAIL_PASSWORD_REQUIRE, message: REQUIRE_MESSAGE)
+            alertTheUser(title: Const.EMAIL_PASSWORD_REQUIRE, message: Const.REQUIRE_MESSAGE)
         }
         
     }
@@ -66,20 +57,20 @@ class LogViewController: UIViewController {
             AuthProvider.Instance.signUp(withEmail: emailTextField.text!, password: passwordTextField.text!, loginHandler: { (message) in
                 
                 if message != nil {
-                    self.alertTheUser(title: self.PROBLEM_WITH_CREATE, message: message!)
+                    self.alertTheUser(title: Const.PROBLEM_WITH_CREATE, message: message!)
                 } else
                 {
-                    print(self.CREATED)
+                    print(Const.CREATED)
                     
                     self.emailTextField.text = ""
                     self.passwordTextField.text = ""
                     
-                    self.performSegue(withIdentifier: self.CONTACTS_SEGUE, sender: nil)
+                    self.performSegue(withIdentifier: Const.CONTACTS_SEGUE, sender: nil)
                 }
             })
             
         } else {
-            alertTheUser(title: EMAIL_PASSWORD_REQUIRE, message: REQUIRE_MESSAGE)
+            alertTheUser(title: Const.EMAIL_PASSWORD_REQUIRE, message: Const.REQUIRE_MESSAGE)
         }
         
     }
@@ -87,7 +78,7 @@ class LogViewController: UIViewController {
     private func alertTheUser(title: String, message: String) {
         
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let ok = UIAlertAction(title: OK, style: .default, handler: nil)
+        let ok = UIAlertAction(title: Const.OK, style: .default, handler: nil)
         alert.addAction(ok)
         present(alert, animated: true, completion: nil)
         
