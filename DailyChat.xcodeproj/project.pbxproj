@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		002735BE1E7197CE0006CB6E /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002735BD1E7197CE0006CB6E /* ContactsViewController.swift */; };
+		007588061E86DC5C0001F36C /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007588051E86DC5C0001F36C /* Contact.swift */; };
 		00BE50DB1E5EF736004BAF19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BE50DA1E5EF736004BAF19 /* AppDelegate.swift */; };
 		00BE50DD1E5EF736004BAF19 /* LogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BE50DC1E5EF736004BAF19 /* LogViewController.swift */; };
 		00BE50E01E5EF736004BAF19 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00BE50DE1E5EF736004BAF19 /* Main.storyboard */; };
@@ -44,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		002735BD1E7197CE0006CB6E /* ContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
+		007588051E86DC5C0001F36C /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		00BE50D71E5EF736004BAF19 /* DailyChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00BE50DA1E5EF736004BAF19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		00BE50DC1E5EF736004BAF19 /* LogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogViewController.swift; sourceTree = "<group>"; };
@@ -101,6 +103,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		007588041E86DC3A0001F36C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				007588051E86DC5C0001F36C /* Contact.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		00BE50CE1E5EF736004BAF19 = {
 			isa = PBXGroup;
 			children = (
@@ -128,6 +138,7 @@
 			children = (
 				00FD9D121E7FF14C006A45CA /* Const.swift */,
 				00EE967C1E7D47E30081DEE8 /* Plugins */,
+				007588041E86DC3A0001F36C /* Model */,
 				00EE967D1E7D47F90081DEE8 /* Controllers */,
 				00BE50DA1E5EF736004BAF19 /* AppDelegate.swift */,
 				00BE50DE1E5EF736004BAF19 /* Main.storyboard */,
@@ -488,6 +499,7 @@
 				00BE50DB1E5EF736004BAF19 /* AppDelegate.swift in Sources */,
 				00F38B801E7F11F900F49C23 /* DBProvider.swift in Sources */,
 				00D2B54C1E83FF1500FD8F2B /* GlobalViewController.swift in Sources */,
+				007588061E86DC5C0001F36C /* Contact.swift in Sources */,
 				00EE967F1E7D48480081DEE8 /* AuthProvider.swift in Sources */,
 				002735BE1E7197CE0006CB6E /* ContactsViewController.swift in Sources */,
 				00FD9D131E7FF14C006A45CA /* Const.swift in Sources */,
