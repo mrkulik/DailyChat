@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import Firebase
 
 class ContactsViewController: UIViewController {
 
+    @IBOutlet weak var contactsTable: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,4 +28,7 @@ class ContactsViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func global(_ sender: Any) {
+        self.performSegue(withIdentifier: Const.GLOBAL_SEGUE, sender: nil)
+    }
 }

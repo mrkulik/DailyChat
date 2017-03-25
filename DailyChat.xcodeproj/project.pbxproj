@@ -15,6 +15,7 @@
 		00BE50E51E5EF736004BAF19 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00BE50E31E5EF736004BAF19 /* LaunchScreen.storyboard */; };
 		00BE50F01E5EF736004BAF19 /* DailyChatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BE50EF1E5EF736004BAF19 /* DailyChatTests.swift */; };
 		00BE50FB1E5EF736004BAF19 /* DailyChatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BE50FA1E5EF736004BAF19 /* DailyChatUITests.swift */; };
+		00D2B54C1E83FF1500FD8F2B /* GlobalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D2B54B1E83FF1500FD8F2B /* GlobalViewController.swift */; };
 		00EE967F1E7D48480081DEE8 /* AuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EE967E1E7D48480081DEE8 /* AuthProvider.swift */; };
 		00F38B801E7F11F900F49C23 /* DBProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F38B7F1E7F11F900F49C23 /* DBProvider.swift */; };
 		00F38B821E7FED7300F49C23 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00F38B811E7FED7300F49C23 /* GoogleService-Info.plist */; };
@@ -56,6 +57,7 @@
 		00BE50F61E5EF736004BAF19 /* DailyChatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DailyChatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00BE50FA1E5EF736004BAF19 /* DailyChatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyChatUITests.swift; sourceTree = "<group>"; };
 		00BE50FC1E5EF736004BAF19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		00D2B54B1E83FF1500FD8F2B /* GlobalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalViewController.swift; sourceTree = "<group>"; };
 		00EE967E1E7D48480081DEE8 /* AuthProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthProvider.swift; sourceTree = "<group>"; };
 		00F38B7F1E7F11F900F49C23 /* DBProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBProvider.swift; sourceTree = "<group>"; };
 		00F38B811E7FED7300F49C23 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 			children = (
 				002735BD1E7197CE0006CB6E /* ContactsViewController.swift */,
 				00BE50DC1E5EF736004BAF19 /* LogViewController.swift */,
+				00D2B54B1E83FF1500FD8F2B /* GlobalViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -484,6 +487,7 @@
 				00BE50DD1E5EF736004BAF19 /* LogViewController.swift in Sources */,
 				00BE50DB1E5EF736004BAF19 /* AppDelegate.swift in Sources */,
 				00F38B801E7F11F900F49C23 /* DBProvider.swift in Sources */,
+				00D2B54C1E83FF1500FD8F2B /* GlobalViewController.swift in Sources */,
 				00EE967F1E7D48480081DEE8 /* AuthProvider.swift in Sources */,
 				002735BE1E7197CE0006CB6E /* ContactsViewController.swift in Sources */,
 				00FD9D131E7FF14C006A45CA /* Const.swift in Sources */,

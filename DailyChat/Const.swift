@@ -46,4 +46,6 @@ class Const {
     
     static let STORAGE_URL = "gs://dailychat-448df.appspot.com"
     
+    //ContactsViewController
+    static let GLOBAL_SEGUE = "GlobalSegue"
 }
