@@ -82,5 +82,5 @@ class AuthProvider {
             }
         }
         
-    }
+    }//error handler
 }
