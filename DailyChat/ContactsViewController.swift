@@ -13,6 +13,8 @@ class ContactsViewController: UIViewController, UITableViewDelegate, UITableView
 
     @IBOutlet weak var contactsTable: UITableView!
     
+    private var contacts = [Contact]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,7 +31,7 @@ class ContactsViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return contacts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
