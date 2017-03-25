@@ -41,7 +41,9 @@ class ContactsViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     @IBAction func logout(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        if AuthProvider.Instance.logOut() {
+            dismiss(animated: true, completion: nil)
+        }
     }
     
     @IBAction func global(_ sender: Any) {
