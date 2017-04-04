@@ -139,7 +139,7 @@
 				00FD9D121E7FF14C006A45CA /* Const.swift */,
 				00EE967C1E7D47E30081DEE8 /* Plugins */,
 				007588041E86DC3A0001F36C /* Model */,
-				00EE967D1E7D47F90081DEE8 /* Controllers */,
+				00EE967D1E7D47F90081DEE8 /* Controller */,
 				00BE50DA1E5EF736004BAF19 /* AppDelegate.swift */,
 				00BE50DE1E5EF736004BAF19 /* Main.storyboard */,
 				00BE50E11E5EF736004BAF19 /* Assets.xcassets */,
@@ -177,14 +177,14 @@
 			name = Plugins;
 			sourceTree = "<group>";
 		};
-		00EE967D1E7D47F90081DEE8 /* Controllers */ = {
+		00EE967D1E7D47F90081DEE8 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				002735BD1E7197CE0006CB6E /* ContactsViewController.swift */,
 				00BE50DC1E5EF736004BAF19 /* LogViewController.swift */,
 				00D2B54B1E83FF1500FD8F2B /* GlobalViewController.swift */,
 			);
-			name = Controllers;
+			name = Controller;
 			sourceTree = "<group>";
 		};
 		690BDB7AF3E502B1DFFC8638 /* Pods */ = {

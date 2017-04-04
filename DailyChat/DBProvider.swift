@@ -53,4 +53,8 @@ class DBProvider {
         
         contactsRef.child(withID).setValue(data)
     }
+    
+    func getContacts(contacts: [Contact]) {
+        
+    }
 }

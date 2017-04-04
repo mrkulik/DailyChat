@@ -23,7 +23,7 @@ class AuthProvider {
         FIRAuth.auth()?.signIn(withEmail: withEmail, password: password, completion: {
             (user, error) in
             if error != nil {
-                self.handleErrors(err: error as! NSError, loginHandler: loginHandler)
+                self.handleErrors(err: error! as NSError, loginHandler: loginHandler)
             }
             else {
                 loginHandler?(nil)
@@ -37,7 +37,7 @@ class AuthProvider {
             (user, error) in
             
             if error != nil {
-                self.handleErrors(err: error as! NSError, loginHandler: loginHandler)
+                self.handleErrors(err: error! as NSError, loginHandler: loginHandler)
             } else {
                 if user?.uid != nil {
                     //store user in database
