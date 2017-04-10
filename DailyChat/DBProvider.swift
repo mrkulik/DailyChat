@@ -54,7 +54,25 @@ class DBProvider {
         contactsRef.child(withID).setValue(data)
     }
     
-    func getContacts(contacts: [Contact]) {
+    func getContacts() -> [Contact] {
         
+        var contacts = [Contact]()
+        
+        contactsRef.observeSingleEvent(of: FIRDataEventType.value) {
+            (snapshot: FIRDataSnapshot) in
+            
+            if let contactsDict = snapshot.value as? NSDictionary {
+                for (key, value) in contactsDict {
+                    if let contactsData = value as? NSDictionary {
+                        if let email = contactsData[Const.EMAIL] as? String {
+                            let id = key as! String
+                            let newContact = Contact(id: id, name: email)
+                            contacts.append(newContact)
+                        }
+                    }
+                }
+            }
+        }
+        return contacts
     }
 }
