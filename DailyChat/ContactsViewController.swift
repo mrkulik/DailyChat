@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class ContactsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ContactsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, FetchData {
 
     @IBOutlet weak var contactsTable: UITableView!
     
@@ -18,12 +18,21 @@ class ContactsViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        DBProvider.Instance.delegate = self
+        
+        DBProvider.Instance.getContacts()
         // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func dataReceived(contacts: [Contact]) {
+        self.contacts = contacts
+        
+        contactsTable.reloadData()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

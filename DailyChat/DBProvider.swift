@@ -10,9 +10,15 @@ import Foundation
 import FirebaseDatabase
 import FirebaseStorage
 
+protocol FetchData: class {
+    func dataReceived(contacts: [Contact])
+}
+
 class DBProvider {
     
     private static let _instance = DBProvider()
+    
+    weak var delegate: FetchData?
     
     private init() {}
     
@@ -54,12 +60,12 @@ class DBProvider {
         contactsRef.child(withID).setValue(data)
     }
     
-    func getContacts() -> [Contact] {
-        
-        var contacts = [Contact]()
+    func getContacts() {
         
         contactsRef.observeSingleEvent(of: FIRDataEventType.value) {
             (snapshot: FIRDataSnapshot) in
+            
+            var contacts = [Contact]()
             
             if let contactsDict = snapshot.value as? NSDictionary {
                 for (key, value) in contactsDict {
@@ -72,7 +78,7 @@ class DBProvider {
                     }
                 }
             }
+            self.delegate?.dataReceived(contacts: contacts)
         }
-        return contacts
     }
 }
