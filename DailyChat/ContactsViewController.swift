@@ -45,7 +45,9 @@ class ContactsViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: Const.CELL, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: Const.CELL_ID, for: indexPath)
+        
+        cell.textLabel?.text = contacts[indexPath.row].name
         
         return cell
         
