@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		002735BE1E7197CE0006CB6E /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002735BD1E7197CE0006CB6E /* ContactsViewController.swift */; };
+		004FB6A21E9F904600922177 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004FB6A11E9F904600922177 /* ChatViewController.swift */; };
 		007588061E86DC5C0001F36C /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007588051E86DC5C0001F36C /* Contact.swift */; };
 		00BE50DB1E5EF736004BAF19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BE50DA1E5EF736004BAF19 /* AppDelegate.swift */; };
 		00BE50DD1E5EF736004BAF19 /* LogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BE50DC1E5EF736004BAF19 /* LogViewController.swift */; };
@@ -45,6 +46,7 @@
 
 /* Begin PBXFileReference section */
 		002735BD1E7197CE0006CB6E /* ContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
+		004FB6A11E9F904600922177 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		007588051E86DC5C0001F36C /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		00BE50D71E5EF736004BAF19 /* DailyChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00BE50DA1E5EF736004BAF19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				002735BD1E7197CE0006CB6E /* ContactsViewController.swift */,
 				00BE50DC1E5EF736004BAF19 /* LogViewController.swift */,
 				00D2B54B1E83FF1500FD8F2B /* GlobalViewController.swift */,
+				004FB6A11E9F904600922177 /* ChatViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -502,6 +505,7 @@
 				007588061E86DC5C0001F36C /* Contact.swift in Sources */,
 				00EE967F1E7D48480081DEE8 /* AuthProvider.swift in Sources */,
 				002735BE1E7197CE0006CB6E /* ContactsViewController.swift in Sources */,
+				004FB6A21E9F904600922177 /* ChatViewController.swift in Sources */,
 				00FD9D131E7FF14C006A45CA /* Const.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

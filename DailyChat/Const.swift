@@ -49,5 +49,6 @@ class Const {
     //ContactsViewController
     static let GLOBAL_SEGUE = "GlobalSegue"
     static let CELL_ID = "Cell"
+    static let CHAT_SEGUE = "ChatSegue"
     
 }

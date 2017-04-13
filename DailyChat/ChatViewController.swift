@@ -1,14 +1,14 @@
 //
-//  GlobalViewController.swift
+//  ChatViewController.swift
 //  DailyChat
 //
-//  Created by Gleb Kulik on 3/23/17.
+//  Created by Gleb Kulik on 4/13/17.
 //  Copyright © 2017 Gleb Kulik. All rights reserved.
 //
 
 import UIKit
 
-class GlobalViewController: UIViewController {
+class ChatViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,10 +20,11 @@ class GlobalViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     @IBAction func back(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
+
     /*
     // MARK: - Navigation
 

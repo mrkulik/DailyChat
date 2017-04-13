@@ -53,6 +53,10 @@ class ContactsViewController: UIViewController, UITableViewDelegate, UITableView
         
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: Const.CHAT_SEGUE, sender: nil)
+    }
+    
     @IBAction func logout(_ sender: Any) {
         if AuthProvider.Instance.logOut() {
             dismiss(animated: true, completion: nil)
