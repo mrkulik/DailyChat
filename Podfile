@@ -11,7 +11,7 @@ target 'DailyChat' do
   pod 'Firebase/Storage'
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
-  
+  pod 'JSQMessagesViewController'
 
   target 'DailyChatTests' do
     inherit! :search_paths
