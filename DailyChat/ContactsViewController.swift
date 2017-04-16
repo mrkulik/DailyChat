@@ -21,14 +21,8 @@ class ContactsViewController: UIViewController, UITableViewDelegate, UITableView
         DBProvider.Instance.delegate = self
         
         DBProvider.Instance.getContacts()
-        // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     func dataReceived(contacts: [Contact]) {
         self.contacts = contacts
         
