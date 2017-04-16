@@ -26,7 +26,7 @@ class ChatViewController: JSQMessagesViewController {
 
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAt indexPath: IndexPath!) -> JSQMessageBubbleImageDataSource! {
         let bubbleFactory = JSQMessagesBubbleImageFactory()
-        let message = messages[indexPath.item]
+        //let message = messages[indexPath.item]
         return bubbleFactory?.outgoingMessagesBubbleImage(with: UIColor.blue)
     }
     
@@ -57,7 +57,7 @@ class ChatViewController: JSQMessagesViewController {
     }
     
     @IBAction func back(_ sender: Any) {
-                dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
 
 }
