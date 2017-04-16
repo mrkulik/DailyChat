@@ -51,4 +51,6 @@ class Const {
     static let CELL_ID = "Cell"
     static let CHAT_SEGUE = "ChatSegue"
     
+    //ChatViewController
+    static let PROFILE_IMG = "ProfileImg"
 }
