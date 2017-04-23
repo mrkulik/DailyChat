@@ -11,9 +11,11 @@ import JSQMessagesViewController
 import MobileCoreServices
 import AVKit
 
-class ChatViewController: JSQMessagesViewController {
+class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     private var messages = [JSQMessage]()
+    
+    let picker = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,12 +66,12 @@ class ChatViewController: JSQMessagesViewController {
         
         let photos = UIAlertAction(title: "Photos", style: .default, handler: {
             (alert: UIAlertAction) in
-            
+            self.choooseMedia(type: kUTTypeImage)
         })
         
         let videos = UIAlertAction(title: "Videos", style: .default, handler: {
             (alert: UIAlertAction) in
-            
+            self.choooseMedia(type: kUTTypeVideo)
         })
         
         alert.addAction(photos)
@@ -77,6 +79,11 @@ class ChatViewController: JSQMessagesViewController {
         alert.addAction(cancel)
         present(alert, animated: true, completion: nil)
         
+    }
+    
+    private func choooseMedia(type: CFString) {
+        picker.mediaTypes = [type as String]
+        present(picker, animated: true, completion: nil)
     }
     
     @IBAction func back(_ sender: Any) {
