@@ -51,6 +51,22 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         return cell
     }
     
+    override func collectionView(_ collectionView: JSQMessagesCollectionView!, didTapMessageBubbleAt indexPath: IndexPath!) {
+        
+        let msg = messages[indexPath.item]
+        
+        if msg.isMediaMessage {
+            if let mediaItem = msg.media as? JSQVideoMediaItem {
+                let player = AVPlayer(url: mediaItem.fileURL)
+                let playerController = AVPlayerViewController()
+                playerController.player = player
+                self.present(playerController, animated: true, completion: nil)
+            }
+            
+        }
+        
+    }
+    
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
         
         messages.append(JSQMessage(senderId: senderId, displayName: senderDisplayName, text: text))
