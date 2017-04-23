@@ -56,6 +56,29 @@ class ChatViewController: JSQMessagesViewController {
         finishSendingMessage()
     }
     
+    override func didPressAccessoryButton(_ sender: UIButton!) {
+        
+        let alert = UIAlertController(title: "Media messages", message: "Please select a media", preferredStyle: .actionSheet)
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        let photos = UIAlertAction(title: "Photos", style: .default, handler: {
+            (alert: UIAlertAction) in
+            
+        })
+        
+        let videos = UIAlertAction(title: "Videos", style: .default, handler: {
+            (alert: UIAlertAction) in
+            
+        })
+        
+        alert.addAction(photos)
+        alert.addAction(videos)
+        alert.addAction(cancel)
+        present(alert, animated: true, completion: nil)
+        
+    }
+    
     @IBAction func back(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
