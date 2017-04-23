@@ -20,6 +20,8 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        picker.delegate = self
+        
         //test
         self.senderId = "1"
         self.senderDisplayName = "Kulik"
@@ -71,7 +73,7 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         
         let videos = UIAlertAction(title: "Videos", style: .default, handler: {
             (alert: UIAlertAction) in
-            self.choooseMedia(type: kUTTypeVideo)
+            self.choooseMedia(type: kUTTypeMovie)
         })
         
         alert.addAction(photos)
@@ -84,6 +86,25 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
     private func choooseMedia(type: CFString) {
         picker.mediaTypes = [type as String]
         present(picker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        if let pic = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            
+            let img = JSQPhotoMediaItem(image: pic)
+            self.messages.append(JSQMessage(senderId: senderId, displayName: senderDisplayName, media: img))
+            
+        } else if let vidUrl = info[UIImagePickerControllerMediaURL] as? URL {
+            
+            let video = JSQVideoMediaItem(fileURL: vidUrl, isReadyToPlay: true)
+            self.messages.append(JSQMessage(senderId: senderId, displayName: senderDisplayName, media: video))
+            
+        }
+        
+        self.dismiss(animated: true, completion: nil)
+        collectionView.reloadData()
+        
     }
     
     @IBAction func back(_ sender: Any) {
