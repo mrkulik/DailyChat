@@ -26,6 +26,12 @@ class ContactsViewController: UIViewController, UITableViewDelegate, UITableView
     func dataReceived(contacts: [Contact]) {
         self.contacts = contacts
         
+        for contact in contacts {
+            if contact.id == AuthProvider.Instance.userID() {
+                AuthProvider.Instance.userName = contact.name
+            }
+        }
+        
         contactsTable.reloadData()
     }
     

@@ -22,10 +22,8 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         
         picker.delegate = self
         
-        //test
-        self.senderId = "1"
-        self.senderDisplayName = "Kulik"
-        //end test
+        self.senderId = AuthProvider.Instance.userID()
+        self.senderDisplayName = AuthProvider.Instance.userName
     }
 
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAt indexPath: IndexPath!) -> JSQMessageBubbleImageDataSource! {
