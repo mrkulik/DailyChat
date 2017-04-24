@@ -18,6 +18,8 @@ class AuthProvider {
         return _instance;
     }
     
+    var userName = ""
+    
     func logIn(withEmail: String, password: String, loginHandler: LoginHandler?) {
         
         FIRAuth.auth()?.signIn(withEmail: withEmail, password: password, completion: {
@@ -71,6 +73,10 @@ class AuthProvider {
             }
         }
         return true
+    }
+    
+    func userID() -> String {
+        return FIRAuth.auth()!.currentUser!.uid
     }
     
     private func handleErrors(err: NSError, loginHandler: LoginHandler?) {
