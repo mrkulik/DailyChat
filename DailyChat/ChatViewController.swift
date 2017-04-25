@@ -70,6 +70,8 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         messages.append(JSQMessage(senderId: senderId, displayName: senderDisplayName, text: text))
         collectionView.reloadData()
         
+        MessagesHandler.Instance.sendMessage(senderID: senderId, senderName: senderDisplayName, text: text)
+        
         //will remove text from mess text field.
         finishSendingMessage()
     }
