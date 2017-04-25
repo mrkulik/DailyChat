@@ -17,4 +17,11 @@ class MessagesHandler {
         return _instance
     }
     
+    func sendMessage (senderID: String, senderName: String, text: String) {
+        
+        let data: Dictionary<String, Any> = [Const.SENDER_ID: senderID, Const.SENDER_NAME: senderName, Const.TEXT: text]
+        
+        DBProvider.Instance.messagesRef.childByAutoId().setValue(data)
+    }
+    
 }
