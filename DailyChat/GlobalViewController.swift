@@ -10,6 +10,8 @@ import UIKit
 
 class GlobalViewController: UIViewController {
 
+    var senderDisplayName: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }

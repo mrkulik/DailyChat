@@ -16,6 +16,8 @@ class ChatViewController: JSQMessagesViewController, MessageRecievedDelegate, UI
     private var messages = [JSQMessage]()
     
     let picker = UIImagePickerController()
+    lazy var outgoingBubbleImageView: JSQMessagesBubbleImage = self.setupOutgoingBubble()
+    lazy var incomingBubbleImageView: JSQMessagesBubbleImage = self.setupIncomingBubble()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,9 +32,12 @@ class ChatViewController: JSQMessagesViewController, MessageRecievedDelegate, UI
     }
 
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAt indexPath: IndexPath!) -> JSQMessageBubbleImageDataSource! {
-        let bubbleFactory = JSQMessagesBubbleImageFactory()
-        //let message = messages[indexPath.item]
-        return bubbleFactory?.outgoingMessagesBubbleImage(with: UIColor.blue)
+        let message = messages[indexPath.item]
+        if message.senderId == senderId {
+            return outgoingBubbleImageView
+        } else { // 3
+            return incomingBubbleImageView
+        }
     }
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAt indexPath: IndexPath!) -> JSQMessageAvatarImageDataSource! {
@@ -135,4 +140,14 @@ class ChatViewController: JSQMessagesViewController, MessageRecievedDelegate, UI
         dismiss(animated: true, completion: nil)
     }
 
+    private func setupOutgoingBubble() -> JSQMessagesBubbleImage {
+        let bubbleImageFactory = JSQMessagesBubbleImageFactory()
+        return bubbleImageFactory!.outgoingMessagesBubbleImage(with: UIColor.jsq_messageBubbleBlue())
+    }
+    
+    private func setupIncomingBubble() -> JSQMessagesBubbleImage {
+        let bubbleImageFactory = JSQMessagesBubbleImageFactory()
+        return bubbleImageFactory!.incomingMessagesBubbleImage(with: UIColor.jsq_messageBubbleLightGray())
+    }
+    
 }

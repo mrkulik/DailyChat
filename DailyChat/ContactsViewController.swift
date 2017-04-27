@@ -15,6 +15,8 @@ class ContactsViewController: UIViewController, UITableViewDelegate, UITableView
     
     private var contacts = [Contact]()
     
+    var senderDisplayName: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -66,4 +68,5 @@ class ContactsViewController: UIViewController, UITableViewDelegate, UITableView
     @IBAction func global(_ sender: Any) {
         self.performSegue(withIdentifier: Const.GLOBAL_SEGUE, sender: nil)
     }
+    
 }
