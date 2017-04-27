@@ -69,4 +69,12 @@ class ContactsViewController: UIViewController, UITableViewDelegate, UITableView
         self.performSegue(withIdentifier: Const.GLOBAL_SEGUE, sender: nil)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        let navVc = segue.destination as! UINavigationController
+        let channelVc = navVc.viewControllers.first as! ChannelListViewController
+        
+        channelVc.senderDisplayName = senderDisplayName
+    }
+    
 }

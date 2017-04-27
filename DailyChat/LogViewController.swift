@@ -84,5 +84,13 @@ class LogViewController: UIViewController {
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        let navVc = segue.destination as! UINavigationController
+        let channelVc = navVc.viewControllers.first as! ContactsViewController
+        
+        channelVc.senderDisplayName = emailTextField?.text
+    }
+    
 }
 
