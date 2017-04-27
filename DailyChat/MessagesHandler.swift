@@ -12,7 +12,7 @@ import FirebaseStorage
 
 protocol MessageRecievedDelegate: class {
     
-    func messageRecieved(senderID: String, text: String)
+    func messageRecieved(senderID: String, senderName: String, text: String)
     
 }
 
@@ -39,11 +39,19 @@ class MessagesHandler {
             (snapshot: FIRDataSnapshot) in
             
             if let data = snapshot.value as? NSDictionary {
+                
                 if let senderID = data[Const.SENDER_ID] as? String {
-                    if let text = data[Const.TEXT] as? String {
-                        self.delegate?.messageRecieved(senderID: senderID, text: text)
+                    
+                    if let senderName = data[Const.SENDER_NAME] as? String {
+                        
+                        if let text = data[Const.TEXT] as? String {
+                            self.delegate?.messageRecieved(senderID: senderID, senderName: senderName, text: text)
+                        }
+                        
                     }
+                    
                 }
+                
             }
             
         }

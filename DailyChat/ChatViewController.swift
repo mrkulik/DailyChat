@@ -25,6 +25,8 @@ class ChatViewController: JSQMessagesViewController, MessageRecievedDelegate, UI
         
         self.senderId = AuthProvider.Instance.userID()
         self.senderDisplayName = AuthProvider.Instance.userName
+        
+        MessagesHandler.Instance.observeMessages()
     }
 
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAt indexPath: IndexPath!) -> JSQMessageBubbleImageDataSource! {
@@ -124,8 +126,9 @@ class ChatViewController: JSQMessagesViewController, MessageRecievedDelegate, UI
         
     }
     
-    func messageRecieved(senderID: String, text: String) {
-        
+    func messageRecieved(senderID: String, senderName: String, text: String) {
+        messages.append(JSQMessage(senderId: senderID, displayName: "empty", text: text))
+        collectionView.reloadData()
     }
     
     @IBAction func back(_ sender: Any) {
