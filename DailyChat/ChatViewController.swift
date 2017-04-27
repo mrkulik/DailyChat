@@ -11,7 +11,7 @@ import JSQMessagesViewController
 import MobileCoreServices
 import AVKit
 
-class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ChatViewController: JSQMessagesViewController, MessageRecievedDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     private var messages = [JSQMessage]()
     
@@ -21,6 +21,7 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         super.viewDidLoad()
         
         picker.delegate = self
+        MessagesHandler.Instance.delegate = self
         
         self.senderId = AuthProvider.Instance.userID()
         self.senderDisplayName = AuthProvider.Instance.userName
@@ -78,9 +79,9 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
     
     override func didPressAccessoryButton(_ sender: UIButton!) {
         
-        let alert = UIAlertController(title: "Media messages", message: "Please select a media", preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: Const.MEDIA_MESSAGES, message: Const.MEDIA_MESSAGES, preferredStyle: .actionSheet)
         
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let cancel = UIAlertAction(title: Const.CANCEL, style: .cancel, handler: nil)
         
         let photos = UIAlertAction(title: "Photos", style: .default, handler: {
             (alert: UIAlertAction) in
@@ -120,6 +121,10 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         
         self.dismiss(animated: true, completion: nil)
         collectionView.reloadData()
+        
+    }
+    
+    func messageRecieved(senderID: String, text: String) {
         
     }
     
