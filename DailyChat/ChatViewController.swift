@@ -29,6 +29,10 @@ class ChatViewController: JSQMessagesViewController, MessageRecievedDelegate, UI
         self.senderDisplayName = AuthProvider.Instance.userName
         
         MessagesHandler.Instance.observeMessages()
+        
+        // No avatars
+        collectionView!.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
+        collectionView!.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
     }
 
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAt indexPath: IndexPath!) -> JSQMessageBubbleImageDataSource! {
@@ -41,7 +45,7 @@ class ChatViewController: JSQMessagesViewController, MessageRecievedDelegate, UI
     }
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAt indexPath: IndexPath!) -> JSQMessageAvatarImageDataSource! {
-        return JSQMessagesAvatarImageFactory.avatarImage(with: UIImage(named: Const.PROFILE_IMG), diameter: 30)
+        return nil
     }
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageDataForItemAt indexPath: IndexPath!) -> JSQMessageData! {
@@ -54,6 +58,15 @@ class ChatViewController: JSQMessagesViewController, MessageRecievedDelegate, UI
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = super.collectionView(collectionView, cellForItemAt: indexPath) as! JSQMessagesCollectionViewCell
+        
+        let message = messages[indexPath.item]
+        
+        if message.senderId == senderId { // 1
+            cell.textView?.textColor = UIColor.white // 2
+        } else {
+            cell.textView?.textColor = UIColor.black // 3
+        }
+        
         return cell
     }
     
