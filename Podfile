@@ -12,7 +12,8 @@ target 'DailyChat' do
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
   pod 'JSQMessagesViewController'
-
+  pod 'SWXMLHash', '~> 3.0.0'
+  
   target 'DailyChatTests' do
     inherit! :search_paths
     # Pods for testing
