@@ -12,8 +12,8 @@
 		007588061E86DC5C0001F36C /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007588051E86DC5C0001F36C /* Contact.swift */; };
 		008920AB1EB2826500E9EC6A /* ChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008920AA1EB2826500E9EC6A /* ChannelViewController.swift */; };
 		008920AD1EB2836B00E9EC6A /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008920AC1EB2836B00E9EC6A /* Channel.swift */; };
-		008920B21EB2848900E9EC6A /* CreateChannelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008920B11EB2848900E9EC6A /* CreateChannelCell.swift */; };
 		00B6948E1EB4ECA4003CC993 /* UIImage+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B6948D1EB4ECA4003CC993 /* UIImage+Gif.swift */; };
+		00B694901EB4ED1B003CC993 /* CreateChannelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B6948F1EB4ED1B003CC993 /* CreateChannelCell.swift */; };
 		00BE50DB1E5EF736004BAF19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BE50DA1E5EF736004BAF19 /* AppDelegate.swift */; };
 		00BE50DD1E5EF736004BAF19 /* LogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BE50DC1E5EF736004BAF19 /* LogViewController.swift */; };
 		00BE50E01E5EF736004BAF19 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00BE50DE1E5EF736004BAF19 /* Main.storyboard */; };
@@ -55,8 +55,8 @@
 		007588051E86DC5C0001F36C /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		008920AA1EB2826500E9EC6A /* ChannelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelViewController.swift; sourceTree = "<group>"; };
 		008920AC1EB2836B00E9EC6A /* Channel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
-		008920B11EB2848900E9EC6A /* CreateChannelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateChannelCell.swift; path = ../../../Chat/ChatChat/CreateChannelCell.swift; sourceTree = "<group>"; };
 		00B6948D1EB4ECA4003CC993 /* UIImage+Gif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Gif.swift"; sourceTree = "<group>"; };
+		00B6948F1EB4ED1B003CC993 /* CreateChannelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateChannelCell.swift; sourceTree = "<group>"; };
 		00BE50D71E5EF736004BAF19 /* DailyChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00BE50DA1E5EF736004BAF19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		00BE50DC1E5EF736004BAF19 /* LogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogViewController.swift; sourceTree = "<group>"; };
@@ -149,7 +149,6 @@
 		00BE50D91E5EF736004BAF19 /* DailyChat */ = {
 			isa = PBXGroup;
 			children = (
-				008920B11EB2848900E9EC6A /* CreateChannelCell.swift */,
 				00FD9D121E7FF14C006A45CA /* Const.swift */,
 				00B6948D1EB4ECA4003CC993 /* UIImage+Gif.swift */,
 				00EE967C1E7D47E30081DEE8 /* Plugins */,
@@ -161,6 +160,7 @@
 				00BE50E31E5EF736004BAF19 /* LaunchScreen.storyboard */,
 				00BE50E61E5EF736004BAF19 /* Info.plist */,
 				00F38B811E7FED7300F49C23 /* GoogleService-Info.plist */,
+				00B6948F1EB4ED1B003CC993 /* CreateChannelCell.swift */,
 			);
 			path = DailyChat;
 			sourceTree = "<group>";
@@ -526,7 +526,7 @@
 				002735BE1E7197CE0006CB6E /* ContactsViewController.swift in Sources */,
 				004FB6A21E9F904600922177 /* ChatViewController.swift in Sources */,
 				00FD9D131E7FF14C006A45CA /* Const.swift in Sources */,
-				008920B21EB2848900E9EC6A /* CreateChannelCell.swift in Sources */,
+				00B694901EB4ED1B003CC993 /* CreateChannelCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
