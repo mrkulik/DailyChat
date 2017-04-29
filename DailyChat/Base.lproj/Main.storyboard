@@ -403,15 +403,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ru-kz-S5L">
-                                <rect key="frame" x="107" y="222" width="106" height="30"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                                <state key="normal" title="Log Out">
-                                    <color key="titleColor" red="0.98608463879999997" green="1" blue="0.98704821799999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Pu-Y9-ZtO">
+                                <rect key="frame" x="107" y="222" width="107" height="30"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Log Out"/>
                                 <connections>
-                                    <action selector="continueButton:" destination="QSK-fp-0dS" eventType="touchUpInside" id="lcJ-Rm-Vbx"/>
-                                    <action selector="logout:" destination="QSK-fp-0dS" eventType="touchUpInside" id="51Y-zG-YTf"/>
+                                    <action selector="logout:" destination="QSK-fp-0dS" eventType="touchUpInside" id="2gK-Ah-GeD"/>
                                 </connections>
                             </button>
                         </subviews>
