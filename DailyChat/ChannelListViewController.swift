@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import SWXMLHash
 
 enum Section: Int {
     case createNewChannelSection = 0
@@ -22,12 +23,25 @@ class ChannelListViewController: UITableViewController {
     
     private var channelRefHandle: FIRDatabaseHandle?
     private var channels: [Channel] = []
-    
+    private var channelNames: [String] = []
+    static let studentGroupsURL = URL(string: "https://www.bsuir.by/schedule/rest/studentGroup")!
+    static let scheduleURL = URL(string: "https://www.bsuir.by/schedule/rest/schedule")!
     private lazy var channelRef: FIRDatabaseReference = FIRDatabase.database().reference().child("channels")
+    
+    var groupsToID = [String:String]()
+    var subjectsNames = Set<String>()
+    let downloadCanceledNotification = Notification.Name(rawValue: "downloadCanceled")
     
     // MARK: View Lifecycle
     
     override func viewDidLoad() {
+        observeChannels()
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(cancelDownload),
+                                               name: downloadCanceledNotification,
+                                               object: nil)
+        startDownload()
+        
         super.viewDidLoad()
         
       /*  let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
@@ -35,7 +49,6 @@ class ChannelListViewController: UITableViewController {
         self.view.addGestureRecognizer(swipeLeft)*/
         
         title = "Channels"
-        observeChannels()
     }
     
   /*  func respondToSwipeGesture(gesture: UIGestureRecognizer) {
@@ -57,7 +70,43 @@ class ChannelListViewController: UITableViewController {
         if let refHandle = channelRefHandle {
             channelRef.removeObserver(withHandle: refHandle)
         }
+        NotificationCenter.default.removeObserver(self)
     }
+    
+
+    
+    fileprivate func startDownload() {
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "Splash") {
+            present(vc, animated: false)
+            XMLFetcher.fetch(from: ChannelListViewController.studentGroupsURL) { xml in
+                self.groupsToID = BSUIRXMLParser.parseGroupsID(xml)
+                XMLFetcher.fetch(from: ChannelListViewController.scheduleURL.appendingPathComponent(self.groupsToID["453503"] ?? "")) { xml in
+                    self.subjectsNames = BSUIRXMLParser.parseSubjects(xml)
+                    NotificationCenter.default.post(Notification(name: self.downloadCanceledNotification))
+                }
+            }
+        }
+    }
+    
+    @objc fileprivate func cancelDownload() {
+        DispatchQueue.main.sync {
+            
+            for name in subjectsNames {
+                let item = Channel(id: "0", name: name)
+                if channels.contains( where: {$0.name == item.name} ) {
+                    continue
+                } else {
+                    let newChannelRef = channelRef.childByAutoId()
+                    let channelItem = [
+                        "name": name
+                    ]
+                    newChannelRef.setValue(channelItem)
+                }
+            }
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
+    
     
     // MARK :Actions
     

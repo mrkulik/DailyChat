@@ -58,5 +58,4 @@ class Const {
     
     //ChannelListVC
     static let CHANNEL_LIST_SEGUE = "ChannelListSegue"
-
 }

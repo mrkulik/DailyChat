@@ -348,6 +348,33 @@
             </objects>
             <point key="canvasLocation" x="4114" y="940"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="4ya-4r-cSd">
+            <objects>
+                <viewController storyboardIdentifier="Splash" useStoryboardIdentifierAsRestorationIdentifier="YES" id="coZ-VA-vDI" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Can-Rw-oRc"/>
+                        <viewControllerLayoutGuide type="bottom" id="CHQ-jN-yZ3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="UGO-zq-JWO">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="ZYo-1f-p4D">
+                                <rect key="frame" x="150" y="274" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ZYo-1f-p4D" firstAttribute="centerX" secondItem="UGO-zq-JWO" secondAttribute="centerX" id="8cI-Y2-zqv"/>
+                            <constraint firstItem="ZYo-1f-p4D" firstAttribute="centerY" secondItem="UGO-zq-JWO" secondAttribute="centerY" id="mhG-6X-90d"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kjs-7b-h1I" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="459" y="412"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Background" width="576" height="1024"/>
