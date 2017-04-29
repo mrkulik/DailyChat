@@ -16,13 +16,15 @@ class LogViewController: UIViewController {
     
     @IBOutlet weak var passwordTextField: UITextField!
     
+    @IBOutlet weak var groupTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
     override func viewDidAppear(_ animated: Bool) {
         if AuthProvider.Instance.isLoggedIn() {
-            performSegue(withIdentifier: Const.CHANNEL_LIST_SEGUE, sender: nil)
+            performSegue(withIdentifier: Const.GROUP_SEGUE, sender: nil)
         }
     }
 
@@ -39,7 +41,7 @@ class LogViewController: UIViewController {
                     self.emailTextField.text = ""
                     self.passwordTextField.text = ""
                     
-                    self.performSegue(withIdentifier: Const.CHANNEL_LIST_SEGUE, sender: nil)
+                    self.performSegue(withIdentifier: Const.GROUP_SEGUE, sender: nil)
                 }
                 
             })
@@ -65,7 +67,7 @@ class LogViewController: UIViewController {
                     self.emailTextField.text = ""
                     self.passwordTextField.text = ""
                     
-                    self.performSegue(withIdentifier: Const.CHANNEL_LIST_SEGUE, sender: nil)
+                    self.performSegue(withIdentifier: Const.GROUP_SEGUE, sender: nil)
                 }
             })
             
@@ -87,7 +89,7 @@ class LogViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         let navVc = segue.destination as! UINavigationController
-        let channelListVc = navVc.viewControllers.first as! ChannelListViewController
+        let channelListVc = navVc.viewControllers.first as! GroupViewController
         
         channelListVc.senderDisplayName = emailTextField?.text
     }

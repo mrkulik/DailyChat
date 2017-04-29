@@ -19,6 +19,7 @@ class ChannelListViewController: UITableViewController {
     
     // MARK: Properties
     var senderDisplayName: String?
+    var senderGroupNumber: String?
     var newChannelTextField: UITextField?
     
     private var channelRefHandle: FIRDatabaseHandle?
@@ -35,14 +36,16 @@ class ChannelListViewController: UITableViewController {
     // MARK: View Lifecycle
     
     override func viewDidLoad() {
-        observeChannels()
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(cancelDownload),
                                                name: downloadCanceledNotification,
                                                object: nil)
         startDownload()
         
+        observeChannels()
+        
         super.viewDidLoad()
+        
         
       /*  let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
         swipeLeft.direction = UISwipeGestureRecognizerDirection.left
@@ -75,12 +78,12 @@ class ChannelListViewController: UITableViewController {
     
 
     
-    fileprivate func startDownload() {
+    func startDownload() {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "Splash") {
             present(vc, animated: false)
             XMLFetcher.fetch(from: ChannelListViewController.studentGroupsURL) { xml in
                 self.groupsToID = BSUIRXMLParser.parseGroupsID(xml)
-                XMLFetcher.fetch(from: ChannelListViewController.scheduleURL.appendingPathComponent(self.groupsToID["453503"] ?? "")) { xml in
+                XMLFetcher.fetch(from: ChannelListViewController.scheduleURL.appendingPathComponent(self.groupsToID[self.senderGroupNumber!] ?? "")) { xml in
                     self.subjectsNames = BSUIRXMLParser.parseSubjects(xml)
                     NotificationCenter.default.post(Notification(name: self.downloadCanceledNotification))
                 }
@@ -88,7 +91,7 @@ class ChannelListViewController: UITableViewController {
         }
     }
     
-    @objc fileprivate func cancelDownload() {
+    func cancelDownload() {
         DispatchQueue.main.sync {
             
             for name in subjectsNames {
@@ -196,12 +199,6 @@ class ChannelListViewController: UITableViewController {
     
     @IBAction func joinPrivateChat(_ sender: Any) {
         self.performSegue(withIdentifier: "privateSegue", sender: self)
-    }
-    
-    @IBAction func logout(_ sender: Any) {
-        if AuthProvider.Instance.logOut() {
-            dismiss(animated: true, completion: nil)
-        }
     }
     
 }
