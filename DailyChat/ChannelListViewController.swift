@@ -30,15 +30,15 @@ class ChannelListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
+      /*  let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
         swipeLeft.direction = UISwipeGestureRecognizerDirection.left
-        self.view.addGestureRecognizer(swipeLeft)
+        self.view.addGestureRecognizer(swipeLeft)*/
         
-        title = "RW RIC"
+        title = "Channels"
         observeChannels()
     }
     
-    func respondToSwipeGesture(gesture: UIGestureRecognizer) {
+  /*  func respondToSwipeGesture(gesture: UIGestureRecognizer) {
         
         if let swipeGesture = gesture as? UISwipeGestureRecognizer {
             
@@ -51,7 +51,7 @@ class ChannelListViewController: UITableViewController {
                 break
             }
         }
-    }
+    }*/
     
     deinit {
         if let refHandle = channelRefHandle {
@@ -142,6 +142,16 @@ class ChannelListViewController: UITableViewController {
         if (indexPath as NSIndexPath).section == Section.currentChannelsSection.rawValue {
             let channel = channels[(indexPath as NSIndexPath).row]
             self.performSegue(withIdentifier: "ShowChannel", sender: channel)
+        }
+    }
+    
+    @IBAction func joinPrivateChat(_ sender: Any) {
+        self.performSegue(withIdentifier: "privateSegue", sender: self)
+    }
+    
+    @IBAction func logout(_ sender: Any) {
+        if AuthProvider.Instance.logOut() {
+            dismiss(animated: true, completion: nil)
         }
     }
     

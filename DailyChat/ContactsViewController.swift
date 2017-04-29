@@ -19,12 +19,12 @@ class ContactsViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         DBProvider.Instance.delegate = self
         
         DBProvider.Instance.getContacts()
     }
-
+    
     func dataReceived(contacts: [Contact]) {
         self.contacts = contacts
         
@@ -59,12 +59,6 @@ class ContactsViewController: UIViewController, UITableViewDelegate, UITableView
         performSegue(withIdentifier: Const.CHAT_SEGUE, sender: nil)
     }
     
-    @IBAction func logout(_ sender: Any) {
-        if AuthProvider.Instance.logOut() {
-            dismiss(animated: true, completion: nil)
-        }
-    }
-    
     @IBAction func global(_ sender: Any) {
         self.performSegue(withIdentifier: Const.GLOBAL_SEGUE, sender: nil)
     }
@@ -75,6 +69,10 @@ class ContactsViewController: UIViewController, UITableViewDelegate, UITableView
         let channelVc = navVc.viewControllers.first as! ChatViewController
         
         channelVc.senderDisplayName = senderDisplayName
+    }
+    
+    @IBAction func backToCL(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
     
 }
