@@ -72,7 +72,7 @@ class ContactsViewController: UIViewController, UITableViewDelegate, UITableView
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         let navVc = segue.destination as! UINavigationController
-        let channelVc = navVc.viewControllers.first as! ChannelListViewController
+        let channelVc = navVc.viewControllers.first as! ChatViewController
         
         channelVc.senderDisplayName = senderDisplayName
     }

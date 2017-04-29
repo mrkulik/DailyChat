@@ -55,5 +55,8 @@ class Const {
     static let PROFILE_IMG = "ProfileImg"
     static let MEDIA_SELECT = "Please select a media"
     static let CANCEL = "Cancel"
+    
+    //ChannelListVC
+    static let CHANNEL_LIST_SEGUE = "ChannelListSegue"
 
 }

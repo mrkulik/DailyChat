@@ -22,7 +22,7 @@ class LogViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         if AuthProvider.Instance.isLoggedIn() {
-            performSegue(withIdentifier: Const.CONTACTS_SEGUE, sender: nil)
+            performSegue(withIdentifier: Const.CHANNEL_LIST_SEGUE, sender: nil)
         }
     }
 
@@ -39,7 +39,7 @@ class LogViewController: UIViewController {
                     self.emailTextField.text = ""
                     self.passwordTextField.text = ""
                     
-                    self.performSegue(withIdentifier: Const.CONTACTS_SEGUE, sender: nil)
+                    self.performSegue(withIdentifier: Const.CHANNEL_LIST_SEGUE, sender: nil)
                 }
                 
             })
@@ -65,7 +65,7 @@ class LogViewController: UIViewController {
                     self.emailTextField.text = ""
                     self.passwordTextField.text = ""
                     
-                    self.performSegue(withIdentifier: Const.CONTACTS_SEGUE, sender: nil)
+                    self.performSegue(withIdentifier: Const.CHANNEL_LIST_SEGUE, sender: nil)
                 }
             })
             
@@ -87,9 +87,9 @@ class LogViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         let navVc = segue.destination as! UINavigationController
-        let channelVc = navVc.viewControllers.first as! ContactsViewController
+        let channelListVc = navVc.viewControllers.first as! ChannelListViewController
         
-        channelVc.senderDisplayName = emailTextField?.text
+        channelListVc.senderDisplayName = emailTextField?.text
     }
     
 }

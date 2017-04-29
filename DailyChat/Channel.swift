@@ -8,12 +8,23 @@
 
 import Foundation
 
-internal class Channel {
-    internal let id: String
-    internal let name: String
+class Channel {
+    
+    private var _name = ""
+    private var _id = ""
     
     init(id: String, name: String) {
-        self.id = id
-        self.name = name
+        _id = id
+        _name = name
+    }
+    
+    var name : String {
+        get {
+            return _name
+        }
+    }
+    
+    var id: String {
+        return _id
     }
 }

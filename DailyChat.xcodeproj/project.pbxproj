@@ -197,10 +197,10 @@
 			isa = PBXGroup;
 			children = (
 				00BE50DC1E5EF736004BAF19 /* LogViewController.swift */,
-				002735BD1E7197CE0006CB6E /* ContactsViewController.swift */,
-				004FB6A11E9F904600922177 /* ChatViewController.swift */,
 				00D2B54B1E83FF1500FD8F2B /* ChannelListViewController.swift */,
 				008920AA1EB2826500E9EC6A /* ChannelViewController.swift */,
+				002735BD1E7197CE0006CB6E /* ContactsViewController.swift */,
+				004FB6A11E9F904600922177 /* ChatViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
