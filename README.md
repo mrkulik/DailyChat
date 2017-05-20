@@ -1,1 +1,1 @@
-# DailyChat-ios
+# DailyLabs - ToDo and Chat app for ios.
