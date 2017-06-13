@@ -60,4 +60,6 @@ class Const {
     static let CHANNEL_LIST_SEGUE = "ChannelListSegue"
     static let GROUP_SEGUE = "groupLoginSegue"
     
+    //TabBarVC
+    static let TAB_SEGUE = "TabBarSegue"
 }

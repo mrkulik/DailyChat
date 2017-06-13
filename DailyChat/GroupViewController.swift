@@ -47,10 +47,6 @@ class GroupViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
-        let navVc = segue.destination as! UINavigationController
-        let channelListVc = navVc.viewControllers.first as! ChannelListViewController
-        
-        channelListVc.senderGroupNumber = groupTextField?.text
-        channelListVc.senderDisplayName = senderDisplayName
     }
+    
 }

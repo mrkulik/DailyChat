@@ -18,8 +18,8 @@ enum Section: Int {
 class ChannelListViewController: UITableViewController {
     
     // MARK: Properties
-    var senderDisplayName: String?
-    var senderGroupNumber: String?
+    var senderDisplayName = "Gleb"
+    var senderGroupNumber = "453503"
     var newChannelTextField: UITextField?
     
     private var channelRefHandle: FIRDatabaseHandle?
@@ -83,7 +83,7 @@ class ChannelListViewController: UITableViewController {
             present(vc, animated: false)
             XMLFetcher.fetch(from: ChannelListViewController.studentGroupsURL) { xml in
                 self.groupsToID = BSUIRXMLParser.parseGroupsID(xml)
-                XMLFetcher.fetch(from: ChannelListViewController.scheduleURL.appendingPathComponent(self.groupsToID[self.senderGroupNumber!] ?? "")) { xml in
+                XMLFetcher.fetch(from: ChannelListViewController.scheduleURL.appendingPathComponent(self.groupsToID[self.senderGroupNumber] ?? "")) { xml in
                     self.subjectsNames = BSUIRXMLParser.parseSubjects(xml)
                     NotificationCenter.default.post(Notification(name: self.downloadCanceledNotification))
                 }
