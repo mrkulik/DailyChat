@@ -16,14 +16,14 @@ class SettingsViewController: UIViewController {
     var settingsRef: DatabaseReference = Database.database().reference().child("settings")
     
     @IBOutlet weak var groupTextField: UITextField!
+    @IBOutlet weak var nameTextField: UITextField!
     
     @IBAction func continueButton(_ sender: Any) {
         if groupTextField.text != nil {
             let userID = AuthProvider.Instance.userID()
             let newSettingsRef = settingsRef.child("profile").child(userID)
             let settingsItem = [
-                "name": 
-                "surname":
+                "name": nameTextField.text,
                 "groupID": groupTextField.text
             ]
             newSettingsRef.setValue(settingsItem)

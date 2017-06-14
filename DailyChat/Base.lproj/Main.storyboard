@@ -335,7 +335,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your group number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AHs-fG-1r7">
-                                <rect key="frame" x="70" y="108" width="286" height="30"/>
+                                <rect key="frame" x="64" y="181" width="286" height="30"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -359,6 +359,13 @@
                                     <action selector="continueButton:" destination="QSK-fp-0dS" eventType="touchUpInside" id="kAC-kc-7cQ"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JZ0-8t-dJE">
+                                <rect key="frame" x="64" y="128" width="286" height="30"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -366,6 +373,7 @@
                     <navigationItem key="navigationItem" id="jVV-g9-3D2"/>
                     <connections>
                         <outlet property="groupTextField" destination="AHs-fG-1r7" id="NoY-y3-sE9"/>
+                        <outlet property="nameTextField" destination="JZ0-8t-dJE" id="ngj-3L-HmG"/>
                         <segue destination="h1S-KE-lta" kind="show" identifier="setToTab" id="raO-ff-1mv"/>
                     </connections>
                 </viewController>
