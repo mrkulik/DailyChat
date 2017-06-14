@@ -32,16 +32,16 @@ class SubjectsViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewDidLoad() {
         // For Tests only!
-        try! dlRealm.write {
+     /*   try! dlRealm.write {
             dlRealm.deleteAll()
-        }
+        }*/
         
         subjectsTableView.rowHeight = 65.0
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(cancelDownload),
                                                name: downloadCanceledNotification,
                                                object: nil)
-        startDownload()
+        //startDownload()
         super.viewDidLoad()
     }
     

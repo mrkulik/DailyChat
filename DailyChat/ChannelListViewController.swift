@@ -40,7 +40,7 @@ class ChannelListViewController: UITableViewController {
                                                selector: #selector(cancelDownload),
                                                name: downloadCanceledNotification,
                                                object: nil)
-        startDownload()
+        //startDownload()
         
         observeChannels()
         

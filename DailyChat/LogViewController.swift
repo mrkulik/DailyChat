@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
-class LogViewController: UIViewController {
+class LogViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var emailTextField: UITextField!
     
@@ -18,6 +18,9 @@ class LogViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.emailTextField.delegate = self
+        self.passwordTextField.delegate = self
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -82,6 +85,11 @@ class LogViewController: UIViewController {
         alert.addAction(ok)
         present(alert, animated: true, completion: nil)
         
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
