@@ -17,15 +17,15 @@ final class ChannelViewController: JSQMessagesViewController {
     // MARK: Properties
     private let imageURLNotSetKey = "NOTSET"
     
-    var channelRef: FIRDatabaseReference?
+    var channelRef: DatabaseReference?
     
-    private lazy var messageRef: FIRDatabaseReference = self.channelRef!.child("messages")
-    fileprivate lazy var storageRef: FIRStorageReference = FIRStorage.storage().reference(forURL: Const.STORAGE_URL)
-    private lazy var userIsTypingRef: FIRDatabaseReference = self.channelRef!.child("typingIndicator").child(self.senderId)
-    private lazy var usersTypingQuery: FIRDatabaseQuery = self.channelRef!.child("typingIndicator").queryOrderedByValue().queryEqual(toValue: true)
+    private lazy var messageRef: DatabaseReference = self.channelRef!.child("messages")
+    fileprivate lazy var storageRef: StorageReference = Storage.storage().reference(forURL: Const.STORAGE_URL)
+    private lazy var userIsTypingRef: DatabaseReference = self.channelRef!.child("typingIndicator").child(self.senderId)
+    private lazy var usersTypingQuery: DatabaseQuery = self.channelRef!.child("typingIndicator").queryOrderedByValue().queryEqual(toValue: true)
     
-    private var newMessageRefHandle: FIRDatabaseHandle?
-    private var updatedMessageRefHandle: FIRDatabaseHandle?
+    private var newMessageRefHandle: DatabaseHandle?
+    private var updatedMessageRefHandle: DatabaseHandle?
     
     private var messages: [JSQMessage] = []
     private var photoMessageMap = [String: JSQPhotoMediaItem]()
@@ -54,7 +54,7 @@ final class ChannelViewController: JSQMessagesViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.senderId = FIRAuth.auth()?.currentUser?.uid
+        self.senderId = Auth.auth().currentUser?.uid
         observeMessages()
         
         // No avatars
@@ -176,14 +176,14 @@ final class ChannelViewController: JSQMessagesViewController {
     }
     
     private func fetchImageDataAtURL(_ photoURL: String, forMediaItem mediaItem: JSQPhotoMediaItem, clearsPhotoMessageMapOnSuccessForKey key: String?) {
-        let storageRef = FIRStorage.storage().reference(forURL: photoURL)
-        storageRef.data(withMaxSize: INT64_MAX){ (data, error) in
+        let storageRef = Storage.storage().reference(forURL: photoURL)
+        storageRef.getData(maxSize: INT64_MAX){ (data, error) in
             if let error = error {
                 print("Error downloading image data: \(error)")
                 return
             }
             
-            storageRef.metadata(completion: { (metadata, metadataErr) in
+            storageRef.getMetadata(completion: { (metadata, metadataErr) in
                 if let error = metadataErr {
                     print("Error downloading metadata: \(error)")
                     return
@@ -210,7 +210,7 @@ final class ChannelViewController: JSQMessagesViewController {
         userIsTypingRef.onDisconnectRemoveValue()
         usersTypingQuery = typingIndicatorRef.queryOrderedByValue().queryEqual(toValue: true)
         
-        usersTypingQuery.observe(.value) { (data: FIRDataSnapshot) in
+        usersTypingQuery.observe(.value) { (data: DataSnapshot) in
             
             // You're the only typing, don't show the indicator
             if data.childrenCount == 1 && self.isTyping {
@@ -340,10 +340,10 @@ extension ChannelViewController: UIImagePickerControllerDelegate, UINavigationCo
                     let imageFileURL = contentEditingInput?.fullSizeImageURL
                     
                     // 5
-                    let path = "\(String(describing: FIRAuth.auth()?.currentUser?.uid))/\(Int(Date.timeIntervalSinceReferenceDate * 1000))/\(photoReferenceUrl.lastPathComponent)"
+                    let path = "\(String(describing: Auth.auth().currentUser?.uid))/\(Int(Date.timeIntervalSinceReferenceDate * 1000))/\(photoReferenceUrl.lastPathComponent)"
                     
                     // 6
-                    self.storageRef.child(path).putFile(imageFileURL!, metadata: nil) { (metadata, error) in
+                    self.storageRef.child(path).putFile(from: imageFileURL!, metadata: nil) { (metadata, error) in
                         if let error = error {
                             print("Error uploading photo: \(error.localizedDescription)")
                             return

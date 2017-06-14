@@ -22,7 +22,7 @@ class AuthProvider {
     
     func logIn(withEmail: String, password: String, loginHandler: LoginHandler?) {
         
-        FIRAuth.auth()?.signIn(withEmail: withEmail, password: password, completion: {
+        Auth.auth().signIn(withEmail: withEmail, password: password, completion: {
             (user, error) in
             if error != nil {
                 self.handleErrors(err: error! as NSError, loginHandler: loginHandler)
@@ -35,7 +35,7 @@ class AuthProvider {
     
     func signUp(withEmail: String, password: String, loginHandler: LoginHandler?) {
         
-        FIRAuth.auth()?.createUser(withEmail: withEmail, password: password, completion: {
+        Auth.auth().createUser(withEmail: withEmail, password: password, completion: {
             (user, error) in
             
             if error != nil {
@@ -55,7 +55,7 @@ class AuthProvider {
     
     func isLoggedIn() -> Bool {
         
-        if FIRAuth.auth()?.currentUser != nil {
+        if Auth.auth().currentUser != nil {
             return true
         }
         
@@ -64,9 +64,9 @@ class AuthProvider {
     }
     
     func logOut() -> Bool {
-        if FIRAuth.auth()?.currentUser != nil {
+        if Auth.auth().currentUser != nil {
             do {
-                try FIRAuth.auth()?.signOut()
+                try Auth.auth().signOut()
                 return true
             } catch {
                 return false
@@ -76,31 +76,31 @@ class AuthProvider {
     }
     
     func userID() -> String {
-        return FIRAuth.auth()!.currentUser!.uid
+        return Auth.auth().currentUser!.uid
     }
     
     private func handleErrors(err: NSError, loginHandler: LoginHandler?) {
         
-        if let errCode = FIRAuthErrorCode(rawValue: err.code) {
+        if let errCode = AuthErrorCode(rawValue: err.code) {
             switch errCode {
-             
-            case .errorCodeWrongPassword:
+            
+            case .wrongPassword:
                 loginHandler?(Const.WRONG_PASSWORD);
                 break;
                 
-            case .errorCodeUserNotFound:
+            case .userNotFound:
                 loginHandler?(Const.USER_NOT_FOUND);
                 break;
                 
-            case .errorCodeInvalidEmail:
+            case .invalidEmail:
                 loginHandler?(Const.INVALID_EMAIL);
                 break;
                 
-            case .errorCodeWeakPassword:
+            case .weakPassword:
                 loginHandler?(Const.WEAK_PASSWORD);
                 break;
                 
-            case .errorCodeEmailAlreadyInUse:
+            case .emailAlreadyInUse:
                 loginHandler?(Const.EMAIL_ALREADY_IN_USE);
                 break;
             

@@ -26,31 +26,31 @@ class DBProvider {
         return _instance
     }
     
-    var dbRef: FIRDatabaseReference {
-        return FIRDatabase.database().reference()
+    var dbRef: DatabaseReference {
+        return Database.database().reference()
     }
     
-    var contactsRef: FIRDatabaseReference {
+    var contactsRef: DatabaseReference {
         return dbRef.child(Const.CONSTACTS)
     }
     
-    var messagesRef: FIRDatabaseReference {
+    var messagesRef: DatabaseReference {
         return dbRef.child(Const.MESSAGES)
     }
     
-    var mediaMessagesRef: FIRDatabaseReference {
+    var mediaMessagesRef: DatabaseReference {
         return dbRef.child(Const.MEDIA_MESSAGES)
     }
     
-    var storageRef: FIRStorageReference {
-        return FIRStorage.storage().reference(forURL: Const.STORAGE_URL)
+    var storageRef: StorageReference {
+        return Storage.storage().reference(forURL: Const.STORAGE_URL)
     }
     
-    var imageStorageRef: FIRStorageReference {
+    var imageStorageRef: StorageReference {
         return storageRef.child(Const.IMAGE_STORAGE)
     }
     
-    var videoStorageRef: FIRStorageReference {
+    var videoStorageRef: StorageReference {
         return storageRef.child(Const.VIDEO_STORAGE)
     }
     
@@ -62,8 +62,8 @@ class DBProvider {
     
     func getContacts() {
         
-        contactsRef.observeSingleEvent(of: FIRDataEventType.value) {
-            (snapshot: FIRDataSnapshot) in
+        contactsRef.observeSingleEvent(of: DataEventType.value) {
+            (snapshot: DataSnapshot) in
             
             var contacts = [Contact]()
             

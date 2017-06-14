@@ -35,8 +35,8 @@ class MessagesHandler {
     }
     
     func observeMessages() {
-        DBProvider.Instance.messagesRef.observe(FIRDataEventType.childAdded) {
-            (snapshot: FIRDataSnapshot) in
+        DBProvider.Instance.messagesRef.observe(DataEventType.childAdded) {
+            (snapshot: DataSnapshot) in
             
             if let data = snapshot.value as? NSDictionary {
                 

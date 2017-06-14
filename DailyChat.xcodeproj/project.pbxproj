@@ -26,6 +26,10 @@
 		00BE50FB1E5EF736004BAF19 /* DailyChatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BE50FA1E5EF736004BAF19 /* DailyChatUITests.swift */; };
 		00D1F55F1EAE065800E49536 /* MessagesHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D1F55E1EAE065800E49536 /* MessagesHandler.swift */; };
 		00D2B54C1E83FF1500FD8F2B /* ChannelListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D2B54B1E83FF1500FD8F2B /* ChannelListViewController.swift */; };
+		00DC85D31EF1281300F9F010 /* SubjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DC85D21EF1281300F9F010 /* SubjectsViewController.swift */; };
+		00DC85D51EF1283F00F9F010 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DC85D41EF1283F00F9F010 /* Subject.swift */; };
+		00DC85D71EF1284A00F9F010 /* Lab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DC85D61EF1284A00F9F010 /* Lab.swift */; };
+		00DC85D91EF12B3800F9F010 /* LabsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DC85D81EF12B3800F9F010 /* LabsViewController.swift */; };
 		00EE967F1E7D48480081DEE8 /* AuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EE967E1E7D48480081DEE8 /* AuthProvider.swift */; };
 		00F38B801E7F11F900F49C23 /* DBProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F38B7F1E7F11F900F49C23 /* DBProvider.swift */; };
 		00F38B821E7FED7300F49C23 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00F38B811E7FED7300F49C23 /* GoogleService-Info.plist */; };
@@ -78,6 +82,10 @@
 		00BE50FC1E5EF736004BAF19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00D1F55E1EAE065800E49536 /* MessagesHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesHandler.swift; sourceTree = "<group>"; };
 		00D2B54B1E83FF1500FD8F2B /* ChannelListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelListViewController.swift; sourceTree = "<group>"; };
+		00DC85D21EF1281300F9F010 /* SubjectsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectsViewController.swift; sourceTree = "<group>"; };
+		00DC85D41EF1283F00F9F010 /* Subject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
+		00DC85D61EF1284A00F9F010 /* Lab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lab.swift; sourceTree = "<group>"; };
+		00DC85D81EF12B3800F9F010 /* LabsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabsViewController.swift; sourceTree = "<group>"; };
 		00EE967E1E7D48480081DEE8 /* AuthProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthProvider.swift; sourceTree = "<group>"; };
 		00F38B7F1E7F11F900F49C23 /* DBProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBProvider.swift; sourceTree = "<group>"; };
 		00F38B811E7FED7300F49C23 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -126,6 +134,8 @@
 			children = (
 				007588051E86DC5C0001F36C /* Contact.swift */,
 				008920AC1EB2836B00E9EC6A /* Channel.swift */,
+				00DC85D41EF1283F00F9F010 /* Subject.swift */,
+				00DC85D61EF1284A00F9F010 /* Lab.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -210,6 +220,8 @@
 				002735BD1E7197CE0006CB6E /* ContactsViewController.swift */,
 				004FB6A11E9F904600922177 /* ChatViewController.swift */,
 				0064C5CB1EB5418A00502412 /* GroupViewController.swift */,
+				00DC85D21EF1281300F9F010 /* SubjectsViewController.swift */,
+				00DC85D81EF12B3800F9F010 /* LabsViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -422,7 +434,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		524E52DF518C87D0EE0833CD /* [CP] Embed Pods Frameworks */ = {
@@ -452,7 +464,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		C2C905FC40AA4E9EC4BE5960 /* [CP] Copy Pods Resources */ = {
@@ -482,7 +494,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		F9031B9C7D38095C36D91738 /* [CP] Embed Pods Frameworks */ = {
@@ -525,10 +537,14 @@
 				00BE50DD1E5EF736004BAF19 /* LogViewController.swift in Sources */,
 				008920AD1EB2836B00E9EC6A /* Channel.swift in Sources */,
 				00B694941EB4EDD9003CC993 /* BSUIRXMLParser.swift in Sources */,
+				00DC85D71EF1284A00F9F010 /* Lab.swift in Sources */,
 				00B6948E1EB4ECA4003CC993 /* UIImage+Gif.swift in Sources */,
 				00BE50DB1E5EF736004BAF19 /* AppDelegate.swift in Sources */,
+				00DC85D91EF12B3800F9F010 /* LabsViewController.swift in Sources */,
+				00DC85D31EF1281300F9F010 /* SubjectsViewController.swift in Sources */,
 				00D1F55F1EAE065800E49536 /* MessagesHandler.swift in Sources */,
 				0064C5CC1EB5418A00502412 /* GroupViewController.swift in Sources */,
+				00DC85D51EF1283F00F9F010 /* Subject.swift in Sources */,
 				00F38B801E7F11F900F49C23 /* DBProvider.swift in Sources */,
 				00D2B54C1E83FF1500FD8F2B /* ChannelListViewController.swift in Sources */,
 				007588061E86DC5C0001F36C /* Contact.swift in Sources */,

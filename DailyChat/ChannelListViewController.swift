@@ -22,12 +22,12 @@ class ChannelListViewController: UITableViewController {
     var senderGroupNumber = "453503"
     var newChannelTextField: UITextField?
     
-    private var channelRefHandle: FIRDatabaseHandle?
+    private var channelRefHandle: DatabaseHandle?
     private var channels: [Channel] = []
     private var channelNames: [String] = []
     static let studentGroupsURL = URL(string: "https://www.bsuir.by/schedule/rest/studentGroup")!
     static let scheduleURL = URL(string: "https://www.bsuir.by/schedule/rest/schedule")!
-    private lazy var channelRef: FIRDatabaseReference = FIRDatabase.database().reference().child("channels")
+    private lazy var channelRef: DatabaseReference = Database.database().reference().child("channels")
     
     var groupsToID = [String:String]()
     var subjectsNames = Set<String>()
