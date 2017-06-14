@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		002735BE1E7197CE0006CB6E /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002735BD1E7197CE0006CB6E /* ContactsViewController.swift */; };
 		004FB6A21E9F904600922177 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004FB6A11E9F904600922177 /* ChatViewController.swift */; };
-		0064C5CC1EB5418A00502412 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0064C5CB1EB5418A00502412 /* GroupViewController.swift */; };
+		0064C5CC1EB5418A00502412 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0064C5CB1EB5418A00502412 /* SettingsViewController.swift */; };
 		007588061E86DC5C0001F36C /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007588051E86DC5C0001F36C /* Contact.swift */; };
 		008920AB1EB2826500E9EC6A /* ChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008920AA1EB2826500E9EC6A /* ChannelViewController.swift */; };
 		008920AD1EB2836B00E9EC6A /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008920AC1EB2836B00E9EC6A /* Channel.swift */; };
@@ -59,7 +59,7 @@
 /* Begin PBXFileReference section */
 		002735BD1E7197CE0006CB6E /* ContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
 		004FB6A11E9F904600922177 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
-		0064C5CB1EB5418A00502412 /* GroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
+		0064C5CB1EB5418A00502412 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		007588051E86DC5C0001F36C /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		008920AA1EB2826500E9EC6A /* ChannelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelViewController.swift; sourceTree = "<group>"; };
 		008920AC1EB2836B00E9EC6A /* Channel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
@@ -219,7 +219,7 @@
 				008920AA1EB2826500E9EC6A /* ChannelViewController.swift */,
 				002735BD1E7197CE0006CB6E /* ContactsViewController.swift */,
 				004FB6A11E9F904600922177 /* ChatViewController.swift */,
-				0064C5CB1EB5418A00502412 /* GroupViewController.swift */,
+				0064C5CB1EB5418A00502412 /* SettingsViewController.swift */,
 				00DC85D21EF1281300F9F010 /* SubjectsViewController.swift */,
 				00DC85D81EF12B3800F9F010 /* LabsViewController.swift */,
 			);
@@ -543,7 +543,7 @@
 				00DC85D91EF12B3800F9F010 /* LabsViewController.swift in Sources */,
 				00DC85D31EF1281300F9F010 /* SubjectsViewController.swift in Sources */,
 				00D1F55F1EAE065800E49536 /* MessagesHandler.swift in Sources */,
-				0064C5CC1EB5418A00502412 /* GroupViewController.swift in Sources */,
+				0064C5CC1EB5418A00502412 /* SettingsViewController.swift in Sources */,
 				00DC85D51EF1283F00F9F010 /* Subject.swift in Sources */,
 				00F38B801E7F11F900F49C23 /* DBProvider.swift in Sources */,
 				00D2B54C1E83FF1500FD8F2B /* ChannelListViewController.swift in Sources */,

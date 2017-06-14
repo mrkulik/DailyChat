@@ -65,7 +65,7 @@ class LogViewController: UIViewController {
                     self.emailTextField.text = ""
                     self.passwordTextField.text = ""
                     
-                    self.performSegue(withIdentifier: Const.TAB_SEGUE, sender: nil)
+                    self.performSegue(withIdentifier: Const.SET_SEGUE, sender: nil)
                 }
             })
             

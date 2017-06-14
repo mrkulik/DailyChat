@@ -62,4 +62,6 @@ class Const {
     
     //TabBarVC
     static let TAB_SEGUE = "TabBarSegue"
+    static let SET_SEGUE = "settingsSegue"
+    static let SET_TO_TAB = "setToTab"
 }

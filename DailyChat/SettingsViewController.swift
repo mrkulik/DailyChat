@@ -7,20 +7,32 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseStorage
 
-class GroupViewController: UIViewController {
+class SettingsViewController: UIViewController {
 
     var senderDisplayName: String?
+    var settingsRef: DatabaseReference = Database.database().reference().child("settings")
     
     @IBOutlet weak var groupTextField: UITextField!
     
     @IBAction func continueButton(_ sender: Any) {
-        performSegue(withIdentifier: Const.CHANNEL_LIST_SEGUE, sender: nil)
+        if groupTextField.text != nil {
+            let userID = AuthProvider.Instance.userID()
+            let newSettingsRef = settingsRef.child("profile").child(userID)
+            let settingsItem = [
+                "name": 
+                "surname":
+                "groupID": groupTextField.text
+            ]
+            newSettingsRef.setValue(settingsItem)
+        }
+        performSegue(withIdentifier: Const.SET_TO_TAB, sender: nil)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
 
