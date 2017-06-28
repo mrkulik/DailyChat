@@ -95,13 +95,14 @@ class ChannelListViewController: UITableViewController {
         DispatchQueue.main.sync {
             
             for name in subjectsNames {
-                let item = Channel(id: "0", name: name)
-                if channels.contains( where: {$0.name == item.name} ) {
+                let item = Channel(id: "0", name: name, group: senderGroupNumber)
+                if channels.contains( where: {$0.name == item.name && $0.group == item.group} ) {
                     continue
                 } else {
                     let newChannelRef = channelRef.childByAutoId()
                     let channelItem = [
-                        "name": name
+                        "name": name,
+                        "group": senderGroupNumber
                     ]
                     newChannelRef.setValue(channelItem)
                 }
@@ -117,7 +118,8 @@ class ChannelListViewController: UITableViewController {
         if let name = newChannelTextField?.text {
             let newChannelRef = channelRef.childByAutoId()
             let channelItem = [
-                "name": name
+                "name": name,
+                "group": senderGroupNumber
             ]
             newChannelRef.setValue(channelItem)
         }
@@ -132,7 +134,7 @@ class ChannelListViewController: UITableViewController {
             let channelData = snapshot.value as! Dictionary<String, AnyObject>
             let id = snapshot.key
             if let name = channelData["name"] as! String!, name.characters.count > 0 {
-                self.channels.append(Channel(id: id, name: name))
+                self.channels.append(Channel(id: id, name: name, group: self.senderGroupNumber))
                 self.tableView.reloadData()
             } else {
                 print("Error! Could not decode channel data")

@@ -22,9 +22,3 @@ class Subject: Object {
     //  }
     
 }
-
-class SubjectJSON {
-    var name = ""
-    var notes = ""
-    let labs = List<Lab>()
-}

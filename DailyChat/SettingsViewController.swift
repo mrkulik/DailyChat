@@ -17,7 +17,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     private var channelRefHandle: DatabaseHandle?
     var senderDisplayName: String?
     var groupsToID = [String:String]()
-    var senderGroupNumber = "453503"
+    var senderGroupNumber: String?
     var subjectsNames = Set<String>()
     let downloadCanceledNotification = Notification.Name(rawValue: "downloadCanceled")
     private var channels: [Channel] = []
@@ -32,6 +32,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var nameTextField: UITextField!
     
     @IBAction func continueButton(_ sender: Any) {
+        senderGroupNumber = groupTextField.text
         if groupTextField.text != nil {
             let userID = AuthProvider.Instance.userID()
             let newSettingsRef = settingsRef.child("profile").child(userID)
@@ -45,6 +46,10 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
                                                selector: #selector(cancelDownload),
                                                name: downloadCanceledNotification,
                                                object: nil)
+        // For Tests only!
+        try! dlRealm.write {
+            dlRealm.deleteAll()
+        }
         
         observeChannels()
         
@@ -65,7 +70,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
             present(vc, animated: false)
             XMLFetcher.fetch(from: ChannelListViewController.studentGroupsURL) { xml in
                 self.groupsToID = BSUIRXMLParser.parseGroupsID(xml)
-                XMLFetcher.fetch(from: ChannelListViewController.scheduleURL.appendingPathComponent(self.groupsToID[self.senderGroupNumber] ?? "")) { xml in
+                XMLFetcher.fetch(from: ChannelListViewController.scheduleURL.appendingPathComponent(self.groupsToID[self.senderGroupNumber!] ?? "")) { xml in
                     self.subjectsNames = BSUIRXMLParser.parseSubjects(xml)
                     NotificationCenter.default.post(Notification(name: self.downloadCanceledNotification))
                 }
@@ -77,13 +82,14 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         DispatchQueue.main.sync {
             
             for name in subjectsNames {
-                let item = Channel(id: "0", name: name)
-                if channels.contains( where: {$0.name == item.name} ) {
+                let item = Channel(id: "0", name: name, group: senderGroupNumber!)
+                if channels.contains( where: {$0.name == item.name && $0.group == item.group} ) {
                     continue
                 } else {
                     let newChannelRef = channelRef.childByAutoId()
                     let channelItem = [
-                        "name": name
+                        "name": name,
+                        "group": senderGroupNumber
                     ]
                     newChannelRef.setValue(channelItem)
                 }
@@ -118,7 +124,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
             let channelData = snapshot.value as! Dictionary<String, AnyObject>
             let id = snapshot.key
             if let name = channelData["name"] as! String!, name.characters.count > 0 {
-                self.channels.append(Channel(id: id, name: name))
+                self.channels.append(Channel(id: id, name: name, group: self.senderGroupNumber!))
             } else {
                 print("Error! Could not decode channel data")
             }

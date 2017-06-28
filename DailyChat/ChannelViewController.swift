@@ -51,15 +51,41 @@ final class ChannelViewController: JSQMessagesViewController {
     lazy var incomingBubbleImageView: JSQMessagesBubbleImage = self.setupIncomingBubble()
     
     // MARK: View Lifecycle
+    @IBAction func back(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.layoutMargins = UIEdgeInsets(
+            top: 40,
+            left: 0,
+            bottom: 0,
+            right: 0)
+        
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
+        swipeRight.direction = UISwipeGestureRecognizerDirection.right
+        self.view.addGestureRecognizer(swipeRight)
+        
         self.senderId = Auth.auth().currentUser?.uid
         observeMessages()
         
         // No avatars
         collectionView!.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
         collectionView!.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
+    }
+    
+    func respondToSwipeGesture(gesture: UIGestureRecognizer) {
+        
+        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+            
+            switch swipeGesture.direction {
+            case UISwipeGestureRecognizerDirection.right:
+                dismiss(animated: true, completion: nil)
+            default:
+                break
+            }
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -333,7 +359,7 @@ extension ChannelViewController: UIImagePickerControllerDelegate, UINavigationCo
             let assets = PHAsset.fetchAssets(withALAssetURLs: [photoReferenceUrl], options: nil)
             let asset = assets.firstObject
             
-            // 3
+            // 3х
             if let key = sendPhotoMessage() {
                 // 4
                 asset?.requestContentEditingInput(with: nil, completionHandler: { (contentEditingInput, info) in

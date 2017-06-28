@@ -20,7 +20,7 @@ class Contact {
     
     var name : String {
         get {
-             return _name
+            return _name
         }
     }
     
