@@ -42,9 +42,6 @@ class AuthProvider {
                 self.handleErrors(err: error! as NSError, loginHandler: loginHandler)
             } else {
                 if user?.uid != nil {
-                    //store user in database
-                    DBProvider.Instance.saveUser(withID: user!.uid, email: withEmail, password: password)
-                    
                     //login the user
                     self.logIn(withEmail: withEmail, password: password, loginHandler: loginHandler)
                 }

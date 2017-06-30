@@ -146,9 +146,10 @@ class ChannelListViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
-        
+
         if let channel = sender as? Channel {
-            let chatVc = segue.destination as! ChannelViewController
+            let navVc = segue.destination as! UINavigationController
+            let chatVc = navVc.viewControllers.first as! ChannelViewController
             
             chatVc.senderDisplayName = senderDisplayName
             chatVc.channel = channel

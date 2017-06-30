@@ -75,113 +75,6 @@
             </objects>
             <point key="canvasLocation" x="1250.625" y="-18.898333333333333"/>
         </scene>
-        <!--Contacts View Controller-->
-        <scene sceneID="zj4-C3-nZA">
-            <objects>
-                <viewController id="HHo-Z9-EeE" customClass="ContactsViewController" customModule="DailyChat" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="wd9-WB-kcc">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="JlO-nj-gaQ">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="yhL-SW-qxt">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yhL-SW-qxt" id="Olw-aY-w6x">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="HHo-Z9-EeE" id="K3i-Bj-bm1"/>
-                                    <outlet property="delegate" destination="HHo-Z9-EeE" id="msE-zo-ufO"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="yOe-X2-mdq">
-                        <barButtonItem key="leftBarButtonItem" title="Channels" id="LKb-yU-xCs">
-                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            <connections>
-                                <action selector="backToCL:" destination="HHo-Z9-EeE" id="gzi-Aw-qJp"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="contactsTable" destination="JlO-nj-gaQ" id="sJa-px-C3A"/>
-                        <segue destination="x2b-vf-Ezr" kind="push" identifier="ChatSegue" id="rcI-mQ-8Wi"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="AKc-9C-aUl" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4330" y="134.51166666666666"/>
-        </scene>
-        <!--Chat-->
-        <scene sceneID="y5T-Oh-746">
-            <objects>
-                <viewController id="x2b-vf-Ezr" customClass="ChatViewController" customModule="DailyChat" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Ad6-d2-f1c">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Chat" id="E8E-vg-aBm">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="gaS-bQ-0qb">
-                            <color key="tintColor" red="0.98224285942236311" green="1" blue="0.99908529322008266" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <connections>
-                                <action selector="back:" destination="x2b-vf-Ezr" id="7ar-A3-NgE"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tj4-D1-0r0" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="5531.875" y="134.51166666666666"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="dpS-sL-DhW">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LP5-ra-qS9" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nXn-vN-g5h">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.35471505549999999" green="0.44216052779999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="x2b-vf-Ezr" kind="relationship" relationship="rootViewController" id="mr9-a9-Cfm"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fDe-k0-Dfd" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4925" y="134.51166666666666"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="CdC-GX-HhX">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1jC-Fv-yZ3" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="boP-io-gI8">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.35471505549999999" green="0.44216052779999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="HHo-Z9-EeE" kind="relationship" relationship="rootViewController" id="vct-Vh-w7h"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JMc-QB-0cM" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3683.125" y="134.51166666666666"/>
-        </scene>
         <!--Chat-->
         <scene sceneID="gw2-Fs-x7P">
             <objects>
@@ -192,7 +85,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewChannel" rowHeight="0.0" id="Rls-iM-moZ" customClass="CreateChannelCell" customModule="DailyChat" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="0.0"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="0.0"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Rls-iM-moZ" id="898-7f-shm">
                                     <rect key="frame" x="0.0" y="-1" width="414" height="1"/>
@@ -201,14 +94,14 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ExistingChannel" textLabel="ctf-pz-4v7" rowHeight="58" style="IBUITableViewCellStyleDefault" id="9XH-5y-ZmM">
-                                <rect key="frame" x="0.0" y="28" width="414" height="58"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="58"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9XH-5y-ZmM" id="ZXa-z0-JZC">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="57"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="57"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ctf-pz-4v7">
-                                            <rect key="frame" x="15" y="0.0" width="384" height="57"/>
+                                            <rect key="frame" x="15" y="0.0" width="345" height="57"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -225,7 +118,6 @@
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Chat" id="0eZ-fY-uaz"/>
                     <connections>
-                        <segue destination="1jC-Fv-yZ3" kind="modal" identifier="privateSegue" id="C2F-FG-sux"/>
                         <segue destination="hST-DC-yL4" kind="modal" identifier="ShowChannel" id="GxP-as-7yU"/>
                     </connections>
                 </tableViewController>
@@ -238,7 +130,7 @@
             <objects>
                 <viewController id="2mn-bi-0SR" customClass="ChannelViewController" customModule="DailyChat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Fam-G0-z08">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -493,7 +385,6 @@
         <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="rcI-mQ-8Wi"/>
         <segue reference="raO-ff-1mv"/>
         <segue reference="SaQ-wb-Cxg"/>
     </inferredMetricsTieBreakers>
