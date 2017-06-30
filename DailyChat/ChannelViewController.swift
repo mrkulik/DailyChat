@@ -15,7 +15,6 @@ final class ChannelViewController: JSQMessagesViewController {
 
     
     // MARK: Properties
-    private let imageURLNotSetKey = "NOTSET"
     
     var channelRef: DatabaseReference?
     
@@ -57,11 +56,6 @@ final class ChannelViewController: JSQMessagesViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.layoutMargins = UIEdgeInsets(
-            top: 40,
-            left: 0,
-            bottom: 0,
-            right: 0)
         
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
         swipeRight.direction = UISwipeGestureRecognizerDirection.right
@@ -113,10 +107,10 @@ final class ChannelViewController: JSQMessagesViewController {
     }
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAt indexPath: IndexPath!) -> JSQMessageBubbleImageDataSource! {
-        let message = messages[indexPath.item] // 1
-        if message.senderId == senderId { // 2
+        let message = messages[indexPath.item]
+        if message.senderId == senderId {
             return outgoingBubbleImageView
-        } else { // 3
+        } else {
             return incomingBubbleImageView
         }
     }
@@ -126,10 +120,10 @@ final class ChannelViewController: JSQMessagesViewController {
         
         let message = messages[indexPath.item]
         
-        if message.senderId == senderId { // 1
-            cell.textView?.textColor = UIColor.white // 2
+        if message.senderId == senderId {
+            cell.textView?.textColor = UIColor.white
         } else {
-            cell.textView?.textColor = UIColor.black // 3
+            cell.textView?.textColor = UIColor.black
         }
         
         return cell
@@ -163,8 +157,7 @@ final class ChannelViewController: JSQMessagesViewController {
         messageRef = channelRef!.child("messages")
         let messageQuery = messageRef.queryLimited(toLast:25)
         
-        // We can use the observe method to listen for new
-        // messages being written to the Firebase DB
+        // messages to the Firebase DB
         newMessageRefHandle = messageQuery.observe(.childAdded, with: { (snapshot) -> Void in
             let messageData = snapshot.value as! Dictionary<String, String>
             
@@ -176,11 +169,6 @@ final class ChannelViewController: JSQMessagesViewController {
                 print("Error! Could not decode message data")
             }
         })
-        
-        // We can also use the observer method to listen for
-        // changes to existing messages.
-        // We use this to be notified when a photo has been stored
-        // to the Firebase Storage, so we can update the message data
     }
     
     private func observeTyping() {
@@ -203,23 +191,17 @@ final class ChannelViewController: JSQMessagesViewController {
     }
     
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
-        // 1
+
         let itemRef = messageRef.childByAutoId()
         
-        // 2
         let messageItem = [
             "senderId": senderId!,
             "senderName": senderDisplayName!,
             "text": text!,
             ]
         
-        // 3
         itemRef.setValue(messageItem)
         
-        // 4
-        JSQSystemSoundPlayer.jsq_playMessageSentSound()
-        
-        // 5
         finishSendingMessage()
         isTyping = false
     }
@@ -228,8 +210,7 @@ final class ChannelViewController: JSQMessagesViewController {
         let itemRef = messageRef.childByAutoId()
         
         let messageItem = [
-            "photoURL": imageURLNotSetKey,
-            "senderId": senderId!,
+            "senderId": senderId!
             ]
         
         itemRef.setValue(messageItem)
