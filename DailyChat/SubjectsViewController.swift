@@ -232,8 +232,8 @@ class SubjectsViewController: UIViewController, UITableViewDelegate, UITableView
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        let labsViewController = segue.destination as! LabsViewController
+        let navVc = segue.destination as! UINavigationController
+        let labsViewController = navVc.viewControllers.first as! LabsViewController
         labsViewController.selectedSubject = sender as! Subject
     }
     
