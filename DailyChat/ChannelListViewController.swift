@@ -20,7 +20,6 @@ class ChannelListViewController: UITableViewController {
     // MARK: Properties
     var senderDisplayName = "Gleb"
     var senderGroupNumber = "453503"
-    var newChannelTextField: UITextField?
     
     private var channelRefHandle: DatabaseHandle?
     private var channels: [Channel] = []
@@ -36,93 +35,12 @@ class ChannelListViewController: UITableViewController {
     // MARK: View Lifecycle
     
     override func viewDidLoad() {
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(cancelDownload),
-                                               name: downloadCanceledNotification,
-                                               object: nil)
-        //startDownload()
-        
+
         observeChannels()
         
         super.viewDidLoad()
         
-        
-      /*  let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
-        swipeLeft.direction = UISwipeGestureRecognizerDirection.left
-        self.view.addGestureRecognizer(swipeLeft)*/
-        
         title = "Channels"
-    }
-    
-  /*  func respondToSwipeGesture(gesture: UIGestureRecognizer) {
-        
-        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
-            
-            
-            switch swipeGesture.direction {
-            case UISwipeGestureRecognizerDirection.left:
-                self.performSegue(withIdentifier: "privateSegue", sender: self)
-            
-            default:
-                break
-            }
-        }
-    }*/
-    
-    deinit {
-        if let refHandle = channelRefHandle {
-            channelRef.removeObserver(withHandle: refHandle)
-        }
-        NotificationCenter.default.removeObserver(self)
-    }
-    
-
-    
-    func startDownload() {
-        if let vc = storyboard?.instantiateViewController(withIdentifier: "Splash") {
-            present(vc, animated: false)
-            XMLFetcher.fetch(from: ChannelListViewController.studentGroupsURL) { xml in
-                self.groupsToID = BSUIRXMLParser.parseGroupsID(xml)
-                XMLFetcher.fetch(from: ChannelListViewController.scheduleURL.appendingPathComponent(self.groupsToID[self.senderGroupNumber] ?? "")) { xml in
-                    self.subjectsNames = BSUIRXMLParser.parseSubjects(xml)
-                    NotificationCenter.default.post(Notification(name: self.downloadCanceledNotification))
-                }
-            }
-        }
-    }
-    
-    func cancelDownload() {
-        DispatchQueue.main.sync {
-            
-            for name in subjectsNames {
-                let item = Channel(id: "0", name: name, group: senderGroupNumber)
-                if channels.contains( where: {$0.name == item.name && $0.group == item.group} ) {
-                    continue
-                } else {
-                    let newChannelRef = channelRef.childByAutoId()
-                    let channelItem = [
-                        "name": name,
-                        "group": senderGroupNumber
-                    ]
-                    newChannelRef.setValue(channelItem)
-                }
-            }
-            self.dismiss(animated: true, completion: nil)
-        }
-    }
-    
-    
-    // MARK :Actions
-    
-    @IBAction func createChannel(_ sender: AnyObject) {
-        if let name = newChannelTextField?.text {
-            let newChannelRef = channelRef.childByAutoId()
-            let channelItem = [
-                "name": name,
-                "group": senderGroupNumber
-            ]
-            newChannelRef.setValue(channelItem)
-        }
     }
     
     // MARK: Firebase related methods
@@ -179,12 +97,7 @@ class ChannelListViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let reuseIdentifier = (indexPath as NSIndexPath).section == Section.createNewChannelSection.rawValue ? "NewChannel" : "ExistingChannel"
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
-        
-        if (indexPath as NSIndexPath).section == Section.createNewChannelSection.rawValue {
-            if let createNewChannelCell = cell as? CreateChannelCell {
-                newChannelTextField = createNewChannelCell.newChannelNameField
-            }
-        } else if (indexPath as NSIndexPath).section == Section.currentChannelsSection.rawValue {
+        if (indexPath as NSIndexPath).section == Section.currentChannelsSection.rawValue {
             cell.textLabel?.text = channels[(indexPath as NSIndexPath).row].name
         }
         
@@ -198,10 +111,6 @@ class ChannelListViewController: UITableViewController {
             let channel = channels[(indexPath as NSIndexPath).row]
             self.performSegue(withIdentifier: "ShowChannel", sender: channel)
         }
-    }
-    
-    @IBAction func joinPrivateChat(_ sender: Any) {
-        self.performSegue(withIdentifier: "privateSegue", sender: self)
     }
     
 }
