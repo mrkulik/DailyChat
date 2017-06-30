@@ -47,7 +47,6 @@ class LabsViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var labsTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        labsTableView.rowHeight = 65.0
         self.title = selectedSubject.name
         readLabsAndUpateUI()
     }
@@ -88,12 +87,10 @@ class LabsViewController: UIViewController, UITableViewDelegate, UITableViewData
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
         var task: Lab!
         if indexPath.section == 0{
-            cell?.backgroundColor = colorForIndexUndone(index: indexPath.row)
             task = todoLabs[indexPath.row]
         }
         else{
             task = completedLabs[indexPath.row]
-            cell?.backgroundColor = colorForIndexDone(index: indexPath.row)
         }
         
         cell?.textLabel?.text = task.name
@@ -230,26 +227,6 @@ class LabsViewController: UIViewController, UITableViewDelegate, UITableViewData
             
         }
         return [deleteAction, editAction, doneAction]
-    }
-    
-    // MARK: - Table view delegate
-    
-    func colorForIndexUndone(index: Int) -> UIColor {
-        let todoLabsCount = todoLabs.count - 1
-        if todoLabsCount == 0{
-            return UIColor(red:0.86, green:0.04, blue:0.04, alpha:1.0)
-        }
-        let val = (CGFloat(index) / CGFloat(todoLabsCount)) * 0.1
-        return UIColor(red:0.86, green:val, blue:0.04, alpha:1.0)
-    }
-    
-    func colorForIndexDone(index: Int) -> UIColor {
-        let completedLabsCount = completedLabs.count - 1
-        if completedLabsCount == 0{
-            return UIColor(red: 0.11, green: 0.62, blue: 0.11, alpha: 1.0)
-        }
-        let val = (CGFloat(index) / CGFloat(completedLabsCount)) * 0.3
-        return UIColor(red: val, green: 0.62, blue: 0.11, alpha: 1.0)
     }
     
 }

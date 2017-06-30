@@ -36,7 +36,6 @@ class SubjectsViewController: UIViewController, UITableViewDelegate, UITableView
             dlRealm.deleteAll()
         }*/
         
-        subjectsTableView.rowHeight = 65.0
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(cancelDownload),
                                                name: downloadCanceledNotification,
@@ -212,21 +211,6 @@ class SubjectsViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.performSegue(withIdentifier: "openLabs", sender: self.subjects[indexPath.row])
-    }
-    
-    //cell style
-    func colorForIndex(index: Int) -> UIColor {
-        let subjectsCount = subjects.count - 1
-        if subjectsCount == 0{
-            return UIColor(red:0.20, green:0.47, blue:0.90, alpha:1.0)
-        }
-        let val = (CGFloat(index) / CGFloat(subjectsCount)) * 0.3
-        return UIColor(red:0.20, green:val, blue:0.90, alpha:1.0)
-    }
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell,
-                   forRowAt indexPath: IndexPath) {
-        cell.backgroundColor = colorForIndex(index: indexPath.row)
     }
     
     // MARK: - Navigation
