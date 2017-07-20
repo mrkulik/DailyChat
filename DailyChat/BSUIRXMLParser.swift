@@ -9,7 +9,6 @@
 import Foundation
 import SWXMLHash
 
-
 class BSUIRXMLParser {
     
     static func parseGroupsID(_ xml: XMLIndexer) -> [String:String] {

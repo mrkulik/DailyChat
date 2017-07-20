@@ -10,11 +10,6 @@ import UIKit
 import Firebase
 import SWXMLHash
 
-enum Section: Int {
-    case createNewChannelSection = 0
-    case currentChannelsSection
-}
-
 class ChannelListViewController: UITableViewController {
     
     // MARK: Properties
@@ -78,28 +73,17 @@ class ChannelListViewController: UITableViewController {
     // MARK: UITableViewDataSource
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let currentSection: Section = Section(rawValue: section) {
-            switch currentSection {
-            case .createNewChannelSection:
-                return 1
-            case .currentChannelsSection:
-                return channels.count
-            }
-        } else {
-            return 0
-        }
+        return channels.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let reuseIdentifier = (indexPath as NSIndexPath).section == Section.createNewChannelSection.rawValue ? "NewChannel" : "ExistingChannel"
+        let reuseIdentifier = "ExistingChannel"
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
-        if (indexPath as NSIndexPath).section == Section.currentChannelsSection.rawValue {
-            cell.textLabel?.text = channels[(indexPath as NSIndexPath).row].name
-        }
+        cell.textLabel?.text = channels[(indexPath as NSIndexPath).row].name
         
         return cell
     }
@@ -107,10 +91,8 @@ class ChannelListViewController: UITableViewController {
     // MARK: UITableViewDelegate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if (indexPath as NSIndexPath).section == Section.currentChannelsSection.rawValue {
-            let channel = channels[(indexPath as NSIndexPath).row]
-            self.performSegue(withIdentifier: "ShowChannel", sender: channel)
-        }
+        let channel = channels[(indexPath as NSIndexPath).row]
+        self.performSegue(withIdentifier: "ShowChannel", sender: channel)
     }
     
 }

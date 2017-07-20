@@ -46,11 +46,17 @@ class LabsViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBOutlet weak var labsTableView: UITableView!
     override func viewDidLoad() {
+        let backButton: UIBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(back))
+        self.navigationItem.leftBarButtonItem = backButton;
+        
         super.viewDidLoad()
         self.title = selectedSubject.name
         readLabsAndUpateUI()
     }
     
+    func back() {
+        self.dismiss(animated: true, completion: nil)
+    }
     // MARK: - User Actions -
     
     @IBAction func didClickOnAddLab(_ sender: UIBarButtonItem) {

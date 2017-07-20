@@ -50,12 +50,11 @@ final class ChannelViewController: JSQMessagesViewController {
     lazy var incomingBubbleImageView: JSQMessagesBubbleImage = self.setupIncomingBubble()
     
     // MARK: View Lifecycle
-    @IBAction func back(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let backButton: UIBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(back))
+        self.navigationItem.leftBarButtonItem = backButton;
         
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
         swipeRight.direction = UISwipeGestureRecognizerDirection.right
@@ -67,6 +66,10 @@ final class ChannelViewController: JSQMessagesViewController {
         // No avatars
         collectionView!.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
         collectionView!.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
+    }
+    
+    func back() {
+        self.dismiss(animated: true, completion: nil)
     }
     
     func respondToSwipeGesture(gesture: UIGestureRecognizer) {

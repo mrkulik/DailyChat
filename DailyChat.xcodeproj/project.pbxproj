@@ -10,7 +10,6 @@
 		0064C5CC1EB5418A00502412 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0064C5CB1EB5418A00502412 /* SettingsViewController.swift */; };
 		008920AB1EB2826500E9EC6A /* ChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008920AA1EB2826500E9EC6A /* ChannelViewController.swift */; };
 		008920AD1EB2836B00E9EC6A /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008920AC1EB2836B00E9EC6A /* Channel.swift */; };
-		00B694901EB4ED1B003CC993 /* CreateChannelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B6948F1EB4ED1B003CC993 /* CreateChannelCell.swift */; };
 		00B694921EB4ED96003CC993 /* BSUIRFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B694911EB4ED96003CC993 /* BSUIRFetcher.swift */; };
 		00B694941EB4EDD9003CC993 /* BSUIRXMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B694931EB4EDD9003CC993 /* BSUIRXMLParser.swift */; };
 		00BE50DB1E5EF736004BAF19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BE50DA1E5EF736004BAF19 /* AppDelegate.swift */; };
@@ -54,7 +53,6 @@
 		0064C5CB1EB5418A00502412 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		008920AA1EB2826500E9EC6A /* ChannelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelViewController.swift; sourceTree = "<group>"; };
 		008920AC1EB2836B00E9EC6A /* Channel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
-		00B6948F1EB4ED1B003CC993 /* CreateChannelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateChannelCell.swift; sourceTree = "<group>"; };
 		00B694911EB4ED96003CC993 /* BSUIRFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSUIRFetcher.swift; sourceTree = "<group>"; };
 		00B694931EB4EDD9003CC993 /* BSUIRXMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSUIRXMLParser.swift; sourceTree = "<group>"; };
 		00BE50D71E5EF736004BAF19 /* DailyChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -153,7 +151,6 @@
 			isa = PBXGroup;
 			children = (
 				00FD9D121E7FF14C006A45CA /* Const.swift */,
-				00B6948F1EB4ED1B003CC993 /* CreateChannelCell.swift */,
 				00EE967C1E7D47E30081DEE8 /* Plugins */,
 				007588041E86DC3A0001F36C /* Model */,
 				00EE967D1E7D47F90081DEE8 /* Controller */,
@@ -200,9 +197,9 @@
 			children = (
 				00BE50DC1E5EF736004BAF19 /* LogViewController.swift */,
 				00D2B54B1E83FF1500FD8F2B /* ChannelListViewController.swift */,
+				00DC85D21EF1281300F9F010 /* SubjectsViewController.swift */,
 				008920AA1EB2826500E9EC6A /* ChannelViewController.swift */,
 				0064C5CB1EB5418A00502412 /* SettingsViewController.swift */,
-				00DC85D21EF1281300F9F010 /* SubjectsViewController.swift */,
 				00DC85D81EF12B3800F9F010 /* LabsViewController.swift */,
 			);
 			name = Controller;
@@ -530,7 +527,6 @@
 				00EE967F1E7D48480081DEE8 /* AuthProvider.swift in Sources */,
 				008920AB1EB2826500E9EC6A /* ChannelViewController.swift in Sources */,
 				00FD9D131E7FF14C006A45CA /* Const.swift in Sources */,
-				00B694901EB4ED1B003CC993 /* CreateChannelCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
