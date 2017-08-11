@@ -71,7 +71,7 @@ class LabsViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.labsTableView.reloadData()
     }
     
-    // MARK: - UITableViewDataSource -
+    // MARK: - UITableViewDataSource
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
