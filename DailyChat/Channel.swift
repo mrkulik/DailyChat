@@ -33,4 +33,5 @@ class Channel {
     var group: String {
         return _group
     }
+    
 }

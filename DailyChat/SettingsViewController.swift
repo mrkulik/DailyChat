@@ -15,6 +15,7 @@ import SWXMLHash
 class SettingsViewController: UIViewController, UITextFieldDelegate {
 
     private var channelRefHandle: DatabaseHandle?
+    private var subjectsRefHandle: DatabaseHandle?
     var senderDisplayName: String?
     var groupsToID = [String:String]()
     var senderGroupNumber: String?
@@ -26,7 +27,9 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     static let scheduleURL = URL(string: "https://www.bsuir.by/schedule/rest/schedule")!
     var channelRef: DatabaseReference = Database.database().reference().child("channels")
     var settingsRef: DatabaseReference = Database.database().reference().child("settings")
+    var subjectsRef: DatabaseReference = Database.database().reference().child("subjects")
     var subjects : Results<Subject>!
+    var subjectS = [SubjectS]()
     
     @IBOutlet weak var groupTextField: UITextField!
     @IBOutlet weak var nameTextField: UITextField!
@@ -41,26 +44,30 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
                 "groupID": groupTextField.text
             ]
             newSettingsRef.setValue(settingsItem)
+            
+            NotificationCenter.default.addObserver(self,
+                                                   selector: #selector(cancelDownload),
+                                                   name: downloadCanceledNotification,
+                                                   object: nil)
+            // For Tests only!
+            try! dlRealm.write {
+                dlRealm.deleteAll()
+            }
+            
+            observeChannels()
+            
+            startDownload()
+            
+            performSegue(withIdentifier: Const.SET_TO_TAB, sender: nil)
         }
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(cancelDownload),
-                                               name: downloadCanceledNotification,
-                                               object: nil)
-        // For Tests only!
-        try! dlRealm.write {
-            dlRealm.deleteAll()
-        }
-        
-        observeChannels()
-        
-        startDownload()
-        
-        performSegue(withIdentifier: Const.SET_TO_TAB, sender: nil)
     }
     
     deinit {
         if let refHandle = channelRefHandle {
             channelRef.removeObserver(withHandle: refHandle)
+        }
+        if let srefHandle = subjectsRefHandle {
+            subjectsRef.removeObserver(withHandle: srefHandle)
         }
         NotificationCenter.default.removeObserver(self)
     }
@@ -82,8 +89,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         DispatchQueue.main.sync {
             
             for name in subjectsNames {
-                let item = Channel(id: "0", name: name, group: senderGroupNumber!)
-                if channels.contains( where: {$0.name == item.name && $0.group == item.group} ) {
+                if channels.contains( where: {$0.name == name && $0.group == groupTextField.text} ) {
                     continue
                 } else {
                     let newChannelRef = channelRef.childByAutoId()
@@ -92,6 +98,19 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
                         "group": senderGroupNumber
                     ]
                     newChannelRef.setValue(channelItem)
+                }
+            }
+
+            for name in subjectsNames {
+                let userID = AuthProvider.Instance.userID()
+                let newSubjectsRef = subjectsRef.child(userID).childByAutoId()
+                if subjectS.contains( where: {$0.name == name} ) {
+                    continue
+                } else {
+                    let subjectItem = [
+                        "name": name,
+                    ]
+                    newSubjectsRef.setValue(subjectItem)
                 }
             }
             
@@ -118,13 +137,25 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     }
 
     private func observeChannels() {
-        // We can use the observe method to listen for new
-        // channels being written to the Firebase DB
         channelRefHandle = channelRef.observe(.childAdded, with: { (snapshot) -> Void in
             let channelData = snapshot.value as! Dictionary<String, AnyObject>
             let id = snapshot.key
-            if let name = channelData["name"] as! String!, name.characters.count > 0 {
-                self.channels.append(Channel(id: id, name: name, group: self.senderGroupNumber!))
+            let name = channelData["name"] as! String!
+            let group = channelData["group"] as! String!
+            if (name?.characters.count)! > 0 && (group?.characters.count)! > 0{
+                self.channels.append(Channel(id: id, name: name!, group: group!))
+            } else {
+                print("Error! Could not decode channel data")
+            }
+        })
+        
+        let userID = AuthProvider.Instance.userID()
+        subjectsRefHandle = subjectsRef.child(userID).observe(.childAdded, with: { (snapshot) -> Void in
+            let subjectsData = snapshot.value as! Dictionary<String, AnyObject>
+            let id = snapshot.key
+            let name = subjectsData["name"] as! String!
+            if (name?.characters.count)! > 0{
+                self.subjectS.append(SubjectS(id: id, name: name!, notes: "", labs: []))
             } else {
                 print("Error! Could not decode channel data")
             }

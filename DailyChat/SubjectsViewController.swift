@@ -31,48 +31,7 @@ class SubjectsViewController: UIViewController, UITableViewDelegate, UITableView
     
     
     override func viewDidLoad() {
-        // For Tests only!
-     /*   try! dlRealm.write {
-            dlRealm.deleteAll()
-        }*/
-        
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(cancelDownload),
-                                               name: downloadCanceledNotification,
-                                               object: nil)
-        //startDownload()
         super.viewDidLoad()
-    }
-    
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-    }
-    
-    @objc fileprivate func cancelDownload() {
-        DispatchQueue.main.sync {
-            try? dlRealm.write {
-                for subjectName in subjectsNames {
-                    let subj = Subject()
-                    subj.name = subjectName
-                    dlRealm.add(subj)
-                }
-                subjects = dlRealm.objects(Subject.self)
-            }
-            self.dismiss(animated: true, completion: nil)
-        }
-    }
-    
-    fileprivate func startDownload() {
-        if let vc = storyboard?.instantiateViewController(withIdentifier: "Splash") {
-            present(vc, animated: false)
-            XMLFetcher.fetch(from: SubjectsViewController.studentGroupsURL) { xml in
-                self.groupsToID = BSUIRXMLParser.parseGroupsID(xml)
-                XMLFetcher.fetch(from: SubjectsViewController.scheduleURL.appendingPathComponent(self.groupsToID["450503"] ?? "")) { xml in
-                    self.subjectsNames = BSUIRXMLParser.parseSubjects(xml)
-                    NotificationCenter.default.post(Notification(name: self.downloadCanceledNotification))
-                }
-            }
-        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -24,6 +24,8 @@
 		00DC85D51EF1283F00F9F010 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DC85D41EF1283F00F9F010 /* Subject.swift */; };
 		00DC85D71EF1284A00F9F010 /* Lab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DC85D61EF1284A00F9F010 /* Lab.swift */; };
 		00DC85D91EF12B3800F9F010 /* LabsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DC85D81EF12B3800F9F010 /* LabsViewController.swift */; };
+		00DD8A2A1F3DD3D900B872FE /* SubjectS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DD8A291F3DD3D900B872FE /* SubjectS.swift */; };
+		00DD8A2C1F3DD53300B872FE /* LabS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DD8A2B1F3DD53300B872FE /* LabS.swift */; };
 		00EE967F1E7D48480081DEE8 /* AuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EE967E1E7D48480081DEE8 /* AuthProvider.swift */; };
 		00F38B821E7FED7300F49C23 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00F38B811E7FED7300F49C23 /* GoogleService-Info.plist */; };
 		00FD9D131E7FF14C006A45CA /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FD9D121E7FF14C006A45CA /* Const.swift */; };
@@ -73,6 +75,8 @@
 		00DC85D41EF1283F00F9F010 /* Subject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
 		00DC85D61EF1284A00F9F010 /* Lab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lab.swift; sourceTree = "<group>"; };
 		00DC85D81EF12B3800F9F010 /* LabsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabsViewController.swift; sourceTree = "<group>"; };
+		00DD8A291F3DD3D900B872FE /* SubjectS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectS.swift; sourceTree = "<group>"; };
+		00DD8A2B1F3DD53300B872FE /* LabS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabS.swift; sourceTree = "<group>"; };
 		00EE967E1E7D48480081DEE8 /* AuthProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthProvider.swift; sourceTree = "<group>"; };
 		00F38B811E7FED7300F49C23 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		00FD9D121E7FF14C006A45CA /* Const.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
@@ -121,6 +125,8 @@
 				008920AC1EB2836B00E9EC6A /* Channel.swift */,
 				00DC85D41EF1283F00F9F010 /* Subject.swift */,
 				00DC85D61EF1284A00F9F010 /* Lab.swift */,
+				00DD8A291F3DD3D900B872FE /* SubjectS.swift */,
+				00DD8A2B1F3DD53300B872FE /* LabS.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -197,9 +203,9 @@
 			children = (
 				00BE50DC1E5EF736004BAF19 /* LogViewController.swift */,
 				00D2B54B1E83FF1500FD8F2B /* ChannelListViewController.swift */,
-				00DC85D21EF1281300F9F010 /* SubjectsViewController.swift */,
 				008920AA1EB2826500E9EC6A /* ChannelViewController.swift */,
 				0064C5CB1EB5418A00502412 /* SettingsViewController.swift */,
+				00DC85D21EF1281300F9F010 /* SubjectsViewController.swift */,
 				00DC85D81EF12B3800F9F010 /* LabsViewController.swift */,
 			);
 			name = Controller;
@@ -520,8 +526,10 @@
 				00BE50DB1E5EF736004BAF19 /* AppDelegate.swift in Sources */,
 				00DC85D91EF12B3800F9F010 /* LabsViewController.swift in Sources */,
 				00DC85D31EF1281300F9F010 /* SubjectsViewController.swift in Sources */,
+				00DD8A2C1F3DD53300B872FE /* LabS.swift in Sources */,
 				0064C5CC1EB5418A00502412 /* SettingsViewController.swift in Sources */,
 				00DC85D51EF1283F00F9F010 /* Subject.swift in Sources */,
+				00DD8A2A1F3DD3D900B872FE /* SubjectS.swift in Sources */,
 				00D2B54C1E83FF1500FD8F2B /* ChannelListViewController.swift in Sources */,
 				00B694921EB4ED96003CC993 /* BSUIRFetcher.swift in Sources */,
 				00EE967F1E7D48480081DEE8 /* AuthProvider.swift in Sources */,
