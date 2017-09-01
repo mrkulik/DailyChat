@@ -75,9 +75,9 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     func startDownload() {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "Splash") {
             present(vc, animated: false)
-            XMLFetcher.fetch(from: ChannelListViewController.studentGroupsURL) { xml in
+            XMLFetcher.fetch(from: SettingsViewController.studentGroupsURL) { xml in
                 self.groupsToID = BSUIRXMLParser.parseGroupsID(xml)
-                XMLFetcher.fetch(from: ChannelListViewController.scheduleURL.appendingPathComponent(self.groupsToID[self.senderGroupNumber!] ?? "")) { xml in
+                XMLFetcher.fetch(from: SettingsViewController.scheduleURL.appendingPathComponent(self.groupsToID[self.senderGroupNumber!] ?? "")) { xml in
                     self.subjectsNames = BSUIRXMLParser.parseSubjects(xml)
                     NotificationCenter.default.post(Notification(name: self.downloadCanceledNotification))
                 }
