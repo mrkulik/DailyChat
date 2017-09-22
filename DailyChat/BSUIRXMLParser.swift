@@ -25,7 +25,7 @@ class BSUIRXMLParser {
         var result = Set<String>()
         for week in xml["scheduleXmlModels"]["scheduleModel"].all{
             for day in week["schedule"].all {
-                if let lessonType = day["lessonType"].element?.text, let subj = day["subject"].element!.text, lessonType == "ЛР"{
+                if let lessonType = day["lessonType"].element?.text, let subj = day["subject"].element?.text, lessonType == "ЛР"{
                     result.insert(subj)
                 }
             }
