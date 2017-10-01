@@ -14,6 +14,7 @@ class XMLFetcher {
     static func fetch(from requestURL: URL, _ completionHandler: @escaping (XMLIndexer) -> Void) {
         let urlRequest: NSMutableURLRequest = NSMutableURLRequest(url: requestURL)
         let session = URLSession.shared
+        urlRequest.addValue("application/xml", forHTTPHeaderField: "Accept")
         let task = session.dataTask(with: urlRequest as URLRequest) { data, response, error in
             let httpResponse = response as! HTTPURLResponse
             let statusCode = httpResponse.statusCode
