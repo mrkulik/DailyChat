@@ -12,7 +12,7 @@ target 'DailyChat' do
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
   pod 'JSQMessagesViewController'
-  pod 'SWXMLHash', '~> 4.0.0'
+  pod 'SWXMLHash'
   pod 'RealmSwift'
     
   target 'DailyChatTests' do

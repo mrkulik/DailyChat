@@ -23,7 +23,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     let downloadCanceledNotification = Notification.Name(rawValue: "downloadCanceled")
     private var channels: [Channel] = []
     private var channelNames: [String] = []
-    static let studentGroupsURL = URL(string: "https://www.bsuir.by/schedule/rest/studentGroup")!
+    static var studentGroupsURL =  "https://students.bsuir.by/api/v1/studentGroup/schedule?studentGroup="
     static let scheduleURL = URL(string: "https://www.bsuir.by/schedule/rest/schedule")!
     var channelRef: DatabaseReference = Database.database().reference().child("channels")
     var settingsRef: DatabaseReference = Database.database().reference().child("settings")
@@ -75,12 +75,9 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     func startDownload() {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "Splash") {
             present(vc, animated: false)
-            XMLFetcher.fetch(from: SettingsViewController.studentGroupsURL) { xml in
-                self.groupsToID = BSUIRXMLParser.parseGroupsID(xml)
-                XMLFetcher.fetch(from: SettingsViewController.scheduleURL.appendingPathComponent(self.groupsToID[self.senderGroupNumber!] ?? "")) { xml in
-                    self.subjectsNames = BSUIRXMLParser.parseSubjects(xml)
-                    NotificationCenter.default.post(Notification(name: self.downloadCanceledNotification))
-                }
+            XMLFetcher.fetch(from: URL(string: SettingsViewController.studentGroupsURL + groupTextField.text!)! ) { xml in
+                self.subjectsNames = BSUIRXMLParser.parseSubjects(xml)
+                NotificationCenter.default.post(Notification(name: self.downloadCanceledNotification))
             }
         }
     }
