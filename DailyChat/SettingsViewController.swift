@@ -100,7 +100,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
 
             for name in subjectsNames {
                 let userID = AuthProvider.Instance.userID()
-                let newSubjectsRef = subjectsRef.child(userID).childByAutoId()
+                let newSubjectsRef = subjectsRef.child(userID).child(name)
                 if subjectS.contains( where: {$0.name == name} ) {
                     continue
                 } else {

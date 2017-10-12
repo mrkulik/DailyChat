@@ -8,6 +8,8 @@
 
 import UIKit
 import RealmSwift
+import Firebase
+import FirebaseStorage
 
 // FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
 // Consider refactoring the code to use the non-optional operators.
@@ -41,6 +43,7 @@ class LabsViewController: UIViewController, UITableViewDelegate, UITableViewData
     var todoLabs : Results<Lab>!
     var completedLabs : Results<Lab>!
     var currentCreateAction:UIAlertAction!
+    var subjectsRef: DatabaseReference = Database.database().reference().child("subjects")
     
     var isEditingMode = false
     
@@ -106,6 +109,8 @@ class LabsViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func displayAlertToAddLab(_ updatedLab:Lab!){
         
+        let userID = AuthProvider.Instance.userID()
+        
         var title = "New Lab"
         var doneTitle = "Create"
         if updatedLab != nil{
@@ -140,6 +145,12 @@ class LabsViewController: UIViewController, UITableViewDelegate, UITableViewData
                 }
             }
             
+            let newLabsRef = self.subjectsRef.child(userID).child(self.selectedSubject.name).child(labName!)
+            let labItem = [
+                "name": labName,
+                "note": labNotes
+                ]
+            newLabsRef.setValue(labItem)
             print(labName ?? "")
         }
         
