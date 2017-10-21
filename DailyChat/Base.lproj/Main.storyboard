@@ -227,6 +227,7 @@
                     <connections>
                         <segue destination="MBD-EQ-k65" kind="relationship" relationship="viewControllers" id="VqI-bc-jBV"/>
                         <segue destination="9ti-3w-1An" kind="relationship" relationship="viewControllers" id="YZM-Qo-nJg"/>
+                        <segue destination="cfE-dl-zbM" kind="relationship" relationship="viewControllers" id="s8B-Mq-n02"/>
                         <segue destination="QSK-fp-0dS" kind="relationship" relationship="viewControllers" id="SaQ-wb-Cxg"/>
                     </connections>
                 </tabBarController>
@@ -295,7 +296,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3G2-8k-ADA" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3382" y="1574"/>
+            <point key="canvasLocation" x="3686" y="1526"/>
         </scene>
         <!--Labs-->
         <scene sceneID="XRy-Qt-Cio">
@@ -350,7 +351,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G6Q-sU-r2e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4688" y="1574"/>
+            <point key="canvasLocation" x="5132" y="1526"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Esp-o1-m4c">
@@ -406,7 +407,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NfX-PD-yvU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2756" y="1574"/>
+            <point key="canvasLocation" x="3014" y="1526"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Gkh-pJ-km2">
@@ -424,7 +425,55 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GK6-DL-4MK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4062" y="1574"/>
+            <point key="canvasLocation" x="4413" y="1526"/>
+        </scene>
+        <!--Questions-->
+        <scene sceneID="doW-o7-6q4">
+            <objects>
+                <viewController id="cfE-dl-zbM" customClass="QuestionsViewController" customModule="DailyChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xKS-l9-9J6">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Oyc-gj-hZh" userLabel="Questions Table View">
+                                <rect key="frame" x="0.0" y="24" width="414" height="687"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="listCell" textLabel="3Si-Bd-T39" detailTextLabel="KCB-FA-HLE" style="IBUITableViewCellStyleValue1" id="Dcr-fV-2ts">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Dcr-fV-2ts" id="ZLl-7U-eFT">
+                                            <rect key="frame" x="0.0" y="0.0" width="381" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3Si-Bd-T39">
+                                                    <rect key="frame" x="15.000000000000002" y="12.999999999999998" width="31.666666666666668" height="19.333333333333332"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KCB-FA-HLE">
+                                                    <rect key="frame" x="337.33333333333331" y="12.999999999999998" width="41.666666666666664" height="19.333333333333332"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Questions" id="3JK-eV-RtV"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JzV-1A-pje" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2756" y="2535"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
