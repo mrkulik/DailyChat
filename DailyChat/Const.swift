@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class Const {
     
@@ -64,4 +65,12 @@ class Const {
     static let TAB_SEGUE = "TabBarSegue"
     static let SET_SEGUE = "settingsSegue"
     static let SET_TO_TAB = "setToTab"
+    
+    struct Colors {
+        static let cyan = UIColor(red: 30 / 255.0,
+                                  green: 180 / 255.0,
+                                  blue: 226 / 255.0,
+                                  alpha: 1)
+        
+    }
 }

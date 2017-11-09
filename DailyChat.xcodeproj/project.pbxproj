@@ -14,8 +14,6 @@
 		00B694941EB4EDD9003CC993 /* BSUIRXMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B694931EB4EDD9003CC993 /* BSUIRXMLParser.swift */; };
 		00BE50DB1E5EF736004BAF19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BE50DA1E5EF736004BAF19 /* AppDelegate.swift */; };
 		00BE50DD1E5EF736004BAF19 /* LogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BE50DC1E5EF736004BAF19 /* LogViewController.swift */; };
-		00BE50E01E5EF736004BAF19 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00BE50DE1E5EF736004BAF19 /* Main.storyboard */; };
-		00BE50E21E5EF736004BAF19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00BE50E11E5EF736004BAF19 /* Assets.xcassets */; };
 		00BE50E51E5EF736004BAF19 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00BE50E31E5EF736004BAF19 /* LaunchScreen.storyboard */; };
 		00BE50F01E5EF736004BAF19 /* DailyChatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BE50EF1E5EF736004BAF19 /* DailyChatTests.swift */; };
 		00BE50FB1E5EF736004BAF19 /* DailyChatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BE50FA1E5EF736004BAF19 /* DailyChatUITests.swift */; };
@@ -31,6 +29,9 @@
 		00EE967F1E7D48480081DEE8 /* AuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EE967E1E7D48480081DEE8 /* AuthProvider.swift */; };
 		00F38B821E7FED7300F49C23 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00F38B811E7FED7300F49C23 /* GoogleService-Info.plist */; };
 		00FD9D131E7FF14C006A45CA /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FD9D121E7FF14C006A45CA /* Const.swift */; };
+		229D3D941FB4DD9700196760 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 229D3D931FB4DD9700196760 /* Main.storyboard */; };
+		229D3D961FB4E3E800196760 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 229D3D951FB4E3E800196760 /* Assets.xcassets */; };
+		229D3D981FB4E83700196760 /* DCTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229D3D971FB4E83700196760 /* DCTextField.swift */; };
 		325120D03B4933B40990AD6F /* Pods_DailyChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 653067AC13BE5288321987AD /* Pods_DailyChat.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		47FCCACD804656E3AB472974 /* Pods_DailyChatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E725249A273D33D26BF7C1B /* Pods_DailyChatTests.framework */; };
 		518C16EC6F3FD876AB6CC505 /* Pods_DailyChatUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FFE492052472F448E2BFB8B /* Pods_DailyChatUITests.framework */; };
@@ -62,8 +63,6 @@
 		00BE50D71E5EF736004BAF19 /* DailyChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00BE50DA1E5EF736004BAF19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		00BE50DC1E5EF736004BAF19 /* LogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogViewController.swift; sourceTree = "<group>"; };
-		00BE50DF1E5EF736004BAF19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		00BE50E11E5EF736004BAF19 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		00BE50E41E5EF736004BAF19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		00BE50E61E5EF736004BAF19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00BE50EB1E5EF736004BAF19 /* DailyChatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DailyChatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,6 +84,9 @@
 		00F38B811E7FED7300F49C23 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		00FD9D121E7FF14C006A45CA /* Const.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		0E725249A273D33D26BF7C1B /* Pods_DailyChatTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DailyChatTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		229D3D931FB4DD9700196760 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		229D3D951FB4E3E800196760 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		229D3D971FB4E83700196760 /* DCTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DCTextField.swift; sourceTree = "<group>"; };
 		2FFE492052472F448E2BFB8B /* Pods_DailyChatUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DailyChatUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CFDECB7AB64E9BB27A4935A /* Pods-DailyChatUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyChatUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DailyChatUITests/Pods-DailyChatUITests.release.xcconfig"; sourceTree = "<group>"; };
 		653067AC13BE5288321987AD /* Pods_DailyChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DailyChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -165,11 +167,12 @@
 				007588041E86DC3A0001F36C /* Model */,
 				00EE967D1E7D47F90081DEE8 /* Controller */,
 				00BE50DA1E5EF736004BAF19 /* AppDelegate.swift */,
-				00BE50DE1E5EF736004BAF19 /* Main.storyboard */,
-				00BE50E11E5EF736004BAF19 /* Assets.xcassets */,
+				229D3D931FB4DD9700196760 /* Main.storyboard */,
+				229D3D951FB4E3E800196760 /* Assets.xcassets */,
 				00BE50E31E5EF736004BAF19 /* LaunchScreen.storyboard */,
 				00BE50E61E5EF736004BAF19 /* Info.plist */,
 				00F38B811E7FED7300F49C23 /* GoogleService-Info.plist */,
+				229D3D971FB4E83700196760 /* DCTextField.swift */,
 			);
 			path = DailyChat;
 			sourceTree = "<group>";
@@ -360,9 +363,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				00BE50E51E5EF736004BAF19 /* LaunchScreen.storyboard in Resources */,
+				229D3D941FB4DD9700196760 /* Main.storyboard in Resources */,
 				00F38B821E7FED7300F49C23 /* GoogleService-Info.plist in Resources */,
-				00BE50E21E5EF736004BAF19 /* Assets.xcassets in Resources */,
-				00BE50E01E5EF736004BAF19 /* Main.storyboard in Resources */,
+				229D3D961FB4E3E800196760 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -553,6 +556,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				229D3D981FB4E83700196760 /* DCTextField.swift in Sources */,
 				00BE50DD1E5EF736004BAF19 /* LogViewController.swift in Sources */,
 				008920AD1EB2836B00E9EC6A /* Channel.swift in Sources */,
 				00B694941EB4EDD9003CC993 /* BSUIRXMLParser.swift in Sources */,
@@ -606,14 +610,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		00BE50DE1E5EF736004BAF19 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				00BE50DF1E5EF736004BAF19 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		00BE50E31E5EF736004BAF19 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -727,6 +723,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Kulik.DailyChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -741,6 +738,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Kulik.DailyChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
