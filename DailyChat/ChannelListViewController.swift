@@ -13,15 +13,17 @@ import SWXMLHash
 class ChannelListViewController: UITableViewController {
     
     // MARK: Properties
-    var senderDisplayName = "Gleb"
-    var senderGroupNumber = "453503"
+    var senderDisplayName : String?
+    var senderGroupNumber : String?
     
     private var channelRefHandle: DatabaseHandle?
+    private var profileHandle: DatabaseHandle?
     private var channels: [Channel] = []
     private var channelNames: [String] = []
     static let studentGroupsURL = URL(string: "https://www.bsuir.by/schedule/rest/studentGroup")!
     static let scheduleURL = URL(string: "https://www.bsuir.by/schedule/rest/schedule")!
     private lazy var channelRef: DatabaseReference = Database.database().reference().child("channels")
+    var profileRef: DatabaseReference = Database.database().reference().child("settings").child("profile")
     
     var groupsToID = [String:String]()
     var subjectsNames = Set<String>()
@@ -34,21 +36,29 @@ class ChannelListViewController: UITableViewController {
         observeChannels()
         
         super.viewDidLoad()
-        
+
         title = "Channels"
     }
     
     // MARK: Firebase related methods
     
     private func observeChannels() {
-        // We can use the observe method to listen for new
-        // channels being written to the Firebase DB
+        let userID = AuthProvider.Instance.userID()
+        profileHandle = profileRef.child(userID).observe(DataEventType.value, with: { (snapshot) in
+            let data = snapshot.value as? [String : AnyObject] ?? [:]
+            self.senderGroupNumber = data["groupID"] as? String
+            self.senderDisplayName = data["name"] as? String
+        })
         channelRefHandle = channelRef.observe(.childAdded, with: { (snapshot) -> Void in
             let channelData = snapshot.value as! Dictionary<String, AnyObject>
             let id = snapshot.key
-            if let name = channelData["name"] as! String!, name.characters.count > 0 {
-                self.channels.append(Channel(id: id, name: name, group: self.senderGroupNumber))
-                self.tableView.reloadData()
+            let name = channelData["name"] as! String!
+            var group = channelData["group"] as! String!
+            if (name?.characters.count)! > 0 && (group?.characters.count)! > 0{
+                if group == self.senderGroupNumber {
+                    self.channels.append(Channel(id: id, name: name!, group: group!))
+                    self.tableView.reloadData()
+                }
             } else {
                 print("Error! Could not decode channel data")
             }
@@ -63,7 +73,7 @@ class ChannelListViewController: UITableViewController {
         if let channel = sender as? Channel {
             let navVc = segue.destination as! UINavigationController
             let chatVc = navVc.viewControllers.first as! ChannelViewController
-            
+
             chatVc.senderDisplayName = senderDisplayName
             chatVc.channel = channel
             chatVc.channelRef = channelRef.child(channel.id)

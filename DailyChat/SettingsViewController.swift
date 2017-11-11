@@ -19,6 +19,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     var senderDisplayName: String?
     var groupsToID = [String:String]()
     var senderGroupNumber: String?
+    var senderLastName: String?
     var subjectsNames = Set<String>()
     let downloadCanceledNotification = Notification.Name(rawValue: "downloadCanceled")
     private var channels: [Channel] = []
@@ -32,15 +33,19 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     var subjectS = [SubjectS]()
     
     @IBOutlet weak var groupTextField: UITextField!
+    @IBOutlet weak var lastName: UITextField!
     @IBOutlet weak var nameTextField: UITextField!
     
     @IBAction func continueButton(_ sender: Any) {
+        senderDisplayName = nameTextField.text
+        senderLastName = lastName.text
         senderGroupNumber = groupTextField.text
-        if groupTextField.text != nil {
+        if senderGroupNumber != nil {
             let userID = AuthProvider.Instance.userID()
             let newSettingsRef = settingsRef.child("profile").child(userID)
             let settingsItem = [
                 "name": nameTextField.text,
+                "lastName": lastName.text,
                 "groupID": groupTextField.text
             ]
             newSettingsRef.setValue(settingsItem)
@@ -138,9 +143,11 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
             let channelData = snapshot.value as! Dictionary<String, AnyObject>
             let id = snapshot.key
             let name = channelData["name"] as! String!
-            let group = channelData["group"] as! String!
+            var group = channelData["group"] as! String!
             if (name?.characters.count)! > 0 && (group?.characters.count)! > 0{
-                self.channels.append(Channel(id: id, name: name!, group: group!))
+                if group == self.groupTextField.text {
+                    self.channels.append(Channel(id: id, name: name!, group: group!))
+                }
             } else {
                 print("Error! Could not decode channel data")
             }
@@ -163,6 +170,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         self.nameTextField.delegate = self
+        self.lastName.delegate = self
         self.groupTextField.delegate = self
         // Do any additional setup after loading the view.
     }
