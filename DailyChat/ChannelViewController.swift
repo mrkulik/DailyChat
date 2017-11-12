@@ -250,6 +250,9 @@ final class ChannelViewController: JSQMessagesViewController {
         isTyping = textView.text != ""
     }
     
+    override func didPressAccessoryButton(_ sender: UIButton!) {
+        print("Handle Me please!")
+    }
 
 
 }
