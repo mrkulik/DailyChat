@@ -143,7 +143,7 @@ class SubjectsViewController: UIViewController, UITableViewDelegate, UITableView
     }
     // MARK: - Table view delegate
     
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+    /*func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let deleteAction = UITableViewRowAction(style: .default, title: "Delete") { (deleteAction, indexPath) -> Void in
             
             //Deletion will go here
@@ -164,8 +164,8 @@ class SubjectsViewController: UIViewController, UITableViewDelegate, UITableView
             self.displayAlertToAddSubject(listToBeUpdated)
             
         }
-        return [deleteAction, editAction]
-    }
+        //return [deleteAction, editAction]
+    }*/
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
