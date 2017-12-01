@@ -44,7 +44,9 @@ class LabsViewController: UIViewController, UITableViewDelegate, UITableViewData
     var completedLabs : Results<Lab>!
     var currentCreateAction:UIAlertAction!
     var subjectsRef: DatabaseReference = Database.database().reference().child("subjects")
-    
+    var questonRef: DatabaseReference = Database.database().reference().child("questions")
+    var profileRef: DatabaseReference = Database.database().reference().child("settings").child("profile")
+    private var profileHandle: DatabaseHandle?
     var isEditingMode = false
     
     @IBOutlet weak var labsTableView: UITableView!
@@ -243,7 +245,25 @@ class LabsViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
             
         }
-        return [deleteAction, editAction, doneAction]
+        
+        let questionAction = UITableViewRowAction(style: UITableViewRowActionStyle.normal, title: "\u{2754}") { (questionAction, indexPath) -> Void in
+            
+            var senderGroupNumber : String?
+            let userID = AuthProvider.Instance.userID()
+            self.profileHandle = self.profileRef.child(userID).observe(DataEventType.value, with: { (snapshot) in
+                let data = snapshot.value as? [String : AnyObject] ?? [:]
+                senderGroupNumber = data["groupID"] as? String
+            })
+            let newQuestionRef = self.questonRef.childByAutoId()
+            let questionItem = [
+                "subject name": self.selectedSubject.name,
+                "user": userID,
+                "solved": false,
+                "lab name": self.todoLabs[indexPath.row].name,
+                ] as [String : Any]
+            newQuestionRef.setValue(questionItem)
+        }
+        return [deleteAction, editAction, doneAction, questionAction]
     }
     
 }
