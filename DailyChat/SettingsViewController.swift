@@ -90,6 +90,18 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     func cancelDownload() {
         DispatchQueue.main.sync {
             
+            let group_conf = senderGroupNumber
+            if channels.contains( where: {$0.name == group_conf && $0.group == groupTextField.text} ) {
+                print("Already exist")
+            } else {
+                let newChannelRef = channelRef.childByAutoId()
+                let channelItem = [
+                    "name": group_conf,
+                    "group": senderGroupNumber
+                ]
+                newChannelRef.setValue(channelItem)
+            }
+            
             for name in subjectsNames {
                 if channels.contains( where: {$0.name == name && $0.group == groupTextField.text} ) {
                     continue
