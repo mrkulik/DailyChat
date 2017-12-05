@@ -51,8 +51,9 @@ class QuestionsViewController: UITableViewController {
             let get_solved = questionData["solved"] as! Bool!
             let get_lab_name = questionData["lab_name"] as! String!
             let get_group = questionData["group"] as! String!
+            let question_name = get_subj_name! + " -> " + get_lab_name!
             if get_group == self.senderGroupNumber {
-                self.questions.append(Channel(id: id, name: get_lab_name!, group: get_group!))
+                self.questions.append(Channel(id: id, name: question_name, group: get_group!))
                 self.tableView.reloadData()
             }
             else {
