@@ -63,7 +63,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
             
             startDownload()
             
-            performSegue(withIdentifier: Const.SET_TO_TAB, sender: nil)
+            self.dismiss(animated: true, completion: nil)
         }
     }
     

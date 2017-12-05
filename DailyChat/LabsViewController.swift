@@ -35,8 +35,6 @@ fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
     }
 }
 
-
-
 class LabsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var selectedSubject : Subject!
@@ -44,7 +42,7 @@ class LabsViewController: UIViewController, UITableViewDelegate, UITableViewData
     var completedLabs : Results<Lab>!
     var currentCreateAction:UIAlertAction!
     var subjectsRef: DatabaseReference = Database.database().reference().child("subjects")
-    var questonRef: DatabaseReference = Database.database().reference().child("questions")
+    var questionRef: DatabaseReference = Database.database().reference().child("questions")
     var profileRef: DatabaseReference = Database.database().reference().child("settings").child("profile")
     private var profileHandle: DatabaseHandle?
     var isEditingMode = false
@@ -80,6 +78,7 @@ class LabsViewController: UIViewController, UITableViewDelegate, UITableViewData
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         if section == 0{
             return todoLabs.count
@@ -107,7 +106,6 @@ class LabsViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell?.textLabel?.text = task.name
         return cell!
     }
-    
     
     func displayAlertToAddLab(_ updatedLab:Lab!){
         
@@ -187,7 +185,6 @@ class LabsViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.currentCreateAction.isEnabled = textField.text?.characters.count > 0
     }
     
-    
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         
         let deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.normal, title: "\u{1F5D1}") { (deleteAction, indexPath) -> Void in
@@ -254,14 +251,13 @@ class LabsViewController: UIViewController, UITableViewDelegate, UITableViewData
                 let data = snapshot.value as? [String : AnyObject] ?? [:]
                 senderGroupNumber = data["groupID"] as? String
             })
-            let newQuestionRef = self.questonRef.childByAutoId()
             let questionItem = [
-                "subject name": self.selectedSubject.name,
+                "subject_name": self.selectedSubject.name,
                 "user": userID,
                 "solved": false,
-                "lab name": self.todoLabs[indexPath.row].name,
+                "lab_name": self.todoLabs[indexPath.row].name,
                 ] as [String : Any]
-            newQuestionRef.setValue(questionItem)
+            self.questionRef.setValue(questionItem)
         }
         return [deleteAction, editAction, doneAction, questionAction]
     }

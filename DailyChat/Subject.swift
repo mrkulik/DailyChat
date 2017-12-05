@@ -11,14 +11,9 @@ import RealmSwift
 
 class Subject: Object {
     
+    //for test Realm only
     dynamic var name = ""
     dynamic var notes = ""
     let labs = List<Lab>()
-    
-    // Specify properties to ignore (Realm won't persist these)
-    
-    //  override static func ignoredProperties() -> [String] {
-    //    return []
-    //  }
     
 }
