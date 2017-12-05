@@ -14,7 +14,7 @@ class QuestionsViewController: UITableViewController {
     // MARK: Properties
     var senderDisplayName : String?
     var senderGroupNumber : String?
-    
+    var userID: String?
     private var questionRefHandle: DatabaseHandle?
     private var profileHandle: DatabaseHandle?
     private var questions: [Channel] = []
@@ -31,6 +31,12 @@ class QuestionsViewController: UITableViewController {
     // MARK: View Lifecycle
     
     override func viewDidLoad() {
+        self.userID = AuthProvider.Instance.userID()
+        profileHandle = profileRef.child(userID!).observe(DataEventType.value, with: { (snapshot) in
+            let data = snapshot.value as? [String : AnyObject] ?? [:]
+            self.senderGroupNumber = data["groupID"] as? String
+            self.senderDisplayName = data["name"] as? String
+        })
         
         observeChannels()
         
@@ -42,29 +48,21 @@ class QuestionsViewController: UITableViewController {
     // MARK: Firebase related methods
     
     private func observeChannels() {
-        let userID = AuthProvider.Instance.userID()
-        profileHandle = profileRef.child(userID).observe(DataEventType.value, with: { (snapshot) in
-            let data = snapshot.value as? [String : AnyObject] ?? [:]
-            self.senderGroupNumber = data["groupID"] as? String
-            self.senderDisplayName = data["name"] as? String
-        })
-        questionRefHandle = questionRef.observe(DataEventType.value, with: { (snapshot) in
+        questionRefHandle = questionRef.observe(.childAdded, with: { (snapshot) -> Void in
             let questionData = snapshot.value as! Dictionary<String, AnyObject>
             let id = snapshot.key
             let get_subj_name = questionData["subject_name"] as! String!
             let get_user = questionData["user"] as! String!
             let get_solved = questionData["solved"] as! Bool!
             let get_lab_name = questionData["lab_name"] as! String!
-            var group = "453503"
-            if (group.characters.count) > 0 {
-                if group == self.senderGroupNumber {
-                    self.questions.append(Channel(id: id, name: get_lab_name!, group: group))
-                    self.tableView.reloadData()
-                }
-            else {
-                print("Error! Could not decode channel data")
+            let get_group = questionData["group"] as! String!
+            if get_group == self.senderGroupNumber {
+                self.questions.append(Channel(id: id, name: get_lab_name!, group: get_group!))
+                self.tableView.reloadData()
             }
-        }
+            else {
+                print("Incorrect group!")
+            }
         })
     }
     

@@ -37,6 +37,11 @@ fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
 
 class LabsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    var senderDisplayName : String?
+    var senderGroupNumber : String?
+    
+    var userID: String?
+    
     var selectedSubject : Subject!
     var todoLabs : Results<Lab>!
     var completedLabs : Results<Lab>!
@@ -49,6 +54,12 @@ class LabsViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBOutlet weak var labsTableView: UITableView!
     override func viewDidLoad() {
+        self.userID = AuthProvider.Instance.userID()
+        self.profileHandle = self.profileRef.child(userID!).observe(DataEventType.value, with: { (snapshot) in
+            let data = snapshot.value as? [String : AnyObject] ?? [:]
+            self.senderGroupNumber = data["groupID"] as? String
+            self.senderDisplayName = data["name"] as? String
+        })
         let backButton: UIBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(back))
         self.navigationItem.leftBarButtonItem = backButton;
         
@@ -244,20 +255,15 @@ class LabsViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         
         let questionAction = UITableViewRowAction(style: UITableViewRowActionStyle.normal, title: "\u{2754}") { (questionAction, indexPath) -> Void in
-            
-            var senderGroupNumber : String?
-            let userID = AuthProvider.Instance.userID()
-            self.profileHandle = self.profileRef.child(userID).observe(DataEventType.value, with: { (snapshot) in
-                let data = snapshot.value as? [String : AnyObject] ?? [:]
-                senderGroupNumber = data["groupID"] as? String
-            })
+            let newQuestionRef = self.questionRef.childByAutoId()
             let questionItem = [
                 "subject_name": self.selectedSubject.name,
-                "user": userID,
+                "user": self.userID!,
                 "solved": false,
                 "lab_name": self.todoLabs[indexPath.row].name,
+                "group": self.senderGroupNumber!,
                 ] as [String : Any]
-            self.questionRef.setValue(questionItem)
+            newQuestionRef.setValue(questionItem)
         }
         return [deleteAction, editAction, doneAction, questionAction]
     }
