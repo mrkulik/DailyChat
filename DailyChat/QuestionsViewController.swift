@@ -11,7 +11,6 @@ import Firebase
 
 class QuestionsViewController: UITableViewController {
 
-    // MARK: Properties
     var senderDisplayName : String?
     var senderGroupNumber : String?
     var userID: String?
@@ -28,8 +27,6 @@ class QuestionsViewController: UITableViewController {
     var subjectsNames = Set<String>()
     let downloadCanceledNotification = Notification.Name(rawValue: "downloadCanceled")
     
-    // MARK: View Lifecycle
-    
     override func viewDidLoad() {
         self.userID = AuthProvider.Instance.userID()
         profileHandle = profileRef.child(userID!).observe(DataEventType.value, with: { (snapshot) in
@@ -44,8 +41,6 @@ class QuestionsViewController: UITableViewController {
         
         title = "Questions"
     }
-    
-    // MARK: Firebase related methods
     
     private func observeChannels() {
         questionRefHandle = questionRef.observe(.childAdded, with: { (snapshot) -> Void in
@@ -66,9 +61,6 @@ class QuestionsViewController: UITableViewController {
         })
     }
     
-    
-    // MARK: Navigation
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         
@@ -81,8 +73,6 @@ class QuestionsViewController: UITableViewController {
             chatVc.questionRef = questionRef.child(channel.id)
         }
     }
-    
-    // MARK: UITableViewDataSource
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -99,8 +89,6 @@ class QuestionsViewController: UITableViewController {
         
         return cell
     }
-    
-    // MARK: UITableViewDelegate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let channel = questions[(indexPath as NSIndexPath).row]

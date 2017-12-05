@@ -44,14 +44,11 @@ class SubjectsViewController: UIViewController, UITableViewDelegate, UITableView
         self.subjectsTableView.reloadData()
     }
     
-    // MARK: - User Actions -
-    
     @IBAction func didClickOnAddButton(_ sender: UIBarButtonItem) {
         
         displayAlertToAddSubject(nil)
     }
     
-    //Enable the create action of the alert only if textfield text is not empty
     func subjectNameFieldDidChange(_ textField:UITextField){
         self.currentCreateAction.isEnabled = (textField.text?.characters.count)! > 0
     }
@@ -71,7 +68,6 @@ class SubjectsViewController: UIViewController, UITableViewDelegate, UITableView
             let subjectName = alertController.textFields![0].text
             let subjectNote = alertController.textFields![1].text
             if updatedSubject != nil{
-                // update mode
                 try! dlRealm.write {
                     updatedSubject.name = subjectName!
                     updatedSubject.notes = subjectNote!
@@ -120,8 +116,6 @@ class SubjectsViewController: UIViewController, UITableViewDelegate, UITableView
         self.present(alertController, animated: true, completion: nil)
     }
     
-    // MARK: - UITableViewDataSource -
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         if let listsTasks = subjects {
@@ -141,8 +135,7 @@ class SubjectsViewController: UIViewController, UITableViewDelegate, UITableView
         cell?.detailTextLabel?.text = "\(list.labs.count) Labs"
         return cell!
     }
-    // MARK: - Table view delegate
-    
+
     /*func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let deleteAction = UITableViewRowAction(style: .default, title: "Delete") { (deleteAction, indexPath) -> Void in
             
@@ -171,8 +164,6 @@ class SubjectsViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.performSegue(withIdentifier: "openLabs", sender: self.subjects[indexPath.row])
     }
-    
-    // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let navVc = segue.destination as! UINavigationController

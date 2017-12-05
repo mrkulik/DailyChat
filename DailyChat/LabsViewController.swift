@@ -11,8 +11,6 @@ import RealmSwift
 import Firebase
 import FirebaseStorage
 
-// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
-// Consider refactoring the code to use the non-optional operators.
 fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
     switch (lhs, rhs) {
     case let (l?, r?):
@@ -24,8 +22,6 @@ fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
     }
 }
 
-// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
-// Consider refactoring the code to use the non-optional operators.
 fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
     switch (lhs, rhs) {
     case let (l?, r?):
@@ -71,7 +67,6 @@ class LabsViewController: UIViewController, UITableViewDelegate, UITableViewData
     func back() {
         self.dismiss(animated: true, completion: nil)
     }
-    // MARK: - User Actions -
     
     @IBAction func didClickOnAddLab(_ sender: UIBarButtonItem) {
         self.displayAlertToAddLab(nil)
@@ -84,8 +79,7 @@ class LabsViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         self.labsTableView.reloadData()
     }
-    
-    // MARK: - UITableViewDataSource
+
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
@@ -136,7 +130,6 @@ class LabsViewController: UIViewController, UITableViewDelegate, UITableViewData
             let labNotes = alertController.textFields?[1].text
             
             if updatedLab != nil{
-                // update mode
                 try! dlRealm.write{
                     updatedLab.name = labName!
                     updatedLab.notes = labNotes!
@@ -190,8 +183,7 @@ class LabsViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         self.present(alertController, animated: true, completion: nil)
     }
-    
-    //Enable the create action of the alert only if textfield text is not empty
+
     func labNameFieldDidChange(_ textField:UITextField){
         self.currentCreateAction.isEnabled = textField.text?.characters.count > 0
     }
@@ -199,8 +191,6 @@ class LabsViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         
         let deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.normal, title: "\u{1F5D1}") { (deleteAction, indexPath) -> Void in
-            
-            //Deletion will go here
             
             var labToBeDeleted: Lab!
             if indexPath.section == 0{
@@ -218,7 +208,6 @@ class LabsViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         let editAction = UITableViewRowAction(style: UITableViewRowActionStyle.normal, title: "\u{2026}") { (editAction, indexPath) -> Void in
             
-            // Editing will go here
             self.isEditingMode = !self.isEditingMode
             self.labsTableView.setEditing(self.isEditingMode, animated: true)
             var labToBeUpdated: Lab!
@@ -235,7 +224,6 @@ class LabsViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         let doneAction = UITableViewRowAction(style: UITableViewRowActionStyle.normal, title: "\u{2713}") { (doneAction, indexPath) -> Void in
             
-            // Editing will go here
             var labToBeUpdated: Lab!
             if indexPath.section == 0{
                 labToBeUpdated = self.todoLabs[indexPath.row]

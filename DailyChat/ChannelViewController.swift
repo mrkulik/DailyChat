@@ -13,9 +13,6 @@ import JSQMessagesViewController
 
 final class ChannelViewController: JSQMessagesViewController {
 
-    
-    // MARK: Properties
-    
     var channelRef: DatabaseReference?
     
     private lazy var messageRef: DatabaseReference = self.channelRef!.child("messages")
@@ -48,8 +45,6 @@ final class ChannelViewController: JSQMessagesViewController {
     
     lazy var outgoingBubbleImageView: JSQMessagesBubbleImage = self.setupOutgoingBubble()
     lazy var incomingBubbleImageView: JSQMessagesBubbleImage = self.setupIncomingBubble()
-    
-    // MARK: View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -98,8 +93,6 @@ final class ChannelViewController: JSQMessagesViewController {
             messageRef.removeObserver(withHandle: refHandle)
         }
     }
-    
-    // MARK: Collection view data source (and related) methods
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageDataForItemAt indexPath: IndexPath!) -> JSQMessageData! {
         return messages[indexPath.item]
@@ -154,13 +147,10 @@ final class ChannelViewController: JSQMessagesViewController {
         }
     }
     
-    // MARK: Firebase related methods
-    
     private func observeMessages() {
         messageRef = channelRef!.child("messages")
         let messageQuery = messageRef.queryLimited(toLast:25)
-        
-        // messages to the Firebase DB
+
         newMessageRefHandle = messageQuery.observe(.childAdded, with: { (snapshot) -> Void in
             let messageData = snapshot.value as! Dictionary<String, String>
             
@@ -181,13 +171,11 @@ final class ChannelViewController: JSQMessagesViewController {
         usersTypingQuery = typingIndicatorRef.queryOrderedByValue().queryEqual(toValue: true)
         
         usersTypingQuery.observe(.value) { (data: DataSnapshot) in
-            
-            // You're the only typing, don't show the indicator
+
             if data.childrenCount == 1 && self.isTyping {
                 return
             }
-            
-            // Are there others typing?
+
             self.showTypingIndicator = data.childrenCount > 0
             self.scrollToBottom(animated: true)
         }
@@ -223,9 +211,7 @@ final class ChannelViewController: JSQMessagesViewController {
         finishSendingMessage()
         return itemRef.key
     }
-    
-    // MARK: UI and User Interaction
-    
+
     private func setupOutgoingBubble() -> JSQMessagesBubbleImage {
         let bubbleImageFactory = JSQMessagesBubbleImageFactory()
         return bubbleImageFactory!.outgoingMessagesBubbleImage(with: UIColor.jsq_messageBubbleBlue())
@@ -241,12 +227,9 @@ final class ChannelViewController: JSQMessagesViewController {
             messages.append(message)      
         }
     }
-    
-    // MARK: UITextViewDelegate methods
-    
+
     override func textViewDidChange(_ textView: UITextView) {
         super.textViewDidChange(textView)
-        // If the text is not empty, the user is typing
         isTyping = textView.text != ""
     }
     

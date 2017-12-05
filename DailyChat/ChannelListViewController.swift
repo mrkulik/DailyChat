@@ -12,7 +12,6 @@ import SWXMLHash
 
 class ChannelListViewController: UITableViewController {
     
-    // MARK: Properties
     var senderDisplayName : String?
     var senderGroupNumber : String?
     
@@ -29,8 +28,6 @@ class ChannelListViewController: UITableViewController {
     var subjectsNames = Set<String>()
     let downloadCanceledNotification = Notification.Name(rawValue: "downloadCanceled")
     
-    // MARK: View Lifecycle
-    
     override func viewDidLoad() {
 
         observeChannels()
@@ -39,9 +36,7 @@ class ChannelListViewController: UITableViewController {
 
         title = "Channels"
     }
-    
-    // MARK: Firebase related methods
-    
+
     private func observeChannels() {
         let userID = AuthProvider.Instance.userID()
         profileHandle = profileRef.child(userID).observe(DataEventType.value, with: { (snapshot) in
@@ -64,9 +59,7 @@ class ChannelListViewController: UITableViewController {
             }
         })
     }
-    
-    // MARK: Navigation
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
 
@@ -79,8 +72,6 @@ class ChannelListViewController: UITableViewController {
             chatVc.channelRef = channelRef.child(channel.id)
         }
     }
-    
-    // MARK: UITableViewDataSource
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -97,9 +88,7 @@ class ChannelListViewController: UITableViewController {
         
         return cell
     }
-    
-    // MARK: UITableViewDelegate
-    
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let channel = channels[(indexPath as NSIndexPath).row]
         self.performSegue(withIdentifier: "ShowChannel", sender: channel)
