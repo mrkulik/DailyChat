@@ -66,6 +66,9 @@ class Const {
     static let SET_SEGUE = "settingsSegue"
     static let SET_TO_TAB = "setToTab"
     
+    //SettingsVC
+    static let GROUP_API_URL = "https://students.bsuir.by/api/v1/studentGroup/schedule?studentGroup="
+    
     struct Colors {
         static let cyan = UIColor(red: 30 / 255.0,
                                   green: 180 / 255.0,

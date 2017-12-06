@@ -18,13 +18,6 @@ class LogViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let url = URL(string: "https://students.bsuir.by/api/v1/studentGroup/schedule?studentGroup=453503")!
-        XMLFetcher.fetch(from: url) { xml in
-            let subjects = BSUIRXMLParser.parseSubjects(xml)
-            for sub in subjects {
-                print(sub)
-            }
-        }
         self.emailTextField.delegate = self
         self.passwordTextField.delegate = self
     }

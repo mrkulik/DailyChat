@@ -24,7 +24,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     let downloadCanceledNotification = Notification.Name(rawValue: "downloadCanceled")
     private var channels: [Channel] = []
     private var channelNames: [String] = []
-    static var studentGroupsURL =  "https://students.bsuir.by/api/v1/studentGroup/schedule?studentGroup="
+    static var studentGroupsURL =  Const.GROUP_API_URL
     static let scheduleURL = URL(string: "https://www.bsuir.by/schedule/rest/schedule")!
     var channelRef: DatabaseReference = Database.database().reference().child("channels")
     var settingsRef: DatabaseReference = Database.database().reference().child("settings")
@@ -104,6 +104,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
             
             for name in subjectsNames {
                 if channels.contains( where: {$0.name == name && $0.group == groupTextField.text} ) {
+                    print("Already exist")
                     continue
                 } else {
                     let newChannelRef = channelRef.childByAutoId()
@@ -119,6 +120,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
                 let userID = AuthProvider.Instance.userID()
                 let newSubjectsRef = subjectsRef.child(userID).child(name)
                 if subjectS.contains( where: {$0.name == name} ) {
+                    print("Already exist")
                     continue
                 } else {
                     let subjectItem = [
@@ -161,7 +163,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
                     self.channels.append(Channel(id: id, name: name!, group: group!))
                 }
             } else {
-                print("Error! Could not decode channel data")
+                print("Could not decode channel data")
             }
         })
         

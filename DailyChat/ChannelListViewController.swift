@@ -19,8 +19,6 @@ class ChannelListViewController: UITableViewController {
     private var profileHandle: DatabaseHandle?
     private var channels: [Channel] = []
     private var channelNames: [String] = []
-    static let studentGroupsURL = URL(string: "https://www.bsuir.by/schedule/rest/studentGroup")!
-    static let scheduleURL = URL(string: "https://www.bsuir.by/schedule/rest/schedule")!
     private lazy var channelRef: DatabaseReference = Database.database().reference().child("channels")
     var profileRef: DatabaseReference = Database.database().reference().child("settings").child("profile")
     
@@ -55,7 +53,7 @@ class ChannelListViewController: UITableViewController {
                     self.tableView.reloadData()
                 }
             } else {
-                print("Error! Could not decode channel data")
+                print("Could not decode channel data")
             }
         })
     }

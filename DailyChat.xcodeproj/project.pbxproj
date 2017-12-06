@@ -129,10 +129,10 @@
 			isa = PBXGroup;
 			children = (
 				008920AC1EB2836B00E9EC6A /* Channel.swift */,
-				00DC85D41EF1283F00F9F010 /* Subject.swift */,
-				00DC85D61EF1284A00F9F010 /* Lab.swift */,
 				00DD8A291F3DD3D900B872FE /* SubjectS.swift */,
 				00DD8A2B1F3DD53300B872FE /* LabS.swift */,
+				00DC85D41EF1283F00F9F010 /* Subject.swift */,
+				00DC85D61EF1284A00F9F010 /* Lab.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
