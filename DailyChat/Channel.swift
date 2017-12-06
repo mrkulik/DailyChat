@@ -10,9 +10,9 @@ import Foundation
 
 class Channel {
     
-    var _name = ""
-    var _id = ""
-    var _group = ""
+    private var _name = ""
+    private var _id = ""
+    private var _group = ""
     
     init(id: String, name: String, group: String) {
         _id = id
