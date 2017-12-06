@@ -17,7 +17,7 @@
                BlueprintIdentifier = "00BE50D61E5EF736004BAF19"
                BuildableName = "DailyChat.app"
                BlueprintName = "DailyChat"
-               ReferencedContainer = "container:DailyChat.xcodeproj">
+               ReferencedContainer = "container:DailyLabs.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -26,6 +26,7 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      language = ""
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
@@ -35,7 +36,7 @@
                BlueprintIdentifier = "00BE50EA1E5EF736004BAF19"
                BuildableName = "DailyChatTests.xctest"
                BlueprintName = "DailyChatTests"
-               ReferencedContainer = "container:DailyChat.xcodeproj">
+               ReferencedContainer = "container:DailyLabs.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -45,7 +46,7 @@
                BlueprintIdentifier = "00BE50F51E5EF736004BAF19"
                BuildableName = "DailyChatUITests.xctest"
                BlueprintName = "DailyChatUITests"
-               ReferencedContainer = "container:DailyChat.xcodeproj">
+               ReferencedContainer = "container:DailyLabs.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,7 +56,7 @@
             BlueprintIdentifier = "00BE50D61E5EF736004BAF19"
             BuildableName = "DailyChat.app"
             BlueprintName = "DailyChat"
-            ReferencedContainer = "container:DailyChat.xcodeproj">
+            ReferencedContainer = "container:DailyLabs.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -65,6 +66,7 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      language = ""
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
@@ -78,7 +80,7 @@
             BlueprintIdentifier = "00BE50D61E5EF736004BAF19"
             BuildableName = "DailyChat.app"
             BlueprintName = "DailyChat"
-            ReferencedContainer = "container:DailyChat.xcodeproj">
+            ReferencedContainer = "container:DailyLabs.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -97,7 +99,7 @@
             BlueprintIdentifier = "00BE50D61E5EF736004BAF19"
             BuildableName = "DailyChat.app"
             BlueprintName = "DailyChat"
-            ReferencedContainer = "container:DailyChat.xcodeproj">
+            ReferencedContainer = "container:DailyLabs.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

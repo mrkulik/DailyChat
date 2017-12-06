@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:DailyChat.xcodeproj">
+      location = "group:/Users/kulik/Documents/University/DailyLabs/DailyLabs.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">

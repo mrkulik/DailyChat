@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0064C5CC1EB5418A00502412 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0064C5CB1EB5418A00502412 /* SettingsViewController.swift */; };
+		006759BD1FD893BF00F5D4FA /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006759BC1FD893BE00F5D4FA /* ProfileViewController.swift */; };
 		008920AB1EB2826500E9EC6A /* ChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008920AA1EB2826500E9EC6A /* ChannelViewController.swift */; };
 		008920AD1EB2836B00E9EC6A /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008920AC1EB2836B00E9EC6A /* Channel.swift */; };
 		00B694921EB4ED96003CC993 /* BSUIRFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B694911EB4ED96003CC993 /* BSUIRFetcher.swift */; };
@@ -56,6 +57,7 @@
 
 /* Begin PBXFileReference section */
 		0064C5CB1EB5418A00502412 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		006759BC1FD893BE00F5D4FA /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		008920AA1EB2826500E9EC6A /* ChannelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelViewController.swift; sourceTree = "<group>"; };
 		008920AC1EB2836B00E9EC6A /* Channel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
 		00B694911EB4ED96003CC993 /* BSUIRFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSUIRFetcher.swift; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 			children = (
 				00BE50DC1E5EF736004BAF19 /* LogViewController.swift */,
 				0064C5CB1EB5418A00502412 /* SettingsViewController.swift */,
+				006759BC1FD893BE00F5D4FA /* ProfileViewController.swift */,
 				00D2B54B1E83FF1500FD8F2B /* ChannelListViewController.swift */,
 				008920AA1EB2826500E9EC6A /* ChannelViewController.swift */,
 				00DC85D21EF1281300F9F010 /* SubjectsViewController.swift */,
@@ -337,7 +340,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 00BE50D21E5EF736004BAF19 /* Build configuration list for PBXProject "DailyChat" */;
+			buildConfigurationList = 00BE50D21E5EF736004BAF19 /* Build configuration list for PBXProject "DailyLabs" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -558,6 +561,7 @@
 			files = (
 				229D3D981FB4E83700196760 /* DCTextField.swift in Sources */,
 				00BE50DD1E5EF736004BAF19 /* LogViewController.swift in Sources */,
+				006759BD1FD893BF00F5D4FA /* ProfileViewController.swift in Sources */,
 				008920AD1EB2836B00E9EC6A /* Channel.swift in Sources */,
 				00B694941EB4EDD9003CC993 /* BSUIRXMLParser.swift in Sources */,
 				00DC85D71EF1284A00F9F010 /* Lab.swift in Sources */,
@@ -809,7 +813,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00BE50D21E5EF736004BAF19 /* Build configuration list for PBXProject "DailyChat" */ = {
+		00BE50D21E5EF736004BAF19 /* Build configuration list for PBXProject "DailyLabs" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00BE50FD1E5EF736004BAF19 /* Debug */,
