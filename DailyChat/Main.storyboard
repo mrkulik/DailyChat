@@ -13,6 +13,7 @@
     <customFonts key="customFonts">
         <array key="AvenirNext.ttc">
             <string>AvenirNext-DemiBold</string>
+            <string>AvenirNext-Regular</string>
         </array>
     </customFonts>
     <scenes>
@@ -82,7 +83,7 @@
                                         <rect key="frame" x="53.5" y="0.0" width="33.5" height="34"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="linkedin" translatesAutoresizingMaskIntoConstraints="NO" id="9sz-yQ-eAA">
-                                        <rect key="frame" x="107" y="0.0" width="33" height="34"/>
+                                        <rect key="frame" x="107" y="0.0" width="33" height="33.5"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="instagram" translatesAutoresizingMaskIntoConstraints="NO" id="CHx-lh-LmX">
                                         <rect key="frame" x="160" y="0.0" width="33.5" height="34"/>
@@ -225,14 +226,174 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="QSK-fp-0dS" kind="relationship" relationship="rootViewController" id="QKR-Hw-fC6"/>
+                        <segue destination="X1h-9I-hp6" kind="relationship" relationship="rootViewController" id="aZ6-gL-dUZ"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GCr-UF-jNc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="679" y="1020"/>
+            <point key="canvasLocation" x="463" y="1119"/>
         </scene>
         <!--Settings-->
+        <scene sceneID="zFz-Q2-1hc">
+            <objects>
+                <tableViewController id="X1h-9I-hp6" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="TqL-f7-VWN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection headerTitle="PROFILE" id="VXg-oM-Ri9">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="97" id="Yng-tn-SKS">
+                                        <rect key="frame" x="0.0" y="55.5" width="375" height="97"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Yng-tn-SKS" id="JDi-zd-obU">
+                                            <rect key="frame" x="0.0" y="0.0" width="341" height="96.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="zWM-Ie-bpb">
+                                                    <rect key="frame" x="103" y="29.5" width="129" height="39"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mikhail Lyapich" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C1m-iW-kyg">
+                                                            <rect key="frame" x="0.0" y="0.0" width="129" height="25"/>
+                                                            <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="18"/>
+                                                            <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Group 453503" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PCe-Hf-pOq">
+                                                            <rect key="frame" x="0.0" y="25" width="67" height="14"/>
+                                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="10"/>
+                                                            <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="zWM-Ie-bpb" firstAttribute="leading" secondItem="JDi-zd-obU" secondAttribute="leading" constant="103" id="VgG-ul-umo"/>
+                                                <constraint firstItem="zWM-Ie-bpb" firstAttribute="centerY" secondItem="JDi-zd-obU" secondAttribute="centerY" id="iQb-t7-6nM"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="QSK-fp-0dS" kind="show" id="nVO-Yi-0ix"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="SETTINGS" id="Zaf-3O-wWJ">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="KTe-PK-0uZ">
+                                        <rect key="frame" x="0.0" y="208.5" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KTe-PK-0uZ" id="2o2-g0-mxt">
+                                            <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="G5m-VJ-ojV">
+                                                    <rect key="frame" x="17" y="2" width="194.5" height="39"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notifications" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mvY-Ph-5ve">
+                                                            <rect key="frame" x="0.0" y="0.0" width="106" height="25"/>
+                                                            <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="18"/>
+                                                            <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change how we can send you information." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SRH-Ab-aHW">
+                                                            <rect key="frame" x="0.0" y="25" width="194.5" height="14"/>
+                                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="10"/>
+                                                            <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="G5m-VJ-ojV" firstAttribute="centerY" secondItem="2o2-g0-mxt" secondAttribute="centerY" id="0fW-Mk-VD0"/>
+                                                <constraint firstItem="G5m-VJ-ojV" firstAttribute="leading" secondItem="2o2-g0-mxt" secondAttribute="leading" constant="17" id="GER-zY-m8Z"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="L9X-jV-4TD">
+                                        <rect key="frame" x="0.0" y="252.5" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="L9X-jV-4TD" id="oL0-55-yNJ">
+                                            <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="0q0-dA-bmd">
+                                                    <rect key="frame" x="17" y="2" width="108" height="39"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apple Watch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d6g-IY-IXc">
+                                                            <rect key="frame" x="0.0" y="0.0" width="107.5" height="25"/>
+                                                            <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="18"/>
+                                                            <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daily labs on your wrist." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9lM-bK-lZH">
+                                                            <rect key="frame" x="0.0" y="25" width="108" height="14"/>
+                                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="10"/>
+                                                            <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="0q0-dA-bmd" firstAttribute="centerY" secondItem="oL0-55-yNJ" secondAttribute="centerY" id="7Ns-IV-td3"/>
+                                                <constraint firstItem="0q0-dA-bmd" firstAttribute="leading" secondItem="oL0-55-yNJ" secondAttribute="leading" constant="17" id="mQb-id-98j"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="SUPPORT" id="991-d7-yPx">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="yRF-1e-4Ak">
+                                        <rect key="frame" x="0.0" y="352.5" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yRF-1e-4Ak" id="O2w-q1-qIs">
+                                            <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Udw-Ts-L5E">
+                                                    <rect key="frame" x="17" y="1.5" width="108" height="39"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apple Watch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Qr-XK-tyP">
+                                                            <rect key="frame" x="0.0" y="0.0" width="107.5" height="25"/>
+                                                            <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="18"/>
+                                                            <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daily labs on your wrist." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L71-TI-8EM">
+                                                            <rect key="frame" x="0.0" y="25" width="108" height="14"/>
+                                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="10"/>
+                                                            <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Udw-Ts-L5E" firstAttribute="leading" secondItem="O2w-q1-qIs" secondAttribute="leading" constant="17" id="VoF-RV-zsi"/>
+                                                <constraint firstItem="Udw-Ts-L5E" firstAttribute="centerY" secondItem="O2w-q1-qIs" secondAttribute="centerY" id="svq-yV-k55"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="X1h-9I-hp6" id="pCu-X9-rHi"/>
+                            <outlet property="delegate" destination="X1h-9I-hp6" id="Po0-wp-zVH"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Settings" id="uFv-yT-po8"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jE4-ds-5PC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1196" y="1118.5907046476761"/>
+        </scene>
+        <!--PROFILE-->
         <scene sceneID="Bfj-RB-uxO">
             <objects>
                 <viewController id="QSK-fp-0dS" customClass="SettingsViewController" customModule="DailyChat" sceneMemberID="viewController">
@@ -250,7 +411,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gJZ-4x-aZN">
-                                <rect key="frame" x="64" y="518" width="247" height="30"/>
+                                <rect key="frame" x="64" y="562" width="247" height="30"/>
                                 <color key="backgroundColor" red="0.1176470588" green="0.70588235290000001" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Save">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -260,7 +421,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="UU8-u5-jIc">
-                                <rect key="frame" x="64" y="128" width="247" height="122"/>
+                                <rect key="frame" x="64" y="172" width="247" height="122"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JZ0-8t-dJE" customClass="DCTextField" customModule="DailyChat" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="247" height="30"/>
@@ -297,7 +458,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VEF-3M-FzQ"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Settings" id="jVV-g9-3D2"/>
+                    <navigationItem key="navigationItem" title="PROFILE" id="jVV-g9-3D2"/>
                     <connections>
                         <outlet property="groupTextField" destination="AHs-fG-1r7" id="NoY-y3-sE9"/>
                         <outlet property="lastName" destination="LgM-cD-COS" id="Bhk-OB-1f3"/>
@@ -642,6 +803,6 @@
         <image name="vk" width="41" height="41"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="DQR-aA-4kI"/>
+        <segue reference="nVO-Yi-0ix"/>
     </inferredMetricsTieBreakers>
 </document>
