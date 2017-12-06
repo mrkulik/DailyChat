@@ -254,6 +254,7 @@ class LabsViewController: UIViewController, UITableViewDelegate, UITableViewData
                 "group": self.senderGroupNumber!,
                 ] as [String : Any]
             newQuestionRef.setValue(questionItem)
+            
         }
         return [deleteAction, editAction, doneAction, questionAction]
     }

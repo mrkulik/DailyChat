@@ -17,6 +17,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     private var channelRefHandle: DatabaseHandle?
     private var subjectsRefHandle: DatabaseHandle?
     var senderDisplayName: String?
+    var userID: String?
     var groupsToID = [String:String]()
     var senderGroupNumber: String?
     var senderLastName: String?
@@ -29,6 +30,8 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     var channelRef: DatabaseReference = Database.database().reference().child("channels")
     var settingsRef: DatabaseReference = Database.database().reference().child("settings")
     var subjectsRef: DatabaseReference = Database.database().reference().child("subjects")
+    var profileRef: DatabaseReference = Database.database().reference().child("settings").child("profile")
+    private var profileHandle: DatabaseHandle?
     var subjects : Results<Subject>!
     var subjectS = [SubjectS]()
     
@@ -181,6 +184,14 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func viewDidLoad() {
+        self.userID = AuthProvider.Instance.userID()
+        profileHandle = profileRef.child(userID!).observe(DataEventType.value, with: { (snapshot) in
+            let data = snapshot.value as? [String : AnyObject] ?? [:]
+            self.groupTextField.text = data["groupID"] as? String
+            self.nameTextField.text = data["name"] as? String
+            self.lastName.text = data["lastName"] as? String
+        })
+        
         super.viewDidLoad()
         
         self.nameTextField.delegate = self
