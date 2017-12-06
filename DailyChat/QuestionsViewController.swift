@@ -18,14 +18,11 @@ class QuestionsViewController: UITableViewController {
     private var profileHandle: DatabaseHandle?
     private var questions: [Channel] = []
     private var questionNames: [String] = []
-    static let studentGroupsURL = URL(string: "https://www.bsuir.by/schedule/rest/studentGroup")!
-    static let scheduleURL = URL(string: "https://www.bsuir.by/schedule/rest/schedule")!
     private lazy var questionRef: DatabaseReference = Database.database().reference().child("questions")
     var profileRef: DatabaseReference = Database.database().reference().child("settings").child("profile")
     
     var groupsToID = [String:String]()
     var subjectsNames = Set<String>()
-    let downloadCanceledNotification = Notification.Name(rawValue: "downloadCanceled")
     
     override func viewDidLoad() {
         self.userID = AuthProvider.Instance.userID()
@@ -35,14 +32,14 @@ class QuestionsViewController: UITableViewController {
             self.senderDisplayName = data["name"] as? String
         })
         
-        observeChannels()
+        observeQuestions()
         
         super.viewDidLoad()
         
         title = "Questions"
     }
     
-    private func observeChannels() {
+    private func observeQuestions() {
         questionRefHandle = questionRef.observe(.childAdded, with: { (snapshot) -> Void in
             let questionData = snapshot.value as! Dictionary<String, AnyObject>
             let id = snapshot.key

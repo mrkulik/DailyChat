@@ -80,6 +80,8 @@ class LabsViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.labsTableView.reloadData()
     }
 
+    //NEED TO WRITE OBSERVER FOR FB(NOW ONLY LOCAL OBSERVER)
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }

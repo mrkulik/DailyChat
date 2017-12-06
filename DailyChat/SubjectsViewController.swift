@@ -44,6 +44,8 @@ class SubjectsViewController: UIViewController, UITableViewDelegate, UITableView
         self.subjectsTableView.reloadData()
     }
     
+    //NEED TO WRITE OBSERVER FOR FB(NOW ONLY LOCAL OBSERVER)
+    
     @IBAction func didClickOnAddButton(_ sender: UIBarButtonItem) {
         
         displayAlertToAddSubject(nil)
@@ -136,6 +138,7 @@ class SubjectsViewController: UIViewController, UITableViewDelegate, UITableView
         return cell!
     }
 
+    //USER PERMISSION TO DELETE AND UPDATE SUBJECTS(DISBANDED)
     /*func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let deleteAction = UITableViewRowAction(style: .default, title: "Delete") { (deleteAction, indexPath) -> Void in
             

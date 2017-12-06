@@ -14,6 +14,7 @@ class ChannelListViewController: UITableViewController {
     
     var senderDisplayName : String?
     var senderGroupNumber : String?
+    var userID : String?
     
     private var channelRefHandle: DatabaseHandle?
     private var profileHandle: DatabaseHandle?
@@ -27,7 +28,13 @@ class ChannelListViewController: UITableViewController {
     let downloadCanceledNotification = Notification.Name(rawValue: "downloadCanceled")
     
     override func viewDidLoad() {
-
+        self.userID = AuthProvider.Instance.userID()
+        profileHandle = profileRef.child(userID!).observe(DataEventType.value, with: { (snapshot) in
+            let data = snapshot.value as? [String : AnyObject] ?? [:]
+            self.senderGroupNumber = data["groupID"] as? String
+            self.senderDisplayName = data["name"] as? String
+        })
+        
         observeChannels()
         
         super.viewDidLoad()
@@ -36,12 +43,6 @@ class ChannelListViewController: UITableViewController {
     }
 
     private func observeChannels() {
-        let userID = AuthProvider.Instance.userID()
-        profileHandle = profileRef.child(userID).observe(DataEventType.value, with: { (snapshot) in
-            let data = snapshot.value as? [String : AnyObject] ?? [:]
-            self.senderGroupNumber = data["groupID"] as? String
-            self.senderDisplayName = data["name"] as? String
-        })
         channelRefHandle = channelRef.observe(.childAdded, with: { (snapshot) -> Void in
             let channelData = snapshot.value as! Dictionary<String, AnyObject>
             let id = snapshot.key
