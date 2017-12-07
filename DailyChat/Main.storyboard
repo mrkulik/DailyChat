@@ -86,7 +86,7 @@
                                         <rect key="frame" x="53.5" y="0.0" width="33.5" height="34"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="linkedin" translatesAutoresizingMaskIntoConstraints="NO" id="9sz-yQ-eAA">
-                                        <rect key="frame" x="107" y="0.0" width="33" height="34"/>
+                                        <rect key="frame" x="107" y="0.0" width="33" height="33.5"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="instagram" translatesAutoresizingMaskIntoConstraints="NO" id="CHx-lh-LmX">
                                         <rect key="frame" x="160" y="0.0" width="33.5" height="34"/>
