@@ -57,7 +57,10 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
                                                    selector: #selector(cancelDownload),
                                                    name: downloadCanceledNotification,
                                                    object: nil)
-            // For Tests only!
+            /*
+                For Tests only!
+             */
+            
             try! dlRealm.write {
                 dlRealm.deleteAll()
             }
@@ -79,6 +82,10 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         }
         NotificationCenter.default.removeObserver(self)
     }
+    
+    /*
+        Fetch and Parse data
+     */
     
     func startDownload() {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "Splash") {

@@ -12,6 +12,10 @@ import FirebaseStorage
 import RealmSwift
 import SWXMLHash
 
+/*
+    Settings data from Profile
+ */
+
 struct Person {
     var lastName: String
     var name: String

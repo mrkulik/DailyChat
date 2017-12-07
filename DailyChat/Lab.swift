@@ -9,9 +9,12 @@
 import Foundation
 import RealmSwift
 
+/*
+ for test Realm only
+ */
+
 class Lab: Object {
     
-    //for test Realm only
     dynamic var name = ""
     dynamic var notes = ""
     dynamic var isCompleted = false

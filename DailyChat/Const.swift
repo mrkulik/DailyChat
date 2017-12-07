@@ -11,7 +11,9 @@ import UIKit
 
 class Const {
     
-    //AuthProvider
+    /*
+        AuthProvider
+     */
     static let INVALID_EMAIL = "Invalid Email.";
     static let WRONG_PASSWORD = "Wrong Password.";
     static let USER_NOT_FOUND = "User not found. Please, Register"
@@ -19,7 +21,9 @@ class Const {
     static let EMAIL_ALREADY_IN_USE = "Invalid Email. This email already in use."
     static let CONNECTING_PROBLEMS = "Problems with connecting."
     
-    //LogViewController
+    /*
+        LogViewController
+     */
     static let CONTACTS_SEGUE = "ContactsSegue"
     static let OK = "OK"
     static let AUTH_ERROR = "Problem with Authentification"
@@ -29,7 +33,9 @@ class Const {
     static let PROBLEM_WITH_CREATE = "Problem with creating a new user"
     static let CREATED = "New user created"
     
-    //DBProvider
+    /*
+        DBProvider
+     */
     static let CONSTACTS = "Contacts"
     static let MESSAGES = "Messages"
     static let MEDIA_MESSAGES = "Media_Messages"
@@ -47,26 +53,36 @@ class Const {
     
     static let STORAGE_URL = "gs://dailychat-448df.appspot.com"
     
-    //ContactsViewController
+    /*
+        ContactsViewController
+     */
     static let GLOBAL_SEGUE = "GlobalSegue"
     static let CELL_ID = "Cell"
     static let CHAT_SEGUE = "ChatSegue"
     
-    //ChatViewController
+    /*
+        ChatViewController
+     */
     static let PROFILE_IMG = "ProfileImg"
     static let MEDIA_SELECT = "Please select a media"
     static let CANCEL = "Cancel"
     
-    //ChannelListVC
+    /*
+        ChannelListVC
+     */
     static let CHANNEL_LIST_SEGUE = "ChannelListSegue"
     static let GROUP_SEGUE = "groupLoginSegue"
     
-    //TabBarVC
+    /*
+        TabBarVC
+     */
     static let TAB_SEGUE = "TabBarSegue"
     static let SET_SEGUE = "settingsSegue"
     static let SET_TO_TAB = "setToTab"
     
-    //SettingsVC
+    /*
+        SettingsVC
+     */
     static let GROUP_API_URL = "https://students.bsuir.by/api/v1/studentGroup/schedule?studentGroup="
     
     struct Colors {
