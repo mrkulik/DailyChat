@@ -12,19 +12,26 @@
 6. Go to [Firebase Console](https://console.firebase.google.com), select your project, choose "Authentication" from left menu, select "SIGN-IN METHOD" and enable "Email/Password", Google and etc. auth. 
 7. Open the terminal, navigate to project folder and run "pod install". 
 
-# Interfase
+## Interfase
 
-Login & SignUp Screen.
+# Login & SignUp Screen.
+
 ![Login screen](https://github.com/mrkulik/DailyLabs/raw/master/Screenshots/Login.jpg)
-Subjects Screen
-![Login screen](https://github.com/mrkulik/DailyLabs/raw/master/Screenshots/Subjects.jpg)
-Labs Screen
-![Login screen](https://github.com/mrkulik/DailyLabs/raw/master/Screenshots/Login.jpg)
-Channels Screen
-![Login screen](https://github.com/mrkulik/DailyLabs/raw/master/Screenshots/Channels.jpg)
-Chat Screen
-![Login screen](https://github.com/mrkulik/DailyLabs/raw/master/Screenshots/Chat.jpg)
-Questions Screen
-![Login screen](https://github.com/mrkulik/DailyLabs/raw/master/Screenshots/Questions.jpg)
-Profile Screen 
-![Login screen](https://github.com/mrkulik/DailyLabs/raw/master/Screenshots/Profile.jpg)
+
+# Subjects Screen
+![Subjects screen](https://github.com/mrkulik/DailyLabs/raw/master/Screenshots/Subjects.jpg)
+
+# Labs Screen
+![Labs screen](https://github.com/mrkulik/DailyLabs/raw/master/Screenshots/Labs.jpg)
+
+# Channels Screen
+![Channels screen](https://github.com/mrkulik/DailyLabs/raw/master/Screenshots/Channels.jpg)
+
+# Chat Screen
+![Chat screen](https://github.com/mrkulik/DailyLabs/raw/master/Screenshots/Chat.jpg)
+
+# Questions Screen
+![Questions screen](https://github.com/mrkulik/DailyLabs/raw/master/Screenshots/Questions.jpg)
+
+# Profile Screen 
+![Profile screen](https://github.com/mrkulik/DailyLabs/raw/master/Screenshots/Profile.jpg)
