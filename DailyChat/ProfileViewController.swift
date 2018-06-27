@@ -33,7 +33,6 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     var profileRef: DatabaseReference = Database.database().reference().child("settings").child("profile")
     private var profileHandle: DatabaseHandle?
     var subjects : Results<Subject>!
-    var subjectS = [SubjectS]()
     
     @IBOutlet weak var groupTextField: UITextField!
     @IBOutlet weak var lastName: UITextField!
@@ -113,7 +112,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             }
             
             for name in subjectsNames {
-                if channels.contains( where: {$0.name == name && $0.group == groupTextField.text} ) {
+                if channels.contains( where: {$0.name == name && $0.group == group_conf} ) {
                     print("Already exist")
                     continue
                 } else {
@@ -123,20 +122,6 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
                         "group": senderGroupNumber
                     ]
                     newChannelRef.setValue(channelItem)
-                }
-            }
-
-            for name in subjectsNames {
-                let userID = AuthProvider.Instance.userID()
-                let newSubjectsRef = subjectsRef.child(userID).child(name)
-                if subjectS.contains( where: {$0.name == name} ) {
-                    print("Already exist")
-                    continue
-                } else {
-                    let subjectItem = [
-                        "name": name,
-                    ]
-                    newSubjectsRef.setValue(subjectItem)
                 }
             }
             
@@ -166,26 +151,14 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         channelRefHandle = channelRef.observe(.childAdded, with: { (snapshot) -> Void in
             let channelData = snapshot.value as! Dictionary<String, AnyObject>
             let id = snapshot.key
-            let name = channelData["name"] as! String!
-            var group = channelData["group"] as! String!
+            let name = channelData["name"] as! String?
+            var group = channelData["group"] as! String?
             if (name?.characters.count)! > 0 && (group?.characters.count)! > 0{
                 if group == self.groupTextField.text {
                     self.channels.append(Channel(id: id, name: name!, group: group!))
                 }
             } else {
                 print("Could not decode channel data")
-            }
-        })
-        
-        let userID = AuthProvider.Instance.userID()
-        subjectsRefHandle = subjectsRef.child(userID).observe(.childAdded, with: { (snapshot) -> Void in
-            let subjectsData = snapshot.value as! Dictionary<String, AnyObject>
-            let id = snapshot.key
-            let name = subjectsData["name"] as! String!
-            if (name?.characters.count)! > 0{
-                self.subjectS.append(SubjectS(id: id, name: name!, notes: "", labs: []))
-            } else {
-                print("Error! Could not decode channel data")
             }
         })
     }

@@ -9,10 +9,6 @@
 import Foundation
 import RealmSwift
 
-/*
- for test Realm only
- */
-
 class Lab: Object {
     
     dynamic var name = ""

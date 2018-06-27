@@ -11,25 +11,10 @@ import RealmSwift
 import Firebase
 import FirebaseStorage
 
-fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-    switch (lhs, rhs) {
-    case let (l?, r?):
-        return l < r
-    case (nil, _?):
-        return true
-    default:
-        return false
-    }
+protocol DataRecieveProtocol {
+    func dataRecieved (data: String)
 }
 
-fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-    switch (lhs, rhs) {
-    case let (l?, r?):
-        return l > r
-    default:
-        return rhs < lhs
-    }
-}
 
 class LabsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -43,12 +28,14 @@ class LabsViewController: UIViewController, UITableViewDelegate, UITableViewData
     var completedLabs : Results<Lab>!
     var currentCreateAction:UIAlertAction!
     var subjectsRef: DatabaseReference = Database.database().reference().child("subjects")
-    var questionRef: DatabaseReference = Database.database().reference().child("questions")
     var profileRef: DatabaseReference = Database.database().reference().child("settings").child("profile")
     private var profileHandle: DatabaseHandle?
     var isEditingMode = false
+    var data : String?
+    var delegate : DataRecieveProtocol?
     
     @IBOutlet weak var labsTableView: UITableView!
+    
     override func viewDidLoad() {
         self.userID = AuthProvider.Instance.userID()
         self.profileHandle = self.profileRef.child(userID!).observe(DataEventType.value, with: { (snapshot) in
@@ -65,6 +52,7 @@ class LabsViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func back() {
+        delegate?.dataRecieved(data: String(self.selectedSubject.labs.filter("isCompleted = true").count))
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -80,8 +68,6 @@ class LabsViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.labsTableView.reloadData()
     }
 
-    //NEED TO WRITE OBSERVER FOR FB(NOW ONLY LOCAL OBSERVER)
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
@@ -92,6 +78,7 @@ class LabsViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         return completedLabs.count
     }
+    
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
         if section == 0{
@@ -187,7 +174,7 @@ class LabsViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
 
     func labNameFieldDidChange(_ textField:UITextField){
-        self.currentCreateAction.isEnabled = textField.text?.characters.count > 0
+        self.currentCreateAction.isEnabled = (textField.text?.characters.count)! > 0
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
@@ -243,20 +230,8 @@ class LabsViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
             
         }
-        
-        let questionAction = UITableViewRowAction(style: UITableViewRowActionStyle.normal, title: "\u{2754}") { (questionAction, indexPath) -> Void in
-            let newQuestionRef = self.questionRef.childByAutoId()
-            let questionItem = [
-                "subject_name": self.selectedSubject.name,
-                "user": self.userID!,
-                "solved": false,
-                "lab_name": self.todoLabs[indexPath.row].name,
-                "group": self.senderGroupNumber!,
-                ] as [String : Any]
-            newQuestionRef.setValue(questionItem)
-            
-        }
-        return [deleteAction, editAction, doneAction, questionAction]
+    
+        return [deleteAction, editAction, doneAction]
     }
     
 }

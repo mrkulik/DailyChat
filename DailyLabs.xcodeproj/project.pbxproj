@@ -18,15 +18,12 @@
 		00BE50E51E5EF736004BAF19 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00BE50E31E5EF736004BAF19 /* LaunchScreen.storyboard */; };
 		00BE50F01E5EF736004BAF19 /* DailyChatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BE50EF1E5EF736004BAF19 /* DailyChatTests.swift */; };
 		00BE50FB1E5EF736004BAF19 /* DailyChatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BE50FA1E5EF736004BAF19 /* DailyChatUITests.swift */; };
-		00BFFB411F9B4C1D00602359 /* QuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BFFB401F9B4C1D00602359 /* QuestionsViewController.swift */; };
-		00BFFB431F9B4DA000602359 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BFFB421F9B4DA000602359 /* QuestionViewController.swift */; };
 		00D2B54C1E83FF1500FD8F2B /* ChannelListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D2B54B1E83FF1500FD8F2B /* ChannelListViewController.swift */; };
 		00DC85D31EF1281300F9F010 /* SubjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DC85D21EF1281300F9F010 /* SubjectsViewController.swift */; };
 		00DC85D51EF1283F00F9F010 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DC85D41EF1283F00F9F010 /* Subject.swift */; };
 		00DC85D71EF1284A00F9F010 /* Lab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DC85D61EF1284A00F9F010 /* Lab.swift */; };
 		00DC85D91EF12B3800F9F010 /* LabsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DC85D81EF12B3800F9F010 /* LabsViewController.swift */; };
-		00DD8A2A1F3DD3D900B872FE /* SubjectS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DD8A291F3DD3D900B872FE /* SubjectS.swift */; };
-		00DD8A2C1F3DD53300B872FE /* LabS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DD8A2B1F3DD53300B872FE /* LabS.swift */; };
+		00EC0392208B6A9700BFF025 /* DCButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EC0391208B6A9700BFF025 /* DCButton.swift */; };
 		00EE967F1E7D48480081DEE8 /* AuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EE967E1E7D48480081DEE8 /* AuthProvider.swift */; };
 		00F38B821E7FED7300F49C23 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00F38B811E7FED7300F49C23 /* GoogleService-Info.plist */; };
 		00FD9D131E7FF14C006A45CA /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FD9D121E7FF14C006A45CA /* Const.swift */; };
@@ -73,15 +70,12 @@
 		00BE50F61E5EF736004BAF19 /* DailyChatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DailyChatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00BE50FA1E5EF736004BAF19 /* DailyChatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyChatUITests.swift; sourceTree = "<group>"; };
 		00BE50FC1E5EF736004BAF19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00BFFB401F9B4C1D00602359 /* QuestionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsViewController.swift; sourceTree = "<group>"; };
-		00BFFB421F9B4DA000602359 /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		00D2B54B1E83FF1500FD8F2B /* ChannelListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelListViewController.swift; sourceTree = "<group>"; };
 		00DC85D21EF1281300F9F010 /* SubjectsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectsViewController.swift; sourceTree = "<group>"; };
 		00DC85D41EF1283F00F9F010 /* Subject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
 		00DC85D61EF1284A00F9F010 /* Lab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lab.swift; sourceTree = "<group>"; };
 		00DC85D81EF12B3800F9F010 /* LabsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabsViewController.swift; sourceTree = "<group>"; };
-		00DD8A291F3DD3D900B872FE /* SubjectS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectS.swift; sourceTree = "<group>"; };
-		00DD8A2B1F3DD53300B872FE /* LabS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabS.swift; sourceTree = "<group>"; };
+		00EC0391208B6A9700BFF025 /* DCButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DCButton.swift; sourceTree = "<group>"; };
 		00EE967E1E7D48480081DEE8 /* AuthProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthProvider.swift; sourceTree = "<group>"; };
 		00F38B811E7FED7300F49C23 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		00FD9D121E7FF14C006A45CA /* Const.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
@@ -131,8 +125,6 @@
 			isa = PBXGroup;
 			children = (
 				008920AC1EB2836B00E9EC6A /* Channel.swift */,
-				00DD8A291F3DD3D900B872FE /* SubjectS.swift */,
-				00DD8A2B1F3DD53300B872FE /* LabS.swift */,
 				00DC85D41EF1283F00F9F010 /* Subject.swift */,
 				00DC85D61EF1284A00F9F010 /* Lab.swift */,
 			);
@@ -164,7 +156,7 @@
 		00BE50D91E5EF736004BAF19 /* DailyChat */ = {
 			isa = PBXGroup;
 			children = (
-				00FD9D121E7FF14C006A45CA /* Const.swift */,
+				00EC0390208B65EC00BFF025 /* Supporting files */,
 				00EE967C1E7D47E30081DEE8 /* Plugins */,
 				007588041E86DC3A0001F36C /* Model */,
 				00EE967D1E7D47F90081DEE8 /* Controller */,
@@ -175,6 +167,7 @@
 				00BE50E61E5EF736004BAF19 /* Info.plist */,
 				00F38B811E7FED7300F49C23 /* GoogleService-Info.plist */,
 				229D3D971FB4E83700196760 /* DCTextField.swift */,
+				00EC0391208B6A9700BFF025 /* DCButton.swift */,
 			);
 			path = DailyChat;
 			sourceTree = "<group>";
@@ -197,6 +190,14 @@
 			path = DailyChatUITests;
 			sourceTree = "<group>";
 		};
+		00EC0390208B65EC00BFF025 /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				00FD9D121E7FF14C006A45CA /* Const.swift */,
+			);
+			name = "Supporting files";
+			sourceTree = "<group>";
+		};
 		00EE967C1E7D47E30081DEE8 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
@@ -217,8 +218,6 @@
 				008920AA1EB2826500E9EC6A /* ChannelViewController.swift */,
 				00DC85D21EF1281300F9F010 /* SubjectsViewController.swift */,
 				00DC85D81EF12B3800F9F010 /* LabsViewController.swift */,
-				00BFFB401F9B4C1D00602359 /* QuestionsViewController.swift */,
-				00BFFB421F9B4DA000602359 /* QuestionViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -568,17 +567,14 @@
 				00BE50DB1E5EF736004BAF19 /* AppDelegate.swift in Sources */,
 				00DC85D91EF12B3800F9F010 /* LabsViewController.swift in Sources */,
 				00DC85D31EF1281300F9F010 /* SubjectsViewController.swift in Sources */,
-				00DD8A2C1F3DD53300B872FE /* LabS.swift in Sources */,
-				00BFFB431F9B4DA000602359 /* QuestionViewController.swift in Sources */,
 				0064C5CC1EB5418A00502412 /* SettingsViewController.swift in Sources */,
+				00EC0392208B6A9700BFF025 /* DCButton.swift in Sources */,
 				00DC85D51EF1283F00F9F010 /* Subject.swift in Sources */,
-				00DD8A2A1F3DD3D900B872FE /* SubjectS.swift in Sources */,
 				00D2B54C1E83FF1500FD8F2B /* ChannelListViewController.swift in Sources */,
 				00B694921EB4ED96003CC993 /* BSUIRFetcher.swift in Sources */,
 				00EE967F1E7D48480081DEE8 /* AuthProvider.swift in Sources */,
 				008920AB1EB2826500E9EC6A /* ChannelViewController.swift in Sources */,
 				00FD9D131E7FF14C006A45CA /* Const.swift in Sources */,
-				00BFFB411F9B4C1D00602359 /* QuestionsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -665,7 +661,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -708,7 +704,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -723,7 +719,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = UUPHMT32ZS;
 				INFOPLIST_FILE = DailyChat/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Kulik.DailyChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -739,7 +735,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = UUPHMT32ZS;
 				INFOPLIST_FILE = DailyChat/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Kulik.DailyChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";

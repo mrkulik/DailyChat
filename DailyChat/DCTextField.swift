@@ -11,8 +11,8 @@ import UIKit
 class DCTextField: UITextField {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        layer.cornerRadius = 8
-        layer.borderColor = Const.Colors.cyan.cgColor
-        layer.borderWidth = 1
+        layer.cornerRadius = 5
+        //layer.borderColor = Const.Colors.cyan.cgColor
+        //layer.borderWidth = 1
     }
 }

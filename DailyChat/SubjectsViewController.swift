@@ -10,7 +10,7 @@ import UIKit
 import RealmSwift
 import SWXMLHash
 
-class SubjectsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SubjectsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, DataRecieveProtocol {
     
     @IBOutlet weak var subjectsTableView: UITableView!
     
@@ -25,6 +25,7 @@ class SubjectsViewController: UIViewController, UITableViewDelegate, UITableView
     var isEditingMode = false
     var currentCreateAction:UIAlertAction!
     var groupsToID = [String:String]()
+    var selectedSubject : Subject!
     static let studentGroupsURL = URL(string: "https://www.bsuir.by/schedule/rest/studentGroup")!
     static let scheduleURL = URL(string: "https://www.bsuir.by/schedule/rest/schedule")!
     let downloadCanceledNotification = Notification.Name(rawValue: "downloadCanceled")
@@ -134,7 +135,7 @@ class SubjectsViewController: UIViewController, UITableViewDelegate, UITableView
         let list = subjects[indexPath.row]
         
         cell?.textLabel?.text = list.name
-        cell?.detailTextLabel?.text = "\(list.labs.count) Labs"
+        cell?.detailTextLabel?.text = "\(list.labs.count) Labs "
         return cell!
     }
 
@@ -172,6 +173,11 @@ class SubjectsViewController: UIViewController, UITableViewDelegate, UITableView
         let navVc = segue.destination as! UINavigationController
         let labsViewController = navVc.viewControllers.first as! LabsViewController
         labsViewController.selectedSubject = sender as! Subject
+        labsViewController.delegate = self
+    }
+    
+    func dataRecieved(data: String) {
+        print(data)
     }
     
 }

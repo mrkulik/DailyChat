@@ -20,6 +20,10 @@ class LogViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         self.emailTextField.delegate = self
         self.passwordTextField.delegate = self
+        
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: "DL_Background")
+        self.view.insertSubview(backgroundImage, at: 0)
     }
 
     override func viewDidAppear(_ animated: Bool) {

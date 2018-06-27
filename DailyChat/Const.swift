@@ -84,12 +84,10 @@ class Const {
         SettingsVC
      */
     static let GROUP_API_URL = "https://students.bsuir.by/api/v1/studentGroup/schedule?studentGroup="
-    
     struct Colors {
-        static let cyan = UIColor(red: 30 / 255.0,
-                                  green: 180 / 255.0,
-                                  blue: 226 / 255.0,
-                                  alpha: 1)
-        
+        static let dlColor = UIColor(red: 241 / 255.0,
+                                      green: 53 / 255.0,
+                                      blue: 100 / 255.0,
+                                      alpha: 0.7)
     }
 }
