@@ -25,14 +25,14 @@
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lx8-hM-pQS" customClass="DCTextField" customModule="DailyChat" customModuleProvider="target">
                                         <rect key="frame" x="60" y="200" width="200" height="30"/>
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k6T-Gk-X3X" customClass="DCTextField" customModule="DailyChat" customModuleProvider="target">
                                         <rect key="frame" x="60" y="150" width="200" height="30"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress"/>
                                     </textField>
                                 </subviews>
@@ -452,8 +452,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gJZ-4x-aZN" customClass="DCButton" customModule="DailyChat" customModuleProvider="target">
-                                <rect key="frame" x="64" y="349" width="192" height="30"/>
+                                <rect key="frame" x="64" y="396" width="192" height="36"/>
                                 <color key="backgroundColor" red="0.94509803920000002" green="0.20784313730000001" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                 <state key="normal" title="Save">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -467,30 +468,31 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="UU8-u5-jIc">
-                                <rect key="frame" x="64" y="172" width="192" height="122"/>
+                                <rect key="frame" x="64" y="128" width="192" height="122"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JZ0-8t-dJE" customClass="DCTextField" customModule="DailyChat" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="192" height="30"/>
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LgM-cD-COS" customClass="DCTextField" customModule="DailyChat" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="46" width="192" height="30"/>
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Group number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AHs-fG-1r7" customClass="DCTextField" customModule="DailyChat" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="92" width="192" height="30"/>
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Pu-Y9-ZtO">
-                                <rect key="frame" x="64" y="409" width="192" height="30"/>
+                                <rect key="frame" x="64" y="452" width="192" height="36"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                 <state key="normal" title="Log Out">
                                     <color key="titleColor" red="0.94509803920000002" green="0.20784313730000001" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -502,7 +504,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Pu-Y9-ZtO" firstAttribute="leading" secondItem="VEF-3M-FzQ" secondAttribute="leading" constant="64" id="0M8-Jg-VgG"/>
-                            <constraint firstItem="6Pu-Y9-ZtO" firstAttribute="top" secondItem="gJZ-4x-aZN" secondAttribute="bottom" constant="30" id="2F1-ei-Xlu"/>
+                            <constraint firstItem="6Pu-Y9-ZtO" firstAttribute="top" secondItem="gJZ-4x-aZN" secondAttribute="bottom" constant="20" id="2F1-ei-Xlu"/>
                             <constraint firstItem="VEF-3M-FzQ" firstAttribute="bottom" secondItem="6Pu-Y9-ZtO" secondAttribute="bottom" constant="80" id="DWj-TB-iUJ"/>
                             <constraint firstItem="gJZ-4x-aZN" firstAttribute="leading" secondItem="VEF-3M-FzQ" secondAttribute="leading" constant="64" id="Gl4-0h-UEQ"/>
                             <constraint firstItem="6Pu-Y9-ZtO" firstAttribute="width" secondItem="UU8-u5-jIc" secondAttribute="width" id="Hpj-0t-XnF"/>
@@ -622,7 +624,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="0ld-7f-4sb" style="IBUITableViewCellStyleDefault" id="Yvu-SX-caV">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="0ld-7f-4sb" style="IBUITableViewCellStyleDefault" id="Yvu-SX-caV">
                                         <rect key="frame" x="0.0" y="55.5" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Yvu-SX-caV" id="3LK-xS-ez3">
@@ -743,6 +745,20 @@
             </objects>
             <point key="canvasLocation" x="7060.8000000000002" y="1372.7136431784108"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="bc4-mq-1Kb">
+            <objects>
+                <viewController id="hhU-Hw-Cfh" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rOf-VG-QLp">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="y6N-0R-Aem"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TEa-li-Clj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
     </scenes>
     <resources>
         <image name="Chat Icon" width="28" height="26"/>
@@ -756,6 +772,6 @@
         <image name="Twitter-1" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="nVO-Yi-0ix"/>
+        <segue reference="DQR-aA-4kI"/>
     </inferredMetricsTieBreakers>
 </document>
