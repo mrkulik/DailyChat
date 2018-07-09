@@ -56,9 +56,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
                                                    selector: #selector(cancelDownload),
                                                    name: downloadCanceledNotification,
                                                    object: nil)
-            /*
-                For Tests only!
-             */
+            
+            //TODO: Fix local storage update
             
             try! dlRealm.write {
                 dlRealm.deleteAll()
